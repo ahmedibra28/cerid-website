@@ -7,7 +7,7 @@ const navItems = [
   { _id: 3, name: 'Approach', path: '/#approach' },
   { _id: 7, name: 'Careers', path: '/careers' },
   // { _id: 8, name: 'Blog', path: '/blog' },
-  { _id: 9, name: 'About Us', path: '/#about' },
+  { _id: 9, name: 'About Us', path: '/about' },
   { _id: 10, name: 'Contact Us', path: '/#contact' },
 ]
 

@@ -10,7 +10,7 @@ export default function Layout({ children }) {
         <meta property='og:title' content='CeRID' key='title' />
       </Head>
       <Navigation />
-      <main className='mt-3'>{children}</main>
+      <main className=''>{children}</main>
       <Footer />
     </>
   )

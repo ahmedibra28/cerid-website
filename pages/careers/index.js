@@ -32,6 +32,11 @@ const Career = ({ careers }) => {
             careers.map((career) => (
               <div key={career.slug} className='col-md-6 col-12'>
                 <div className='card border-0 mb-2 shadow-lg'>
+                  <Link href={`/careers/${career.slug}`}>
+                    <a>
+                      <img src='/hiring.jpg' className='card-img-top' />
+                    </a>
+                  </Link>
                   <div className='card-body fs-6'>
                     <Link href={`/careers/${career.slug}`}>
                       <a className='text-decoration-none text-dark'>
