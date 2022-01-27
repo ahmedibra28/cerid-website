@@ -7,16 +7,14 @@ import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
 import Contact from '../../components/Contact'
+import Meta from '../../components/Meta'
 
 const PostDetails = ({ frontmatter, content }) => {
   return (
     <>
       <div className='container'>
         <>
-          <Head>
-            <title>{frontmatter.title}</title>
-            <meta property='og:title' content={frontmatter.title} key='title' />
-          </Head>
+          <Meta title={frontmatter.title} />
           <div className='row'>
             <div className='col-md-9 col-12 mx-auto'>
               <div className='card-body'>

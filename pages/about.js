@@ -8,6 +8,7 @@ import {
   FaLowVision,
   FaTasks,
 } from 'react-icons/fa'
+import Meta from '../components/Meta'
 
 const About = () => {
   const design = () => (
@@ -53,6 +54,7 @@ const About = () => {
 
   return (
     <>
+      <Meta title='about' />
       <div id='about' className='container my-2'>
         <h4 className='fw-light display-4 text-center text-success pt-5'>
           About CeRID

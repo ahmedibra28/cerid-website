@@ -13,16 +13,14 @@ import {
   FaStream,
 } from 'react-icons/fa'
 import Contact from '../../components/Contact'
+import Meta from '../../components/Meta'
 
 const Career = ({ careers }) => {
   return (
     <>
+      <Meta title='Careers' />
       <div div className='container'>
         <div className='container text-primary mb-5 mt-2'>
-          <Head>
-            <title>Careers</title>
-            <meta property='og:title' content='Careers' key='title' />
-          </Head>
           <h3 className='text-center display-6 '>Careers</h3>
         </div>
 

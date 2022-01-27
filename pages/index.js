@@ -4,18 +4,12 @@ import Head from 'next/head'
 import matter from 'gray-matter'
 import { sortByDate } from '../utils'
 import HomePage from '../components/home'
+import Meta from '../components/Meta'
 
 function Home({ posts, careers }) {
   return (
     <div>
-      <Head>
-        <title>CeRID | Centre for Research & Integrated Development</title>
-        <meta
-          property='og:title'
-          content='CeRID | Centre for Research & Integrated Development'
-          key='title'
-        />
-      </Head>
+      <Meta />
       <HomePage posts={posts} careers={careers} />
     </div>
   )

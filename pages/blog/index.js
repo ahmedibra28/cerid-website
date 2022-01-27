@@ -7,16 +7,14 @@ import { sortByDate } from '../../utils'
 import Link from 'next/link'
 import moment from 'moment'
 import Contact from '../../components/Contact'
+import Meta from '../../components/Meta'
 
 const Blog = ({ posts }) => {
   return (
     <>
       <div div className='container'>
         <div className='container text-primary mb-5 mt-2'>
-          <Head>
-            <title>Blog News</title>
-            <meta property='og:title' content='Blog News' key='title' />
-          </Head>
+          <Meta title='Blog News' />
           <h3 className='text-center display-6 '>Blog News</h3>
         </div>
 

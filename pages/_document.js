@@ -9,10 +9,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          {/* favicon */}
-          <link rel='icon' type='image/png' href='/logo.png' />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
