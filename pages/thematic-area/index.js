@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Meta from '../../components/Meta'
-import Contact from '../../components/Contact'
 
 const Thematic = () => {
   const thematics = [
@@ -54,7 +53,6 @@ const Thematic = () => {
           ))}
         </div>
       </div>
-      <Contact />
     </>
   )
 }

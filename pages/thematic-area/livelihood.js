@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
-import Contact from '../../components/Contact'
 
 const Livelihood = () => {
   const agri = '/thematics/agri.png'
@@ -113,8 +112,6 @@ const Livelihood = () => {
           </p>
         </div>
       </div>
-
-      <Contact />
     </div>
   )
 }

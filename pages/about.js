@@ -1,5 +1,4 @@
 import React from 'react'
-import Contact from '../components/Contact'
 // import Image from 'next/image'
 import {
   FaBullseye,
@@ -80,7 +79,6 @@ const About = () => {
           <div className='col-lg-4 col-md-6 col-12'>{marketing()}</div>
         </div>
       </div>
-      <Contact />
     </>
   )
 }

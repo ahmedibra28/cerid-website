@@ -6,7 +6,6 @@ import matter from 'gray-matter'
 import { sortByDate } from '../../utils'
 import Link from 'next/link'
 import moment from 'moment'
-import Contact from '../../components/Contact'
 import Meta from '../../components/Meta'
 
 const Blog = ({ posts }) => {
@@ -74,7 +73,6 @@ const Blog = ({ posts }) => {
             ))}
         </div>
       </div>
-      <Contact />
     </>
   )
 }

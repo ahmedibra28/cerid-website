@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
-import Contact from '../../components/Contact'
 
 const ProtectionWGSS = () => {
   const skills = '/thematics/protection.png'
@@ -101,8 +100,6 @@ const ProtectionWGSS = () => {
           </p>
         </div>
       </div>
-
-      <Contact />
     </div>
   )
 }

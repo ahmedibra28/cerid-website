@@ -12,7 +12,6 @@ import {
   FaMapMarkerAlt,
   FaStream,
 } from 'react-icons/fa'
-import Contact from '../../components/Contact'
 import Meta from '../../components/Meta'
 
 const Career = ({ careers }) => {
@@ -70,7 +69,6 @@ const Career = ({ careers }) => {
             ))}
         </div>
       </div>
-      <Contact />
     </>
   )
 }

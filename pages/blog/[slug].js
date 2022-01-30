@@ -6,7 +6,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
-import Contact from '../../components/Contact'
 import Meta from '../../components/Meta'
 
 const PostDetails = ({ frontmatter, content }) => {
@@ -53,7 +52,6 @@ const PostDetails = ({ frontmatter, content }) => {
           </div>
         </>
       </div>
-      <Contact />
     </>
   )
 }

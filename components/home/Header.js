@@ -82,9 +82,9 @@ const Header = () => {
           <div className='carousel-item'>
             <img src='local/agri4.png' className='d-block w-100' alt='agri2' />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>Second slide label</h5>
+              <h5 className='display-1 fw-bold'>ATC Center</h5>
               <p className='display-6 fw-light'>
-                Some representative placeholder content for the second slide.
+                Students preparing raised beds to plant vegetables at ATC CENTER
               </p>
             </div>
           </div>
@@ -102,11 +102,16 @@ const Header = () => {
             </div>
           </div>
           <div className='carousel-item'>
-            <img src='local/agri3.png' className='d-block w-100' alt='agri3' />
+            <img
+              src='local/primary-student.png'
+              className='d-block w-100'
+              alt='primary student'
+            />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>Third slide label</h5>
+              <h5 className='display-1 fw-bold'>Jaziira IPD Luuq</h5>
               <p className='display-6 fw-light'>
-                Some representative placeholder content for the third slide.
+                This one agricultural field visit for primary school children of
+                Jaziira IDP Luuq{' '}
               </p>
             </div>
           </div>

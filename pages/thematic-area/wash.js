@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
-import Contact from '../../components/Contact'
 
 const Wash = () => {
   const wash = '/thematics/wash.png'
@@ -112,8 +111,6 @@ const Wash = () => {
           </p>
         </div>
       </div>
-
-      <Contact />
     </div>
   )
 }

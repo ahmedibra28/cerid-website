@@ -12,7 +12,6 @@ import {
   FaMapMarkerAlt,
   FaStream,
 } from 'react-icons/fa'
-import Contact from '../../components/Contact'
 import Meta from '../../components/Meta'
 
 const PostDetails = ({ frontmatter, content }) => {
@@ -52,7 +51,6 @@ const PostDetails = ({ frontmatter, content }) => {
           </div>
         </>
       </div>
-      <Contact />
     </>
   )
 }

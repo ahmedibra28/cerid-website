@@ -1,7 +1,6 @@
 import Header from './Header'
 import AboutHome from './AboutHome'
 // import Posts from './Posts'
-import Contact from '../Contact'
 import Governance from './Governance'
 import Strategy from './Strategy'
 import Approach from './Approach'
@@ -21,7 +20,6 @@ export default function HomePage({ posts, careers }) {
       <Partners />
       {/* <Posts posts={posts} /> */}
       <Careers careers={careers} />
-      <Contact />
     </>
   )
 }
