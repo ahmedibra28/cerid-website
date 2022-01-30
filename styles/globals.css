@@ -9,7 +9,7 @@
   transition: 0.5s;
 }
 .card:hover {
-  box-shadow: 0 1rem 3rem rgba(46, 146, 71, 0.885) !important;
+  box-shadow: 0 0.2rem 1rem rgba(46, 146, 71, 0.549) !important;
 }
 main {
   min-height: 80vh !important;

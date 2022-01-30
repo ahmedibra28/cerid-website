@@ -20,16 +20,16 @@ const Career = ({ careers }) => {
     <>
       <Meta title='Careers' />
       <div div className='container'>
-        <div className='container text-primary mb-5 mt-2'>
-          <h3 className='text-center display-6 '>Careers</h3>
-        </div>
+        <h4 className='fw-light display-6 text-center pt-3 text-success'>
+          Careers
+        </h4>
 
-        <div className='row g-3'>
+        <div className='row gy-3'>
           {careers &&
             careers.length > 0 &&
             careers.map((career) => (
-              <div key={career.slug} className='col-md-6 col-12'>
-                <div className='card border-0 mb-2 shadow-lg'>
+              <div key={career.slug} className='col-lg-4 col-md-6 col-12'>
+                <div className='card border-0 mb-2 shadow-sm'>
                   <Link href={`/careers/${career.slug}`}>
                     <a>
                       <img src='/hiring.jpg' className='card-img-top' />
@@ -45,22 +45,24 @@ const Career = ({ careers }) => {
                     </Link>
                     <p className='card-text text-center'>
                       {career.frontmatter.subTitle}
-                      <br />
-                      <label className='text-muted py-2 fst-italic fw-light'>
-                        <FaMapMarkerAlt className='mb-1' />{' '}
-                        {career.frontmatter.location}
-                      </label>
                     </p>
 
-                    <div className='card-text d-flex justify-content-between'>
+                    <div className='card-text text-center'>
                       <label className='text-muted fst-italic fw-light'>
                         <FaHourglassStart className='mb-1' />{' '}
                         {moment(career.frontmatter.start).format('MMM Do YY')}
-                      </label>
+                      </label>{' '}
+                      <br />
                       <label className='text-muted fst-italic fw-light'>
                         <FaStream className='mb-1' />{' '}
                         {career.frontmatter.category}
                       </label>
+                    </div>
+
+                    <div className='card-text mt-2 text-center'>
+                      <Link href={`/careers/${career.slug}`}>
+                        <a className='btn btn-outline-success'> READ MORE</a>
+                      </Link>
                     </div>
                   </div>
                 </div>

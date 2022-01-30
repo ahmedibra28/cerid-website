@@ -7,9 +7,9 @@ const Governance = () => {
         Government
       </h4>
 
-      <div className='row'>
+      <div className='row gy-3'>
         <div className='col-md-6 col-12'>
-          <div className='card border-0 shadow'>
+          <div className='card border-0 shadow-sm'>
             <p className='card-body'>
               The governance and management structure of CeRID is composed of
               two levels: The Board of Directors (BoD) level and Executive
@@ -25,7 +25,7 @@ const Governance = () => {
           </div>
         </div>
         <div className='col-md-6 col-12'>
-          <div className='card border-0 shadow'>
+          <div className='card border-0 shadow-sm'>
             <p className='card-body'>
               The Executive Management Team consists of employed professional
               team who are responsible to the Board of Directors for the program

@@ -7,9 +7,9 @@ const Strategy = () => {
         Strategy
       </h4>
 
-      <div className='row'>
+      <div className='row gy-3'>
         <div className='col-md-6 col-12'>
-          <div className='card border-0 shadow'>
+          <div className='card border-0 shadow-sm'>
             <p className='card-body'>
               The organization is currently running four programmes which are;
               education and skills development, WASH – Water, Sanitation &
@@ -27,7 +27,7 @@ const Strategy = () => {
           </div>
         </div>
         <div className='col-md-6 col-12'>
-          <div className='card border-0 shadow'>
+          <div className='card border-0 shadow-sm'>
             <p className='card-body'>
               The NRM and livelihoods has been focusing on capacity building on
               NRM, support to cash for work, tree planting, regeneration of

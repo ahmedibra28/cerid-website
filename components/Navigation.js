@@ -5,6 +5,7 @@ const navItems = [
   { _id: 1, name: 'Governance', path: '/#governance' },
   { _id: 2, name: 'Strategy', path: '/#strategy' },
   { _id: 3, name: 'Approach', path: '/#approach' },
+  { _id: 11, name: 'Thematic Area', path: '/thematic-area' },
   { _id: 7, name: 'Careers', path: '/careers' },
   // { _id: 8, name: 'Blog', path: '/blog' },
   { _id: 9, name: 'About Us', path: '/about' },

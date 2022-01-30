@@ -12,7 +12,7 @@ const Posts = ({ posts }) => {
       <div className='row g-3'>
         {posts &&
           posts.map((post) => (
-            <div key={post.slug} className='col-md-4 col-12'>
+            <div key={post.slug} className='col-lg-4 col-md-6 col-12'>
               <div className='card border-0 mb-2 shadow-lg'>
                 {post.frontmatter && post.frontmatter.image !== undefined && (
                   <div>

@@ -39,7 +39,7 @@ const Approach = () => {
         Values & Approaches
       </h4>
 
-      <div className='row'>
+      <div className='row gy-3'>
         <div className='col-md-10 mx-auto'>
           <p className='text-center'>
             The five core values of CeRID are driven from its acronym and
@@ -48,10 +48,10 @@ const Approach = () => {
           </p>
         </div>
 
-        <div className='row mt-4 g-3'>
+        <div className='row mt-4 gy-3'>
           {approaches.map((app) => (
-            <div key={app._id} className='col-md-4 col-12'>
-              <div className='card border-0 shadow'>
+            <div key={app._id} className='col-lg-4 col-md-6 col-12'>
+              <div className='card border-0 shadow-sm'>
                 <div className='card-body'>
                   <h5 className='card-title fw-bold text-center'>
                     {app.title}

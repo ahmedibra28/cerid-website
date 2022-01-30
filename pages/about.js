@@ -54,10 +54,10 @@ const About = () => {
 
   return (
     <>
-      <Meta title='about' />
+      <Meta title='About Us' />
       <div id='about' className='container my-2'>
-        <h4 className='fw-light display-4 text-center text-success pt-5'>
-          About CeRID
+        <h4 className='fw-light display-6 text-center pt-3 text-success'>
+          About Us
         </h4>
 
         <div className='row'>
