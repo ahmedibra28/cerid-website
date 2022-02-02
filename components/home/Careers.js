@@ -1,16 +1,15 @@
-import React from 'react'
 import Link from 'next/link'
 import moment from 'moment'
-import { FaHourglassStart, FaMapMarkerAlt, FaStream } from 'react-icons/fa'
+import { FaHourglassStart, FaStream } from 'react-icons/fa'
 
 const Careers = ({ careers }) => {
   return (
     <div div className='container'>
-      <div className='container text-success mb-5 mt-2'>
-        <h3 className='text-center display-6 '>Careers</h3>
+      <div className='container text-success mt-2'>
+        <h3 className='text-center text-success'>Careers</h3>
       </div>
 
-      <div className='row gy-3'>
+      <div className='row gy-3 mt-3'>
         {careers &&
           careers.slice(0, 3).map((career) => (
             <div key={career.slug} className='col-lg-4 col-md-6 col-12'>

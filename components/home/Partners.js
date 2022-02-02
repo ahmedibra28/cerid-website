@@ -11,11 +11,9 @@ const Partners = () => {
   ]
   return (
     <div id='partners' className='container my-5'>
-      <h4 className='fw-light display-4 text-center text-success pt-5'>
-        Partners & Donors
-      </h4>
+      <h3 className='text-center text-success pt-5'>Partners & Donors</h3>
 
-      <div className='row'>
+      <div className='row gy-3 mt-3'>
         {carousel.map((c, i) => (
           <div key={i} className='col-lg-2 col-md-4 col-sm-6 mx-auto'>
             <img

@@ -34,33 +34,33 @@ const Approach = () => {
     },
   ]
   return (
-    <div id='approach' className='container my-5'>
-      <h4 className='fw-light display-4 text-center text-success pt-5'>
-        Values & Approaches
-      </h4>
+    <div className='pb-2' style={{ backgroundColor: '#e6e6e6' }}>
+      <div id='approach' className='container my-5'>
+        <h3 className='text-center text-success pt-5'>Values & Approaches</h3>
 
-      <div className='row gy-3'>
-        <div className='col-md-10 mx-auto'>
-          <p className='text-center'>
-            The five core values of CeRID are driven from its acronym and
-            include creativity, equity, relevance, integrity and dignity as
-            expounded with the value statements below.
-          </p>
-        </div>
+        <div className='row gy-3'>
+          <div className='col-md-10 mx-auto'>
+            <p className='text-center'>
+              The five core values of CeRID are driven from its acronym and
+              include creativity, equity, relevance, integrity and dignity as
+              expounded with the value statements below.
+            </p>
+          </div>
 
-        <div className='row mt-4 gy-3'>
-          {approaches.map((app) => (
-            <div key={app._id} className='col-lg-4 col-md-6 col-12'>
-              <div className='card border-0 shadow-sm'>
-                <div className='card-body'>
-                  <h5 className='card-title fw-bold text-center'>
-                    {app.title}
-                  </h5>
-                  <p className='card-text'>{app.content}</p>
+          <div className='row mt-4 gy-3'>
+            {approaches.map((app) => (
+              <div key={app._id} className='col-lg-4 col-md-6 col-12'>
+                <div className='card border-0 shadow-sm'>
+                  <div className='card-body'>
+                    <h5 className='card-title fw-bold text-center'>
+                      {app.title}
+                    </h5>
+                    <p className='card-text'>{app.content}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

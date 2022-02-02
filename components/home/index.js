@@ -7,6 +7,7 @@ import Approach from './Approach'
 import Partners from './Partners'
 import Careers from './Careers'
 import Project from './Project'
+import Thematic from './Thematic'
 
 export default function HomePage({ posts, careers }) {
   return (
@@ -16,6 +17,7 @@ export default function HomePage({ posts, careers }) {
       <Governance />
       <Strategy />
       <Approach />
+      <Thematic />
       <Project />
       <Partners />
       {/* <Posts posts={posts} /> */}

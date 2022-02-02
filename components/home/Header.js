@@ -1,21 +1,6 @@
-import React from 'react'
-// import Image from 'next/image'
-
 const Header = () => {
   return (
-    <div className='mb-5'>
-      {/* <div className='row py-5'>
-        <div className='col-md-10 col-12 my-auto text-center mx-auto'>
-          <h1 className='fw-light display-1 '>
-            <span className='text-success'>Ce</span>ntre for
-            <span className='text-success'> R</span>esearch &
-            <span className='text-success'> I</span>ntegrated
-            <span className='text-success'> D</span>evelopment
-          </h1>
-          <h4 className='fw-bold display-1 text-success'>CeRID</h4>
-        </div>
-      </div> */}
-
+    <div className='mb-3'>
       <div
         id='carouselExampleCaptions'
         className='carousel slide'
@@ -57,7 +42,12 @@ const Header = () => {
         </div>
         <div className='carousel-inner'>
           <div className='carousel-item active'>
-            <img src='local/agri1.png' className='d-block w-100' alt='agri1' />
+            <img
+              src='local/agri1.png'
+              className='d-block w-100'
+              alt='agri1'
+              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+            />
             <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold'>Agriculture</h5>
               <p className='display-6 fw-light'>
@@ -70,6 +60,7 @@ const Header = () => {
               src='local/food1.png'
               className='d-block w-100'
               alt='food training'
+              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold'>Women In Agriculture</h5>
@@ -80,7 +71,12 @@ const Header = () => {
           </div>
 
           <div className='carousel-item'>
-            <img src='local/agri4.png' className='d-block w-100' alt='agri2' />
+            <img
+              src='local/agri4.png'
+              className='d-block w-100'
+              alt='agri2'
+              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+            />
             <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold'>ATC Center</h5>
               <p className='display-6 fw-light'>
@@ -93,6 +89,7 @@ const Header = () => {
               src='local/food2.png'
               className='d-block w-100'
               alt='food training'
+              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold'>Food Production</h5>
@@ -106,6 +103,7 @@ const Header = () => {
               src='local/primary-student.png'
               className='d-block w-100'
               alt='primary student'
+              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold'>Jaziira IPD Luuq</h5>

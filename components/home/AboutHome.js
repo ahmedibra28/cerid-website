@@ -12,9 +12,7 @@ import {
 const AboutHome = () => {
   return (
     <div id='about' className='container my-5'>
-      <h4 className='fw-light display-4 text-center text-success pt-5'>
-        About CeRID
-      </h4>
+      <h3 className='text-center text-success pt-5'>About CeRID</h3>
 
       <div className='row'>
         <div className='col-md-6 col-12 my-auto'>

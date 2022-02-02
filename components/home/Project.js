@@ -46,9 +46,7 @@ const Project = () => {
   ]
   return (
     <div id='project' className='container my-5'>
-      <h4 className='fw-light display-4 text-center text-success pt-5'>
-        Current Projects
-      </h4>
+      <h3 className='text-center text-success pt-5'>Current Projects</h3>
 
       <div className='row'>
         {/* <div className='col-md-10 mx-auto'>
@@ -60,7 +58,7 @@ const Project = () => {
           </p>
         </div> */}
 
-        <div className='row mt-4 gy-3'>
+        <div className='row mt-2 gy-3'>
           {approaches.map((app) => (
             <div key={app._id} className='col-lg-4 col-md-6 col-12'>
               <div className='card border-0 shadow-sm'>
