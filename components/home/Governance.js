@@ -8,10 +8,7 @@ const Governance = () => {
         <h3 className='text-center text-success pt-5'>Government</h3>
 
         <div className='row gy-3'>
-          <div className='col-md-6 col-12'>
-            <img src='/government.png' className='img-fluid' />
-          </div>
-          <div className='col-md-6 col-12'>
+          <div className='col-md-8 col-12 mx-auto text-center'>
             <p className='card-body'>
               The governance and management structure of CeRID is composed of
               two levels: The Board of Directors (BoD) level and Executive

@@ -1,13 +1,13 @@
+import Link from 'next/link'
+import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
+
 const Strategy = () => {
   return (
     <div id='governance' className='container'>
       <h3 className='text-center text-success py-3'>Strategy</h3>
 
       <div className='row gy-3'>
-        {/* <div className='col-md-8 col-12 mx-auto'>
-          <img src='/government.png' className='img-fluid' />
-        </div> */}
-        <div className='col-md-6 col-12'>
+        <div className='col-md-7 col-12 mx-auto'>
           <p>
             The organization is currently running four programmes which are;
             education and skills development, WASH – Water, Sanitation & Health,
@@ -22,7 +22,7 @@ const Strategy = () => {
             finalization of SAMTEC strategic plan and later to Bardere town.
           </p>
         </div>
-        <div className='col-md-6 col-12'>
+        <div className='col-md-7 col-12 mx-auto'>
           <p>
             The NRM and livelihoods has been focusing on capacity building on
             NRM, support to cash for work, tree planting, regeneration of
@@ -39,6 +39,21 @@ const Strategy = () => {
             increased access to water, sanitation and hygiene and operates in
             the Gedo region districts of Belet-Hawa and Luuq.
           </p>
+        </div>
+
+        <div className='col-md-7 col-12 mx-auto text-center mt-5'>
+          <div className='btn-group'>
+            <Link href={`/governance`}>
+              <a className='btn btn-outline-success'>
+                <FaArrowCircleLeft className='mb-1' /> GOVERNANCE
+              </a>
+            </Link>
+            <Link href={`/#core-values`}>
+              <a className='btn btn-outline-success ms-3'>
+                <FaArrowCircleRight className='mb-1' /> CORE VALUES
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

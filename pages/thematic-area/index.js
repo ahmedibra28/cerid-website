@@ -27,6 +27,22 @@ const Thematic = () => {
       description:
         'Water, sanitation, and Hygiene (WASH) project is multiple joint response initiatives...',
     },
+    {
+      _id: 4,
+      title: 'EDUCATION',
+      slug: 'education',
+      image: '/thematics/education.png',
+      description:
+        'Education and Skills Development (ESD) project is a joint response initiative under GBV...',
+    },
+    {
+      _id: 5,
+      title: 'PARTNERSHIP',
+      slug: 'partnership',
+      image: '/thematics/wash.png',
+      description:
+        'Partnership project is a joint response initiative under GBV...',
+    },
   ]
   return (
     <>
@@ -36,7 +52,7 @@ const Thematic = () => {
           Thematic Area
         </h4>
 
-        <div className='row gy-3'>
+        <div className='row gy-4'>
           {thematics.map((thematic) => (
             <div key={thematic._id} className='col-lg-4 col-md-6 col-12'>
               <div className='card border-0 shadow-sm'>

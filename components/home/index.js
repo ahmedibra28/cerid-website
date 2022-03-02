@@ -3,7 +3,7 @@ import AboutHome from './AboutHome'
 // import Posts from './Posts'
 import Governance from './Governance'
 import Strategy from './Strategy'
-import Approach from './Approach'
+import Values from './Values'
 import Partners from './Partners'
 import Careers from './Careers'
 import Project from './Project'
@@ -16,7 +16,7 @@ export default function HomePage({ posts, careers }) {
       <AboutHome />
       <Governance />
       <Strategy />
-      <Approach />
+      <Values />
       <Thematic />
       <Project />
       <Partners />

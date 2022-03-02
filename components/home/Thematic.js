@@ -8,15 +8,14 @@ const Thematic = () => {
       slug: 'protection',
       image: '/thematics/protection.png',
       description:
-        'Women & Girls Safe Spaces (WGSS) project is a joint response initiative under GBV...',
+        'Women & Girls Safe Spaces (WGSS) project is a joint response...',
     },
     {
       _id: 2,
       title: 'Livelihood',
       slug: 'livelihood',
       image: '/thematics/livelihood.png',
-      description:
-        'Agri-business entrepreneurship, and food production for improved nutrition outcome...',
+      description: 'Agri-business entrepreneurship, and food production for...',
     },
     {
       _id: 3,
@@ -24,7 +23,15 @@ const Thematic = () => {
       slug: 'wash',
       image: '/thematics/wash.png',
       description:
-        'Water, sanitation, and Hygiene (WASH) project is multiple joint response initiatives...',
+        'Water, sanitation, and Hygiene (WASH) project is multiple...',
+    },
+    {
+      _id: 4,
+      title: 'EDUCATION',
+      slug: 'education',
+      image: '/thematics/education.png',
+      description:
+        'Education and Skills Development (ESD) project is a joint response...',
     },
   ]
   return (
@@ -34,7 +41,7 @@ const Thematic = () => {
 
         <div className='row mt-3 gy-3'>
           {thematics.map((thematic) => (
-            <div key={thematic._id} className='col-lg-4 col-md-6 col-12'>
+            <div key={thematic._id} className='col-lg-3 col-md-6 col-12'>
               <div className='card border-0 shadow-sm'>
                 <img src={thematic.image} className='card-img-top' />
                 <div className='card-body text-center'>

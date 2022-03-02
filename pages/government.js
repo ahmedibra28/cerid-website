@@ -1,13 +1,13 @@
+import Link from 'next/link'
+import { FaArrowCircleRight } from 'react-icons/fa'
+
 const Governance = () => {
   return (
     <div id='governance' className='container'>
       <h3 className='text-center text-success py-3'>Government</h3>
 
       <div className='row gy-3'>
-        <div className='col-md-8 col-12 mx-auto'>
-          <img src='/government.png' className='img-fluid' />
-        </div>
-        <div className='col-md-6 col-12'>
+        <div className='col-md-7 col-12 mx-auto'>
           <p>
             The governance and management structure of CeRID is composed of two
             levels: The Board of Directors (BoD) level and Executive Management
@@ -21,7 +21,7 @@ const Governance = () => {
             activities to sustain the institutions.
           </p>
         </div>
-        <div className='col-md-6 col-12'>
+        <div className='col-md-7 col-12 mx-auto'>
           <p>
             The Executive Management Team consists of employed professional team
             who are responsible to the Board of Directors for the program and
@@ -36,6 +36,15 @@ const Governance = () => {
             organizational strategies and policies. They report to BoDs at least
             one a year for full compliance of requirements.
           </p>
+        </div>
+        <div className='col-md-7 col-12 mx-auto text-center mt-5'>
+          <div className='btn-group'>
+            <Link href={`/strategy`}>
+              <a className='btn btn-outline-success'>
+                <FaArrowCircleRight className='mb-1' /> STRATEGY
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

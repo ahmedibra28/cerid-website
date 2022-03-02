@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Approach = () => {
+const Values = () => {
   const approaches = [
     {
       _id: 1,
@@ -35,8 +35,8 @@ const Approach = () => {
   ]
   return (
     <div className='pb-2' style={{ backgroundColor: '#e6e6e6' }}>
-      <div id='approach' className='container my-5'>
-        <h3 className='text-center text-success pt-5'>Values & Approaches</h3>
+      <div id='core-values' className='container my-5'>
+        <h3 className='text-center text-success pt-5'>Core Values</h3>
 
         <div className='row gy-3'>
           <div className='col-md-10 mx-auto'>
@@ -50,13 +50,40 @@ const Approach = () => {
           <div className='row mt-4 gy-3'>
             {approaches.map((app) => (
               <div key={app._id} className='col-lg-4 col-md-6 col-12'>
-                <div className='card border-0 shadow-sm'>
+                <div className='accordion' id='accordionPanelsStayOpenExample'>
+                  <div className='accordion-item'>
+                    <h2
+                      className='accordion-header'
+                      id={`panelsStayOpen-headingOne${app._id}`}
+                    >
+                      <button
+                        className='accordion-button bg-light text-success'
+                        type='button'
+                        data-bs-toggle='collapse'
+                        data-bs-target={`#panelsStayOpen-collapseOne${app._id}`}
+                        aria-expanded='true'
+                        aria-controls={`panelsStayOpen-collapseOne${app._id}`}
+                      >
+                        {app.title}
+                      </button>
+                    </h2>
+                    <div
+                      id={`panelsStayOpen-collapseOne${app._id}`}
+                      className='accordion-collapse collapse'
+                      aria-labelledby={`panelsStayOpen-headingOne${app._id}`}
+                    >
+                      <div className='accordion-body'>{app.content}</div>
+                    </div>
+                  </div>
+
+                  {/* <div className='card border-0 shadow-sm'>
                   <div className='card-body'>
                     <h5 className='card-title fw-bold text-center'>
                       {app.title}
                     </h5>
                     <p className='card-text'>{app.content}</p>
                   </div>
+                </div> */}
                 </div>
               </div>
             ))}
@@ -67,4 +94,4 @@ const Approach = () => {
   )
 }
 
-export default Approach
+export default Values

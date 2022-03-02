@@ -3,7 +3,7 @@ const Header = () => {
     <div className='mb-3'>
       <div
         id='carouselExampleCaptions'
-        className='carousel slide'
+        className='carousel slide h-100'
         data-bs-ride='carousel'
       >
         <div className='carousel-indicators'>
@@ -46,12 +46,13 @@ const Header = () => {
               src='local/agri1.png'
               className='d-block w-100'
               alt='agri1'
-              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>Agriculture</h5>
-              <p className='display-6 fw-light'>
-                Belet-hawa agricultural green house
+              <h5 className='display-1 fw-bold strokeme'>Agriculture</h5>
+
+              <p className='display-6 fw-light strokeme'>
+                Belethawa agricultural green house
               </p>
             </div>
           </div>
@@ -60,11 +61,13 @@ const Header = () => {
               src='local/food1.png'
               className='d-block w-100'
               alt='food training'
-              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>Women In Agriculture</h5>
-              <p className='display-6 fw-light'>
+              <h5 className='display-1 fw-bold strokeme'>
+                Women In Agriculture
+              </h5>
+              <p className='display-6 fw-light strokeme'>
                 Women farmers training on saving and loan methodology
               </p>
             </div>
@@ -75,11 +78,11 @@ const Header = () => {
               src='local/agri4.png'
               className='d-block w-100'
               alt='agri2'
-              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>ATC Center</h5>
-              <p className='display-6 fw-light'>
+              <h5 className='display-1 fw-bold strokeme'>ATC Center</h5>
+              <p className='display-6 fw-light strokeme'>
                 Students preparing raised beds to plant vegetables at ATC CENTER
               </p>
             </div>
@@ -89,11 +92,11 @@ const Header = () => {
               src='local/food2.png'
               className='d-block w-100'
               alt='food training'
-              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>Food Production</h5>
-              <p className='display-6 fw-light'>
+              <h5 className='display-1 fw-bold strokeme'>Food Production</h5>
+              <p className='display-6 fw-light strokeme'>
                 provision of farm inputs to the women farmers
               </p>
             </div>
@@ -103,11 +106,11 @@ const Header = () => {
               src='local/primary-student.png'
               className='d-block w-100'
               alt='primary student'
-              style={{ width: '100%', height: '550px', objectFit: 'cover' }}
+              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
             />
             <div className='carousel-caption d-none d-md-block'>
-              <h5 className='display-1 fw-bold'>Jaziira IPD Luuq</h5>
-              <p className='display-6 fw-light'>
+              <h5 className='display-1 fw-bold strokeme'>Jaziira IPD Luuq</h5>
+              <p className='display-6 fw-light strokeme'>
                 This one agricultural field visit for primary school children of
                 Jaziira IDP Luuq{' '}
               </p>

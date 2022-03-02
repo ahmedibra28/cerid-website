@@ -45,7 +45,7 @@ const Project = () => {
     },
   ]
   return (
-    <div id='project' className='container my-5'>
+    <div id='projects' className='container my-5'>
       <h3 className='text-center text-success pt-5'>Current Projects</h3>
 
       <div className='row'>
