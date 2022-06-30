@@ -13,7 +13,7 @@ const Thematic = () => {
     },
     {
       _id: 2,
-      title: 'Livelihood',
+      title: 'Livelihood/Resilience',
       slug: 'livelihood',
       image: '/thematics/livelihood.png',
       description:
@@ -27,22 +27,22 @@ const Thematic = () => {
       description:
         'Water, sanitation, and Hygiene (WASH) project is multiple joint response initiatives...',
     },
-    {
-      _id: 4,
-      title: 'EDUCATION',
-      slug: 'education',
-      image: '/thematics/education.png',
-      description:
-        'Education and Skills Development (ESD) project is a joint response initiative under GBV...',
-    },
-    {
-      _id: 5,
-      title: 'PARTNERSHIP',
-      slug: 'partnership',
-      image: '/thematics/wash.png',
-      description:
-        'Partnership project is a joint response initiative under GBV...',
-    },
+    // {
+    //   _id: 4,
+    //   title: 'EDUCATION',
+    //   slug: 'education',
+    //   image: '/thematics/education.png',
+    //   description:
+    //     'Education and Skills Development (ESD) project is a joint response initiative under GBV...',
+    // },
+    // {
+    //   _id: 5,
+    //   title: 'PARTNERSHIP',
+    //   slug: 'partnership',
+    //   image: '/thematics/wash.png',
+    //   description:
+    //     'Partnership project is a joint response initiative under GBV...',
+    // },
   ]
   return (
     <>

@@ -1,13 +1,6 @@
-import React from 'react'
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 // import Image from 'next/image'
-import {
-  FaBullseye,
-  FaCheckCircle,
-  FaHandsHelping,
-  FaLowVision,
-  FaTasks,
-} from 'react-icons/fa'
 
 const AboutHome = () => {
   return (
@@ -18,11 +11,9 @@ const AboutHome = () => {
         <div className='col-md-6 col-12 my-auto'>
           <p className=''>
             Centre for Research and Integrated Development (CeRID) is a
-            non-governmental organization that was founded in 2005. It is
-            registered in Somalia and Kenya and has field operation offices in
-            Mogadishu, Jubbaland and Southwest States of Somalia. <br /> CeRID
-            has its headquarters in Belet-Hawa town bordering Mandera Kenya from
-            where it provides programme and operational support to all offices.
+            non-governmental, non-profit organization founded and became
+            operational in 2010. CeRID’s institutional focus grounded on five
+            Strategic Priority Goals/Pillars as follows:
           </p>
           <Link href='/about'>
             <a className='btn btn-success btn-lg mt-3'> READ MORE </a>

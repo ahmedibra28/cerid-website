@@ -4,8 +4,8 @@ import { FaHourglassStart, FaStream } from 'react-icons/fa'
 
 const Careers = ({ careers }) => {
   return (
-    <div div className='container'>
-      <div className='container text-success mt-2'>
+    <div div className='container my-5'>
+      <div className='container text-success pt-5'>
         <h3 className='text-center text-success'>Careers</h3>
       </div>
 

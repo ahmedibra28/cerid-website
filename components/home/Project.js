@@ -31,18 +31,18 @@ const Project = () => {
         </>
       ),
     },
-    {
-      _id: 1,
-      title: 'Geel Project',
-      slug: 'geel-project',
-      image: '/projects/geel.png',
-      content: (
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla odio
-          odit quae porro hic autem quis sint doloremque sequi ab.
-        </p>
-      ),
-    },
+    // {
+    //   _id: 1,
+    //   title: 'Geel Project',
+    //   slug: 'geel-project',
+    //   image: '/projects/geel.png',
+    //   content: (
+    //     <p>
+    //       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla odio
+    //       odit quae porro hic autem quis sint doloremque sequi ab.
+    //     </p>
+    //   ),
+    // },
   ]
   return (
     <div id='projects' className='container my-5'>
@@ -60,7 +60,7 @@ const Project = () => {
 
         <div className='row mt-2 gy-3'>
           {approaches.map((app) => (
-            <div key={app._id} className='col-lg-4 col-md-6 col-12'>
+            <div key={app._id} className='col-lg-4 col-md-6 col-12 mx-auto'>
               <div className='card border-0 shadow-sm'>
                 <img src={app.image} className='card-img-top' />
                 <div className='card-body text-center'>

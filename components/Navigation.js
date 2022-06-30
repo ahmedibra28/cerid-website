@@ -56,15 +56,20 @@ const Navigation = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link href='/#achievement'>
+                    <a className='dropdown-item'>Key Achievement</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href='/#governance'>
                     <a className='dropdown-item'>Governance</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href='/#strategy'>
                     <a className='dropdown-item'>Strategy</a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href='/#partners'>
                     <a className='dropdown-item'>Partners</a>
