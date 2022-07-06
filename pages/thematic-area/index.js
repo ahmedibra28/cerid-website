@@ -27,14 +27,14 @@ const Thematic = () => {
       description:
         'Water, sanitation, and Hygiene (WASH) project is multiple joint response initiatives...',
     },
-    // {
-    //   _id: 4,
-    //   title: 'EDUCATION',
-    //   slug: 'education',
-    //   image: '/thematics/education.png',
-    //   description:
-    //     'Education and Skills Development (ESD) project is a joint response initiative under GBV...',
-    // },
+    {
+      _id: 4,
+      title: 'EDUCATION',
+      slug: 'education',
+      image: '/thematics/education.png',
+      description:
+        'CeRID has an over all strategy to contribute to effort to eradicate poverty and promote equitable...',
+    },
     // {
     //   _id: 5,
     //   title: 'PARTNERSHIP',

@@ -31,7 +31,7 @@ const Thematic = () => {
       slug: 'education',
       image: '/thematics/education.png',
       description:
-        'Education and Skills Development (ESD) project is a joint response...',
+        'CeRID has an over all strategy to contribute to effort to eradicate...',
     },
   ]
   return (
@@ -43,7 +43,12 @@ const Thematic = () => {
           {thematics.map((thematic) => (
             <div key={thematic._id} className='col-lg-3 col-md-6 col-12'>
               <div className='card border-0 shadow-sm'>
-                <img src={thematic.image} className='card-img-top' />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={thematic.image}
+                  alt='themetic image'
+                  className='card-img-top'
+                />
                 <div className='card-body text-center'>
                   <h5 className='card-title text-center'>{thematic.title}</h5>
                   <p className='card-text'>{thematic.description}</p>
