@@ -16,8 +16,8 @@ const Strategy = () => {
             secondary school and SAMTEC (www.samtec.so), the only TVET –
             Technical and Vocational Education and Training center...
           </p>
-          <Link href={`/strategy`}>
-            <a className='btn btn-outline-success'> READ MORE</a>
+          <Link href={`/strategy`} className='btn btn-outline-success'>
+            READ MORE
           </Link>
         </div>
       </div>

@@ -16,8 +16,7 @@ const About = () => {
       <div className='card-body'>
         <h5 className='card-title fw-bold text-center'>Vision</h5>
         <p className='card-text'>
-          CeRID envisions peaceful and self-reliant communities in the Horn of
-          Africa region.
+          A peaceful and self-reliant communities in the Horn of Africa region.
         </p>
       </div>
     </div>
@@ -29,11 +28,12 @@ const About = () => {
       <div className='card-body'>
         <h5 className='card-title fw-bold text-center'>Mission</h5>
         <p className='card-text'>
-          CeRID’s mission is to act as an agent of change for peaceful and
-          self-reliant communities through implementation of programmes in
-          education and skills development, environment and NRM, economic
-          empowerment and livelihoods, WASH, peace building and conflict
-          transformation, and equity and women empowerment.
+          To act as an agent of change for peaceful and self-reliant communities
+          through implementation of its various programs on research and
+          analysis, education and skills development, environment and natural
+          resource management, livelihoods and economic empowerment, WASH,
+          peacebuilding and conflict transformation, and equity and women
+          empowerment.
         </p>
       </div>
     </div>
@@ -45,7 +45,10 @@ const About = () => {
       <div className='card-body'>
         <h5 className='card-title fw-bold text-center'>Core Values</h5>
         <p className='card-text'>
-          Creativity, Equity, Relevance, Integrity, Dignity.
+          The core values of CeRID are driven from its acronym and include
+          <strong> creativity</strong>, <strong>equity</strong>,
+          <strong> relevance</strong>, <strong>integrity</strong>, and
+          <strong> dignity</strong>.
         </p>
       </div>
     </div>
@@ -64,8 +67,30 @@ const About = () => {
             <p className='text-start'>
               Centre for Research and Integrated Development (CeRID) is a
               non-governmental, non-profit organization founded and became
-              operational in 2010. CeRID’s institutional focus grounded on five
-              Strategic Priority Goals/Pillars as follows:
+              operational in 2010. The organization is registered in Kenya,
+              Somalia, and Ethiopia. We have has grown from a small grassroots
+              Organization to a vibrant and promising international NGO because
+              of our presence in the Horn of Africa partnered with international
+              NGO, and local communities, respective zonal authorities and
+              donors in a clear and transparent way while engaging them in all
+              project periods from inception, evaluation and striving for an
+              enabling environment for the beneficiaries to meet their essential
+              needs. We Empower Communities to live Dignified Lives We achieve
+              this through promotion of access to education, sustainable
+              livelihood, environmental stewardship, and human rights.
+            </p>
+            <p>
+              The bulk of the projects that we have undertaken fall under
+              Professional Services and Development, Educational, Humanitarian
+              and Emergency Response so as to alleviate human suffering and
+              avail quick and timely emergency response. In doing so, the
+              organization has implemented diverse projects ranging from,
+              Research programs, smart agriculture and Livelihood to Water,
+              Sanitation and Hygiene (WASH) and Conflict Resolution to Peace
+              Building and most importantly not forgetting our vulnerable women
+              and girls where we have our fully functional Gender based violence
+              centers and we have vocational training tailor made for them. We
+              strive to lead in
             </p>
             <ul className='list-group list-group-flush list-group-numbered'>
               <li className='list-group-item ps-0'>
@@ -80,30 +105,61 @@ const About = () => {
                 most disadvantaged youth in the region.
               </li>
               <li className='list-group-item ps-0'>
-                Promoting climate smart agriculture practices and climate change
-                adaptation through research, introduction of agriculture value
-                chain to reduce food insecurity and enhance resilience building
-                in the Horn of Africa
+                Reduce Poverty in the regions through building strong centers of
+                development to grow the adjacent school community as well as the
+                satellite surrounding communities. encouraging enterprise and
+                building reliable and sustainable mechanisms with strong value
+                chain management systems to increase livelihoods
               </li>
               <li className='list-group-item ps-0'>
-                Contributing to effort to eradicate poverty, promoting equitable
-                economic and social development, human rights, productivity and
-                income through knowledge and skill enhancement.
+                Reverse the Impact of Climate Change through regenerative
+                programs and strong support systems to manage and fight droughts
+                and floods with the integration of water, food and energy.
+                Involving the community and farmers inland restoration practices
+                and rainwater harvesting that bring higher yield and long-term
+                impact to livelihoods.
               </li>
               <li className='list-group-item ps-0'>
-                Contributing to effort to alleviate immediate human suffering
-                and strengthen the resilience and self, recovery capacity of
-                drought and conflict affected communities, including IDPs and
-                hosting communities, and,
+                End Hunger through a strong food programs in the communities
+                with school farms and cooperatives, where all {`stakeholders'`}{' '}
+                needs are taken into account and clean water and nutritious
+                fresh produce is available for growth, consumption and market.
               </li>
               <li className='list-group-item ps-0'>
-                Advancing and where necessary building strategic partnership
-                with Sustainable Development Goals (SDGs) partners to achieve
-                meaningful impact on social, economic, and environmental
-                development in support of the Agenda 2030 for Sustainable
-                Development.
+                Ensure Safety and Security through providing basic
+                infrastructure for communities to become established, grow and
+                prosper. Ending the need to forage for basic human necessities
+                of water, food and shelter in other community lands leading to
+                skirmishes. As well as ensuring children are able to transition
+                in their education and remain engaged inbuilding their own
+                enterprises. Reducing the increase of radicalism.
+              </li>
+              <li className='list-group-item ps-0'>
+                Promote Equality both for communities who have been marginalized
+                and genders who lack support. We ensure equal access and support
+                to the girl child, building strong programs to support her
+                health, finances and academics all the way through the end of
+                education and into womanhood. Women have access to building
+                their enterprises with micro loans and receiving basic
+                education.
+              </li>
+              <li className='list-group-item ps-0'>
+                Education for all through promoting lifelong learning - From
+                supportive centers and schools properly managed in knowledge
+                transference and capacity building. Engaging youth to grow their
+                abilities by working in the industrial park and vocational
+                training. Promoting literacy, financial literacy, life skills to
+                all members of the community while supporting the cultural
+                uniqueness and native language.
               </li>
             </ul>
+            <p>
+              The organization has its headquarters in Beledxawa, Somalia, and
+              registered in Somalia and Kenya, CeRID is largely present in
+              Jubaland and Southwest states of Somalia and Mogadishu and
+              operates in entire Somalia and neighboring countries in the Horn
+              of Africa (HoA) specifically Kenya and Ethiopia
+            </p>
           </div>
         </div>
 

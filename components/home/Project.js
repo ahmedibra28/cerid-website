@@ -67,9 +67,12 @@ const Project = () => {
                   <h5 className='card-title fw-bold text-center'>
                     {app.title}
                   </h5>
-                  <p className='card-text'>{app.content}</p>
-                  <Link href={`/projects/${app.slug}`}>
-                    <a className='btn btn-outline-success'> READ MORE</a>
+                  {app.content}
+                  <Link
+                    className='btn btn-outline-success'
+                    href={`/projects/${app.slug}`}
+                  >
+                    READ MORE
                   </Link>
                 </div>
               </div>

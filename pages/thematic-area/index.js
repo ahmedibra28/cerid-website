@@ -60,8 +60,11 @@ const Thematic = () => {
                 <div className='card-body text-center'>
                   <h5 className='card-title text-center'>{thematic.title}</h5>
                   <p className='card-text'>{thematic.description}</p>
-                  <Link href={`/thematic-area/${thematic.slug}`}>
-                    <a className='btn btn-outline-success'> READ MORE</a>
+                  <Link
+                    className='btn btn-outline-success'
+                    href={`/thematic-area/${thematic.slug}`}
+                  >
+                    READ MORE
                   </Link>
                 </div>
               </div>

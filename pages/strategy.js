@@ -43,15 +43,14 @@ const Strategy = () => {
 
         <div className='col-md-7 col-12 mx-auto text-center mt-5'>
           <div className='btn-group'>
-            <Link href={`/governance`}>
-              <a className='btn btn-outline-success'>
-                <FaArrowCircleLeft className='mb-1' /> GOVERNANCE
-              </a>
+            <Link className='btn btn-outline-success' href={`/governance`}>
+              <FaArrowCircleLeft className='mb-1' /> GOVERNANCE
             </Link>
-            <Link href={`/#core-values`}>
-              <a className='btn btn-outline-success ms-3'>
-                <FaArrowCircleRight className='mb-1' /> CORE VALUES
-              </a>
+            <Link
+              className='btn btn-outline-success ms-3'
+              href={`/#core-values`}
+            >
+              <FaArrowCircleRight className='mb-1' /> CORE VALUES
             </Link>
           </div>
         </div>

@@ -12,11 +12,11 @@ const AboutHome = () => {
           <p className=''>
             Centre for Research and Integrated Development (CeRID) is a
             non-governmental, non-profit organization founded and became
-            operational in 2010. CeRID’s institutional focus grounded on five
-            Strategic Priority Goals/Pillars as follows:
+            operational in 2010. The organization is registered in Kenya,
+            Somalia, and Ethiopia.
           </p>
-          <Link href='/about'>
-            <a className='btn btn-success btn-lg mt-3'> READ MORE </a>
+          <Link href='/about' className='btn btn-success btn-lg mt-3'>
+            READ MORE
           </Link>
         </div>
 

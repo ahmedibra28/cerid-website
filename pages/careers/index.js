@@ -28,19 +28,39 @@ const Career = ({ careers }) => {
             careers.length > 0 &&
             careers.map((career) => (
               <div key={career.slug} className='col-lg-4 col-md-6 col-12'>
-                <div className='card border-0 mb-2 shadow-sm'>
+                <div className='card border-0 mb-2 shadow-sm position-relative overflow-hidden'>
+                  <div
+                    className={`position-absolute z-5 px-5 py-1 text-center text-white ${
+                      moment().format() >
+                      moment(career?.frontmatter?.end).format()
+                        ? 'bg-danger'
+                        : 'bg-success'
+                    }`}
+                    style={{ transform: 'rotate(-45deg)', top: 15, left: -35 }}
+                  >
+                    {moment().format() >
+                    moment(career?.frontmatter?.end).format() ? (
+                      <span>Expired</span>
+                    ) : (
+                      <span>New</span>
+                    )}
+                  </div>
+
                   <Link href={`/careers/${career.slug}`}>
-                    <a>
-                      <img src='/hiring.jpg' className='card-img-top' />
-                    </a>
+                    <img src='/hiring.jpg' className='card-img-top' />
                   </Link>
                   <div className='card-body fs-6'>
-                    <Link href={`/careers/${career.slug}`}>
-                      <a className='text-decoration-none text-dark'>
-                        <h5 className='card-title text-success text-center'>
-                          {career.frontmatter.title}
-                        </h5>
-                      </a>
+                    <Link
+                      className='text-decoration-none text-dark'
+                      href={`/careers/${career.slug}`}
+                    >
+                      {/* {moment().format() >
+                        moment(career?.frontmatter?.end).format() && (
+                        <span>Expired</span>
+                      )} */}
+                      <h5 className='card-title text-success text-center'>
+                        {career.frontmatter.title}
+                      </h5>
                     </Link>
                     <p className='card-text text-center'>
                       {career.frontmatter.subTitle}
@@ -59,8 +79,11 @@ const Career = ({ careers }) => {
                     </div>
 
                     <div className='card-text mt-2 text-center'>
-                      <Link href={`/careers/${career.slug}`}>
-                        <a className='btn btn-outline-success'> READ MORE</a>
+                      <Link
+                        className='btn btn-outline-success'
+                        href={`/careers/${career.slug}`}
+                      >
+                        READ MORE
                       </Link>
                     </div>
                   </div>

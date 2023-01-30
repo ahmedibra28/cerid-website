@@ -17,8 +17,8 @@ const Governance = () => {
             rules, regulations as well as the code of conducts regarding its
             mission.
           </p>
-          <Link href={`/government`}>
-            <a className='btn btn-outline-success'> READ MORE</a>
+          <Link href={`/government`} className='btn btn-outline-success'>
+            READ MORE
           </Link>
         </div>
       </div>

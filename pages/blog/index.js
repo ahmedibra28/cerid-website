@@ -26,13 +26,11 @@ const Blog = ({ posts }) => {
                   {post.frontmatter && post.frontmatter.image && (
                     <div>
                       <Link href={`/blog/${post.slug}`}>
-                        <a>
-                          <img
-                            alt={post.frontmatter.image}
-                            src={post.frontmatter.image}
-                            className='card-img-top img-fluid'
-                          />
-                        </a>
+                        <img
+                          alt={post.frontmatter.image}
+                          src={post.frontmatter.image}
+                          className='card-img-top img-fluid'
+                        />
                       </Link>
                     </div>
                   )}
@@ -45,12 +43,13 @@ const Blog = ({ posts }) => {
                     <label className='text-muted fst-italic fw-light'>
                       {moment(post.frontmatter.createdAt).format('MMM Do YY')}
                     </label>
-                    <Link href={`/blog/${post.slug}`}>
-                      <a className='text-decoration-none text-dark'>
-                        <h5 className='card-title text-primary'>
-                          {post.frontmatter.title}
-                        </h5>
-                      </a>
+                    <Link
+                      className='text-decoration-none text-dark'
+                      href={`/blog/${post.slug}`}
+                    >
+                      <h5 className='card-title text-primary'>
+                        {post.frontmatter.title}
+                      </h5>
                     </Link>
                     <p className='card-text'>
                       {post.frontmatter.caption}

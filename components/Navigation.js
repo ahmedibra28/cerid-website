@@ -18,11 +18,9 @@ const Navigation = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-lg'>
       <div className='container'>
-        <Link href='/'>
-          <a className='navbar-brand d-flex align-items-center'>
-            <img src='/logo.png' alt='logo' width='30' height='30' />{' '}
-            <span className='ms-2'> CeRID</span>
-          </a>
+        <Link href='/' className='navbar-brand d-flex align-items-center'>
+          <img src='/logo.png' alt='logo' width='30' height='30' />{' '}
+          <span className='ms-2'> CeRID</span>
         </Link>
 
         <button
@@ -51,44 +49,42 @@ const Navigation = () => {
               </a>
               <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <li>
-                  <Link href='/#about'>
-                    <a className='dropdown-item'>About Us</a>
+                  <Link className='dropdown-item' href='/#about'>
+                    About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href='/#achievement'>
-                    <a className='dropdown-item'>Key Achievement</a>
+                  <Link className='dropdown-item' href='/#achievement'>
+                    Key Achievement
                   </Link>
                 </li>
                 <li>
-                  <Link href='/#governance'>
-                    <a className='dropdown-item'>Governance</a>
+                  <Link className='dropdown-item' href='/#governance'>
+                    Governance
                   </Link>
                 </li>
                 {/* <li>
-                  <Link href='/#strategy'>
-                    <a className='dropdown-item'>Strategy</a>
+                  <Link className='dropdown-item' href='/#strategy'>
+                    Strategy
                   </Link>
                 </li> */}
                 <li>
-                  <Link href='/#partners'>
-                    <a className='dropdown-item'>Partners</a>
+                  <Link className='dropdown-item' href='/#partners'>
+                    Partners
                   </Link>
                 </li>
-                <li>
-                  <Link href='/#audit'>
-                    <a className='dropdown-item'>Audit</a>
+                {/* <li>
+                  <Link className='dropdown-item' href='/#audit'>
+                    Audit
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
 
             {navItems.map((nav) => (
               <li key={nav._id} className='nav-item'>
-                <Link href={nav.path}>
-                  <a className='nav-link  ' aria-current='page'>
-                    {nav.name}
-                  </a>
+                <Link href={nav.path} className='nav-link' aria-current='page'>
+                  {nav.name}
                 </Link>
               </li>
             ))}

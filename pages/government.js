@@ -39,10 +39,8 @@ const Governance = () => {
         </div>
         <div className='col-md-7 col-12 mx-auto text-center mt-5'>
           <div className='btn-group'>
-            <Link href={`/strategy`}>
-              <a className='btn btn-outline-success'>
-                <FaArrowCircleRight className='mb-1' /> STRATEGY
-              </a>
+            <Link className='btn btn-outline-success' href={`/strategy`}>
+              <FaArrowCircleRight className='mb-1' /> STRATEGY
             </Link>
           </div>
         </div>

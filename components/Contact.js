@@ -14,14 +14,14 @@ const Contact = () => {
           </li>
           <li className='list-group-item text-success'>
             <FaPhoneAlt className='mb-1' />
-            <Link href='tel:+25214361208'>
-              <a className='text-decoration-none'> +252 (0) 436 1208</a>
+            <Link className='text-decoration-none' href='tel:+25214361208'>
+              +252 (0) 436 1208
             </Link>
           </li>
           <li className='list-group-item text-success'>
             <FaEnvelope className='mb-1' />
-            <Link href='mailto:info@cerid.so'>
-              <a className='text-decoration-none'> info@cerid.so</a>
+            <Link className='text-decoration-none' href='mailto:info@cerid.so'>
+              info@cerid.so
             </Link>
           </li>
         </ul>
@@ -41,14 +41,14 @@ const Contact = () => {
           </li>
           <li className='list-group-item text-success'>
             <FaPhoneAlt className='mb-1' />
-            <Link href='tel:+2521858352'>
-              <a className='text-decoration-none'> +252 (1) 85 8352</a>
+            <Link className='text-decoration-none' href='tel:+2521858352'>
+              +252 (1) 85 8352
             </Link>
           </li>
           <li className='list-group-item text-success'>
             <FaEnvelope className='mb-1' />
-            <Link href='mailto:info@cerid.so'>
-              <a className='text-decoration-none'> info@cerid.so</a>
+            <Link className='text-decoration-none' href='mailto:info@cerid.so'>
+              info@cerid.so
             </Link>
           </li>
         </ul>
