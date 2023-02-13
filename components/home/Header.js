@@ -39,82 +39,96 @@ const Header = () => {
             data-bs-slide-to='4'
             aria-label='Slide 5'
           ></button>
+          <button
+            type='button'
+            data-bs-target='#carouselExampleCaptions'
+            data-bs-slide-to='5'
+            aria-label='Slide 6'
+          ></button>
         </div>
         <div className='carousel-inner'>
           <div className='carousel-item active'>
             <img
-              src='local/agri1.png'
+              src='slides/agr.png'
               className='d-block w-100'
               alt='agri1'
-              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
             />
-            <div className='carousel-caption d-none d-md-block'>
+            {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>Agriculture</h5>
 
               <p className='display-6 fw-light strokeme'>
                 Belethawa agricultural green house
               </p>
-            </div>
+            </div> */}
           </div>
           <div className='carousel-item'>
             <img
-              src='local/food1.png'
+              src='slides/ATC.png'
               className='d-block w-100'
               alt='food training'
-              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
             />
-            <div className='carousel-caption d-none d-md-block'>
+            {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>
                 Women In Agriculture
               </h5>
               <p className='display-6 fw-light strokeme'>
                 Women farmers training on saving and loan methodology
               </p>
-            </div>
+            </div> */}
           </div>
 
           <div className='carousel-item'>
             <img
-              src='local/agri4.png'
+              src='slides/educ.png'
               className='d-block w-100'
               alt='agri2'
-              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
             />
-            <div className='carousel-caption d-none d-md-block'>
+            {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>ATC Center</h5>
               <p className='display-6 fw-light strokeme'>
                 Students preparing raised beds to plant vegetables at ATC CENTER
               </p>
-            </div>
+            </div> */}
           </div>
           <div className='carousel-item'>
             <img
-              src='local/food2.png'
+              src='slides/food.png'
               className='d-block w-100'
               alt='food training'
-              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
             />
-            <div className='carousel-caption d-none d-md-block'>
+            {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>Food Production</h5>
               <p className='display-6 fw-light strokeme'>
                 provision of farm inputs to the women farmers
               </p>
-            </div>
+            </div> */}
           </div>
           <div className='carousel-item'>
             <img
-              src='local/primary-student.png'
+              src='slides/Jazeera IPD.png'
               className='d-block w-100'
               alt='primary student'
-              style={{ width: '100%', height: '90vh', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
             />
-            <div className='carousel-caption d-none d-md-block'>
+            {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>Jaziira IPD Luuq</h5>
               <p className='display-6 fw-light strokeme'>
                 This one agricultural field visit for primary school children of
                 Jaziira IDP Luuq{' '}
               </p>
-            </div>
+            </div> */}
+          </div>
+          <div className='carousel-item'>
+            <img
+              src='slides/women.png'
+              className='d-block w-100'
+              alt='primary student'
+              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+            />
           </div>
         </div>
         <button

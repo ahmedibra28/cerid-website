@@ -9,7 +9,7 @@ const Achievement = () => {
           <div className='col-md-6 col-12 my-auto'>
             <p className='card-body'>
               <img
-                src='/achievement.png'
+                src='/slides/strategy.png'
                 className='img-fluid'
                 alt='achievement'
               />
