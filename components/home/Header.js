@@ -52,7 +52,7 @@ const Header = () => {
               src='slides/agr.png'
               className='d-block w-100'
               alt='agri1'
-              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+              style={{ width: '100%', objectFit: 'cover' }}
             />
             {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>Agriculture</h5>
@@ -67,7 +67,7 @@ const Header = () => {
               src='slides/ATC.png'
               className='d-block w-100'
               alt='food training'
-              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+              style={{ width: '100%', objectFit: 'cover' }}
             />
             {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>
@@ -84,7 +84,7 @@ const Header = () => {
               src='slides/educ.png'
               className='d-block w-100'
               alt='agri2'
-              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+              style={{ width: '100%', objectFit: 'cover' }}
             />
             {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>ATC Center</h5>
@@ -98,7 +98,7 @@ const Header = () => {
               src='slides/food.png'
               className='d-block w-100'
               alt='food training'
-              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+              style={{ width: '100%', objectFit: 'cover' }}
             />
             {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>Food Production</h5>
@@ -109,10 +109,10 @@ const Header = () => {
           </div>
           <div className='carousel-item'>
             <img
-              src='slides/Jazeera IPD.png'
+              src='slides/jazeera.png'
               className='d-block w-100'
               alt='primary student'
-              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+              style={{ width: '100%', objectFit: 'cover' }}
             />
             {/* <div className='carousel-caption d-none d-md-block'>
               <h5 className='display-1 fw-bold strokeme'>Jaziira IPD Luuq</h5>
@@ -127,7 +127,7 @@ const Header = () => {
               src='slides/women.png'
               className='d-block w-100'
               alt='primary student'
-              style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+              style={{ width: '100%', objectFit: 'cover' }}
             />
           </div>
         </div>

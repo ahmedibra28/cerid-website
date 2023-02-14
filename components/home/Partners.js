@@ -13,6 +13,8 @@ const Partners = () => {
     { image: '/partners/nord.png' },
     { image: '/partners/sdc.png' },
     { image: '/partners/usaid.png' },
+    { image: '/partners/wv.png' },
+    { image: '/partners/chemonics.png' },
   ]
 
   const responsive = {
