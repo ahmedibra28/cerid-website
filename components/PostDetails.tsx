@@ -17,7 +17,7 @@ import Message from '@/components/Message'
 import moment from 'moment'
 import readingTime from 'reading-time'
 
-const AboutDetails = () => {
+const PostDetails = ({ key }: { key: string }) => {
   const router = useRouter()
   const { id } = router.query
 
@@ -28,7 +28,7 @@ const AboutDetails = () => {
   const domain = protocol + hostname + (port ? ':' + port : '')
 
   const getPost = useApiSingle({
-    key: ['about-post'],
+    key: [key],
     url: `posts/${id}`,
     id: id?.toString(),
   }).getById
@@ -66,17 +66,17 @@ const AboutDetails = () => {
     return (
       <div className='d-flex justify-content-between gap-2'>
         <div>
-          <FacebookShareButton url={`${domain}/about/${id}`}>
+          <FacebookShareButton url={`${domain}/thematic-areas/${id}`}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
         </div>
         <div>
-          <EmailShareButton url={`${domain}/about/${id}`}>
+          <EmailShareButton url={`${domain}/thematic-areas/${id}`}>
             <EmailIcon size={32} round />
           </EmailShareButton>
         </div>
         <div>
-          <TwitterShareButton url={`${domain}/about/${id}`}>
+          <TwitterShareButton url={`${domain}/thematic-areas/${id}`}>
             <TwitterIcon size={32} round />
           </TwitterShareButton>
         </div>
@@ -129,4 +129,4 @@ const AboutDetails = () => {
   )
 }
 
-export default AboutDetails
+export default PostDetails

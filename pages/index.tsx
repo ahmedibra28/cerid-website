@@ -1,10 +1,10 @@
 import useApi from '@/api'
 import { PostProp } from '@/types'
 import { useEffect } from 'react'
-import Message from '@/pages/components/Message'
-import Spinner from '@/pages/components/Spinner'
-import HomeIndex from '@/pages/components/home'
-import Contact from '@/pages/components/Contact'
+import Message from '@/components/Message'
+import Spinner from '@/components/Spinner'
+import HomeIndex from '@/components/home'
+import Contact from '@/components/Contact'
 
 export default function Home() {
   const getPosts = useApi({
