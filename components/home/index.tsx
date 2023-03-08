@@ -10,6 +10,7 @@ import useApi from '@/api'
 import Spinner from '../Spinner'
 import Message from '../Message'
 import { PostProp } from '@/types'
+import MissionVision from './MissionVision'
 
 const HomeIndex = () => {
   const getPosts = useApi({
@@ -37,6 +38,23 @@ const HomeIndex = () => {
         <Message variant='danger' value={getPosts?.error} />
       ) : (
         <div className='bg-light'>
+          <MissionVision
+            mission={getPosts?.data?.find(
+              (post: PostProp) => post.categories?.[0] === 10
+            )}
+            vision={getPosts?.data?.find(
+              (post: PostProp) => post.categories?.[0] === 11
+            )}
+          />
+        </div>
+      )}
+
+      {getPosts?.isLoading ? (
+        <Spinner />
+      ) : getPosts?.isError ? (
+        <Message variant='danger' value={getPosts?.error} />
+      ) : (
+        <div className=''>
           <KeyAchievements
             post={getPosts?.data?.find(
               (post: PostProp) => post.categories?.[0] === 7
@@ -50,11 +68,13 @@ const HomeIndex = () => {
       ) : getPosts?.isError ? (
         <Message variant='danger' value={getPosts?.error} />
       ) : (
-        <Governance
-          post={getPosts?.data?.find(
-            (post: PostProp) => post.categories?.[0] === 6
-          )}
-        />
+        <div className='bg-light'>
+          <Governance
+            post={getPosts?.data?.find(
+              (post: PostProp) => post.categories?.[0] === 6
+            )}
+          />
+        </div>
       )}
 
       {getPosts?.isLoading ? (
@@ -62,7 +82,7 @@ const HomeIndex = () => {
       ) : getPosts?.isError ? (
         <Message variant='danger' value={getPosts?.error} />
       ) : (
-        <div className='bg-light'>
+        <div className=''>
           <CoreValues
             posts={getPosts?.data?.filter(
               (post: PostProp) => post.categories?.[0] === 5
@@ -76,11 +96,13 @@ const HomeIndex = () => {
       ) : getPosts?.isError ? (
         <Message variant='danger' value={getPosts?.error} />
       ) : (
-        <ThematicAreas
-          posts={getPosts?.data?.filter(
-            (post: PostProp) => post.categories?.[0] === 4
-          )}
-        />
+        <div className='bg-light'>
+          <ThematicAreas
+            posts={getPosts?.data?.filter(
+              (post: PostProp) => post.categories?.[0] === 4
+            )}
+          />
+        </div>
       )}
 
       {getPosts?.isLoading ? (
@@ -90,7 +112,7 @@ const HomeIndex = () => {
       ) : (
         getPosts?.data?.filter((post: PostProp) => post.categories?.[0] === 3)
           ?.length > 0 && (
-          <div className='bg-light'>
+          <div className=''>
             <Careers
               posts={getPosts?.data?.filter(
                 (post: PostProp) => post.categories?.[0] === 3
@@ -105,11 +127,13 @@ const HomeIndex = () => {
       ) : getPosts?.isError ? (
         <Message variant='danger' value={getPosts?.error} />
       ) : (
-        <Projects
-          posts={getPosts?.data?.filter(
-            (post: PostProp) => post.categories?.[0] === 13
-          )}
-        />
+        <div className=''>
+          <Projects
+            posts={getPosts?.data?.filter(
+              (post: PostProp) => post.categories?.[0] === 13
+            )}
+          />
+        </div>
       )}
 
       {getPosts?.isLoading ? (
@@ -117,11 +141,13 @@ const HomeIndex = () => {
       ) : getPosts?.isError ? (
         <Message variant='danger' value={getPosts?.error} />
       ) : (
-        <Partners
-          posts={getPosts?.data?.filter(
-            (post: PostProp) => post.categories?.[0] === 8
-          )}
-        />
+        <div className=''>
+          <Partners
+            posts={getPosts?.data?.filter(
+              (post: PostProp) => post.categories?.[0] === 8
+            )}
+          />
+        </div>
       )}
     </div>
   )

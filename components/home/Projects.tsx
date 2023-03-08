@@ -5,8 +5,8 @@ import CardItem from '../CardItem'
 const Projects = ({ posts }: { posts: PostProp[] }) => {
   return (
     <div className='container py-5' id='projects'>
-      <h2 className='text-primary fw-bold display-4 text-center pb-5'>
-        CURRENT PROJECTS
+      <h2 className='text-primary fw-bold display-6 text-center pb-5'>
+        CURRENT CERID PROJECTS
       </h2>
 
       <div className='row gy-4'>
