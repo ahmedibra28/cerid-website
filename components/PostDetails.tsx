@@ -16,6 +16,7 @@ import Spinner from '@/components/Spinner'
 import Message from '@/components/Message'
 import moment from 'moment'
 import readingTime from 'reading-time'
+import Meta from './Meta'
 
 const PostDetails = ({ key }: { key: string }) => {
   const router = useRouter()
@@ -92,6 +93,13 @@ const PostDetails = ({ key }: { key: string }) => {
         <Message variant='danger' value={getPost?.error} />
       ) : (
         <div className='row'>
+          <Meta
+            title={data?.title?.rendered}
+            description={data?.excerpt?.rendered}
+            author={'CeRID'}
+            image={data?.jetpack_featured_media_url || '/noimage.png'}
+          />
+
           <div className='col-lg-9 col-md-11 col-12 mx-auto'>
             <div className='d-flex justify-content-between align-items-center'>
               {avatar(data?.content?.rendered || '')}
