@@ -1,40 +1,31 @@
-import useApi from '@/api'
 import { PostProp } from '@/types'
-import { useEffect } from 'react'
-import Message from '@/components/Message'
-import Spinner from '@/components/Spinner'
 import HomeIndex from '@/components/home'
 import Contact from '@/components/Contact'
 
-export default function Home() {
-  const getPosts = useApi({
-    key: ['posts'],
-    url: 'posts?per_page=100',
-  }).get
+import { GetStaticProps, NextPage } from 'next'
 
-  const posts: PostProp[] = getPosts?.data
+interface Props {
+  posts: PostProp[]
+}
 
-  // get posts using api call and filter them by category
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const res = await fetch(
+    'https://api.cerid.so/wp-json/wp/v2/posts?per_page=100'
+  )
+  const data = await res.json()
 
-  useEffect(() => {
-    if (getPosts?.isSuccess) {
-      // console.log(posts?.map((post: PostProp) => post.categories?.[0]))
-    }
-  }, [getPosts?.isSuccess, posts])
+  return {
+    props: { posts: data },
+  }
+}
 
+const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      <HomeIndex />
+      <HomeIndex posts={posts} />
 
       <Contact />
-
-      {getPosts?.isLoading ? (
-        <Spinner />
-      ) : getPosts?.isError ? (
-        <Message variant='danger' value={getPosts?.error} />
-      ) : (
-        <div className='text-center'></div>
-      )}
     </>
   )
 }
+export default Home

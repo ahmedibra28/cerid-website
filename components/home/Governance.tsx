@@ -2,7 +2,7 @@ import { PostProp } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 
-const Governance = ({ post }: { post: PostProp }) => {
+const Governance = ({ post }: { post?: PostProp }) => {
   return (
     <div className='container py-5' id='governance'>
       <div className='container'>
@@ -14,7 +14,7 @@ const Governance = ({ post }: { post: PostProp }) => {
             <div
               className='card-text'
               dangerouslySetInnerHTML={{
-                __html: post?.excerpt.rendered,
+                __html: post?.excerpt.rendered || '',
               }}
             />
 

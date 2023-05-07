@@ -2,7 +2,7 @@ import { PostProp } from '@/types'
 import Image from 'next/image'
 import React from 'react'
 
-const KeyAchievements = ({ post }: { post: PostProp }) => {
+const KeyAchievements = ({ post }: { post?: PostProp }) => {
   return (
     <div className='container py-5' id='key-achievements'>
       <h2 className='text-primary fw-bold display-4 text-center pb-5'>
@@ -11,7 +11,7 @@ const KeyAchievements = ({ post }: { post: PostProp }) => {
       <div className='row mt-3'>
         <div className='col-lg-6 col-12'>
           <Image
-            src={post?.jetpack_featured_media_url}
+            src={post?.jetpack_featured_media_url || '/noimage.png'}
             width={500}
             height={500}
             style={{ objectFit: 'cover' }}
@@ -24,7 +24,7 @@ const KeyAchievements = ({ post }: { post: PostProp }) => {
           <div
             className='card-text'
             dangerouslySetInnerHTML={{
-              __html: post?.excerpt.rendered,
+              __html: post?.excerpt.rendered || '',
             }}
           />
         </div>

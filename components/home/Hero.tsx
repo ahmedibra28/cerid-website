@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Hero = ({ post }: { post: PostProp }) => {
+const Hero = ({ post }: { post?: PostProp }) => {
   const url = 'https://api.cerid.so/wp-content/uploads'
 
   const slides = [

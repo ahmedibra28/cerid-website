@@ -5,8 +5,8 @@ const MissionVision = ({
   mission,
   vision,
 }: {
-  mission: PostProp
-  vision: PostProp
+  mission?: PostProp
+  vision?: PostProp
 }) => {
   return (
     <div className='container p-5'>
@@ -16,7 +16,7 @@ const MissionVision = ({
           <div
             className='card-text text-secondary'
             dangerouslySetInnerHTML={{
-              __html: vision?.content.rendered,
+              __html: vision?.content.rendered || '',
             }}
           />
         </div>
@@ -26,7 +26,7 @@ const MissionVision = ({
           <div
             className='card-text text-secondary'
             dangerouslySetInnerHTML={{
-              __html: mission?.content.rendered,
+              __html: mission?.content.rendered || '',
             }}
           />
         </div>

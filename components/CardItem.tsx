@@ -25,7 +25,7 @@ const CardItem = ({
         width={200}
         height={200}
         quality={quality}
-        src={item?.jetpack_featured_media_url}
+        src={item?.jetpack_featured_media_url || '/noimage.png'}
         style={{
           objectFit: 'cover',
           borderTopLeftRadius: 30,

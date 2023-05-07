@@ -78,7 +78,7 @@ const Meta = (props: Props) => {
       />
       <meta
         itemProp='image'
-        content={props?.image ? `https:/.cerid.so${props?.image}` : image}
+        content={props?.image ? `${props?.image}` : image}
         key='g:image'
       />
 
@@ -97,7 +97,7 @@ const Meta = (props: Props) => {
       />
       <meta
         property='og:image'
-        content={props?.image ? `https:/.cerid.so${props?.image}` : image}
+        content={props?.image ? `${props?.image}` : image}
         key='og:image'
       />
 
@@ -115,7 +115,7 @@ const Meta = (props: Props) => {
       />
       <meta
         name='twitter:image'
-        content={props?.image ? `https:/.cerid.so${props?.image}` : image}
+        content={props?.image ? `${props?.image}` : image}
         key='twitter:image'
       />
     </Head>
