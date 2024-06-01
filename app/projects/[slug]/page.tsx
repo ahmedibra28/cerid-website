@@ -11,15 +11,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const image = itemData?.coverImage || itemData?.image
 
   const objectPosition = [
-    'climate-smart-agriculture-and-economic-empowerment',
-    'emergency-wash-water-sanitation-and-hygiene-support-for-disasterconflict-affected-people-in-somalia',
-  ].includes(params.slug)
-    ? 'center'
-    : 'top'
+    '664743d7000e6177eb64',
+    '664746070005f3ee97b6',
+    '6647465a00112b5bc3aa',
+  ].includes(itemData?.$id)
+    ? 'object-top'
+    : 'object-center'
 
-  const textBlack = [
-    'building-resilience-and-improving-sustainable-livelihood-skills-of-vulnerable-idphost-women-in-luuq-district',
-  ].includes(params.slug)
+  const textBlack = ['6647465a00112b5bc3aa'].includes(itemData?.$id)
 
   return (
     <>
@@ -57,7 +56,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <BlurImage
             src={itemData?.coverImage || itemData?.image}
             alt={itemData?.title}
-            className={`inset-0 w-full h-full object-cover object-${objectPosition}`}
+            className={`inset-0 w-full h-full object-cover ${objectPosition}`}
             priority
             fill
           />
