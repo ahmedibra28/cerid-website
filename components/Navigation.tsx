@@ -22,11 +22,15 @@ import {
 export default function Navigation() {
   return (
     <header className='flex h-20 w-full shrink-0 items-center px-4 md:px-6'>
-      <Link className='mr-6 hidden lg:flex' href='/#home'>
+      <Link
+        className='mr-6 hidden lg:flex items-center justify-start gap-x-2'
+        href='/#home'
+      >
         <Avatar>
           <AvatarImage src='/logo.webp' />
           <AvatarFallback>CeRID</AvatarFallback>
         </Avatar>
+        <span className='text-2xl font-bold text-brand'>CeRID</span>
 
         <span className='sr-only'>CeRID</span>
       </Link>
