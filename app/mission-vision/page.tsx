@@ -1,6 +1,6 @@
 import React from 'react'
 import { getPage } from '@/app/appwrite'
-import Footer from '@/components/footer'
+import Footer from '@/components/footer-contact'
 import MissionVision from '@/components/mission-vision'
 
 export default async function Page() {

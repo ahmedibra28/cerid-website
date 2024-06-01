@@ -1,7 +1,7 @@
 import React from 'react'
 import { getPage } from '@/app/appwrite'
 import Markdown from 'react-markdown'
-import Footer from '@/components/footer'
+import Footer from '@/components/footer-contact'
 import BlurImage from '@/components/blur-image'
 
 export default async function Page() {

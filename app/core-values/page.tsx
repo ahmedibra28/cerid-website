@@ -1,6 +1,6 @@
 import React from 'react'
 import { getPage } from '@/app/appwrite'
-import Footer from '@/components/footer'
+import Footer from '@/components/footer-contact'
 import CoreValues from '@/components/core-values'
 import BlurImage from '@/components/blur-image'
 

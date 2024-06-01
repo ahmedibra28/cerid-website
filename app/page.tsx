@@ -1,6 +1,6 @@
 // import CoreValues from '@/components/core-values'
 import Donors from '@/components/donors'
-import Footer from '@/components/footer'
+import Footer from '@/components/footer-contact'
 // import Governance from '@/components/governance'
 import HeroSection from '@/components/hero-section'
 import KeyAchievement from '@/components/key-achievement'

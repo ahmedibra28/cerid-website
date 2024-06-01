@@ -1,6 +1,6 @@
 import React from 'react'
 import { getPage } from '@/app/appwrite'
-import Footer from '@/components/footer'
+import Footer from '@/components/footer-contact'
 
 export default async function Page() {
   const item = await getPage('about-us')

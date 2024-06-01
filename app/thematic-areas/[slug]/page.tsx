@@ -1,7 +1,7 @@
 import React from 'react'
 import { getThematicAreasBySlug } from '@/app/appwrite'
 import Markdown from 'react-markdown'
-import Footer from '@/components/footer'
+import Footer from '@/components/footer-contact'
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const item = await getThematicAreasBySlug(params.slug)
