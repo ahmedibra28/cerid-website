@@ -70,7 +70,7 @@ export default function Navigation() {
                     </div>
                   </Link>
                 </NavigationMenuLink>
-                <NavigationMenuLink asChild>
+                {/* <NavigationMenuLink asChild>
                   <Link
                     className='group grid h-auto w-full items-center justify-start gap-1 rounded-md bg-white p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50'
                     href='/#key-achievements'
@@ -79,7 +79,7 @@ export default function Navigation() {
                       Key Achievements
                     </div>
                   </Link>
-                </NavigationMenuLink>
+                </NavigationMenuLink> */}
                 <NavigationMenuLink asChild>
                   <Link
                     className='group grid h-auto w-full items-center justify-start gap-1 rounded-md bg-white p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50'
@@ -122,9 +122,17 @@ export default function Navigation() {
           <NavigationMenuLink asChild>
             <Link
               className='group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50'
-              href='/thematic-areas'
+              href='/#thematic-areas'
             >
               Thematic Areas
+            </Link>
+          </NavigationMenuLink>
+          <NavigationMenuLink asChild>
+            <Link
+              className='group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50'
+              href='/news'
+            >
+              News
             </Link>
           </NavigationMenuLink>
           <NavigationMenuLink asChild>
@@ -192,14 +200,14 @@ export default function Navigation() {
                       Mission & Vision
                     </div>
                   </Link>
-                  <Link
+                  {/* <Link
                     className='group grid h-auto w-full justify-start gap-1'
                     href='/#key-achievements'
                   >
                     <div className='text-sm font-medium leading-none group-hover:underline'>
                       Key Achievements
                     </div>
-                  </Link>
+                  </Link> */}
                   <Link
                     className='group grid h-auto w-full justify-start gap-1'
                     href='/governance'
@@ -233,9 +241,15 @@ export default function Navigation() {
             </Link>
             <Link
               className='flex w-full items-center py-2 text-lg font-semibold'
-              href='/thematic-areas'
+              href='/#thematic-areas'
             >
               Thematic Areas
+            </Link>
+            <Link
+              className='flex w-full items-center py-2 text-lg font-semibold'
+              href='/news'
+            >
+              News
             </Link>
             <Link
               className='flex w-full items-center py-2 text-lg font-semibold'

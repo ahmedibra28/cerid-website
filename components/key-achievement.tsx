@@ -10,9 +10,9 @@ export default async function KeyAchievement() {
 
   return (
     <>
-      <section className='w-full py-12 md:py-24 lg:py-32' id='key-achievements'>
+      <section className='w-full py-12 md:py-24 lg:py-32' id='thematic-areas'>
         <h2 className='container text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8'>
-          Key Achievements
+          Thematic Areas
         </h2>
 
         <div className='container grid items-centers gap-6 px-4 md:px-6 lg:grid-cols-3 lg:gap-12 grid-rev'>
