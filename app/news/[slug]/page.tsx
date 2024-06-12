@@ -1,14 +1,11 @@
 import React from 'react'
-import { getPage } from '@/app/appwrite'
+import { getNewsBySlug } from '@/app/appwrite'
+import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
-import News from '@/components/news'
 
-export default async function Page() {
-  const item = await getPage('about-us')
+export default async function Page({ params }: { params: { slug: string } }) {
+  const item = await getNewsBySlug(params.slug)
   const itemData = item?.documents?.[0]
-
-  const topContent =
-    'Group of Youth posing photo after the completion of business skills and entrepreneurship training in SaMTEC Beledhawa with support from USAID CBCR Projects.'
 
   return (
     <>
@@ -17,13 +14,13 @@ export default async function Page() {
           <div className='max-w-3xl mx-auto'>
             <div className='space-y-4'>
               <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
-                News
+                {itemData?.title}
               </h1>
               <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-400'>
                 <div>
                   <span className='font-medium'>CeRID</span>
                   <span> - </span>
-                  <time dateTime={new Date(itemData?.$createdAt).toISOString()}>
+                  <time dateTime='2023-05-16'>
                     {new Date(itemData?.$createdAt).toLocaleDateString(
                       'en-US',
                       {
@@ -41,7 +38,9 @@ export default async function Page() {
       </section>
 
       <div className='container mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20'>
-        <News />
+        <Markdown className='prose prose-gray mx-auto dark:prose-invert lg:max-w-3xl'>
+          {itemData?.content}
+        </Markdown>
       </div>
 
       <Footer />

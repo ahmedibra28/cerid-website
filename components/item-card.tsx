@@ -2,6 +2,7 @@ import React from 'react'
 import BlurImage from '@/components/blur-image'
 import Link from 'next/link'
 import { ArrowRightIcon } from 'lucide-react'
+import Markdown from 'react-markdown'
 
 export default function ItemCard({ item }: { item: any }) {
   return (
@@ -22,7 +23,9 @@ export default function ItemCard({ item }: { item: any }) {
       />
       <div className='p-6'>
         <h3 className='text-xl font-bold mb-2'>{item?.title}</h3>
-        <p className='text-gray-700 mb-4 line-clamp-3'>{item?.content}</p>
+        <Markdown className='prose prose-gray mx-auto dark:prose-invert line-clamp-3'>
+          {item?.content}
+        </Markdown>
         <Link
           className='inline-flex items-center text-brand hover:text-green-800 font-medium transition-colors'
           href={item?.slug}
