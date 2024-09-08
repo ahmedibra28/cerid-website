@@ -7,7 +7,7 @@ export default async function News() {
   const itemData = item?.documents
 
   return (
-    <section className='py-16 md:py-24 px-6 md:px-12' id='news'>
+    <section className='py-12 px-6 md:px-12' id='news'>
       <div className='container mx-auto'>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {itemData?.map((item) => (

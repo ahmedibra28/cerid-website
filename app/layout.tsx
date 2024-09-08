@@ -4,6 +4,7 @@ import './globals.css'
 import Navigation from '@/components/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
+// change to arial font
 
 export const metadata: Metadata = {
   title: 'CeRID',

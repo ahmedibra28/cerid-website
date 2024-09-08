@@ -14,11 +14,11 @@ export default async function CoreValues() {
   const coreData = core?.documents
 
   return (
-    <section className='w-full py-12 md:py-24 lg:py-32' id='core-values'>
+    <section className='w-full py-12' id='core-values'>
       <div className='container grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 md:px-6'>
         <div className='space-y-4'>
           <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
-            Our Core Values
+            Core Values
           </h2>
           <p className='text-gray-500 md:text-xl dark:text-gray-400'>
             The principles that guide our work and shape our culture.

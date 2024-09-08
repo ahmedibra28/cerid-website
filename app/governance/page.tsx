@@ -37,7 +37,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <div className='container mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20'>
+      <div className='container mx-auto px-4 md:px-6 py-12'>
         <Markdown className='prose prose-gray mx-auto dark:prose-invert lg:max-w-3xl'>
           {itemData?.content}
         </Markdown>
