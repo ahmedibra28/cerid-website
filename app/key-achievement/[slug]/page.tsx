@@ -1,5 +1,5 @@
 import React from 'react'
-import { getKeyAchievementsBySlug } from '@/app/appwrite'
+import { getKeyAchievementsBySlug } from '@/lib/content'
 import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
 import BlurImage from '@/components/blur-image'
@@ -37,8 +37,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
         <BlurImage
-          src={itemData?.coverImage || itemData?.image}
-          alt={itemData?.title}
+          src={itemData?.coverImage || itemData?.image || '/images/logo.webp'}
+          alt={itemData?.title || 'CeRID achievement'}
           className='inset-0 w-full h-full object-cover object-center'
           priority
           fill

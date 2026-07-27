@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPage } from '@/app/appwrite'
+import { getPage } from '@/lib/content'
 import Footer from '@/components/footer-contact'
 import MissionVision from '@/components/mission-vision'
 

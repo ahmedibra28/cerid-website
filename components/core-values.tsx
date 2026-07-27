@@ -6,7 +6,7 @@ import {
   EqualIcon,
   LinkIcon,
 } from 'lucide-react'
-import { getCoreValues } from '@/app/appwrite'
+import { getCoreValues } from '@/lib/content'
 import Markdown from 'react-markdown'
 
 export default async function CoreValues() {

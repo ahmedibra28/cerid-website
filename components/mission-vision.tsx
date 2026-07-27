@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { getShorts } from '@/app/appwrite'
+import { getShorts } from '@/lib/content'
 import Markdown from 'react-markdown'
 
 export default async function MissionVision() {

@@ -1,4 +1,4 @@
-import { getAddress } from '@/app/appwrite'
+import { getAddress } from '@/lib/content'
 import { LocateIcon, MailIcon, PhoneIcon } from 'lucide-react'
 import React from 'react'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getThematicAreasBySlug } from '@/app/appwrite'
+import { getThematicAreasBySlug } from '@/lib/content'
 import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
 

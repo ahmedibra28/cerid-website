@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from 'lucide-react'
 import React from 'react'
 import BlurImage from '@/components/blur-image'
-import { getKeyAchievements } from '@/app/appwrite'
+import { getKeyAchievements } from '@/lib/content'
 import Link from 'next/link'
 
 export default async function KeyAchievement() {

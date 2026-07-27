@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPage } from '@/app/appwrite'
+import { getPage } from '@/lib/content'
 import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
 import BlurImage from '@/components/blur-image'
@@ -40,8 +40,8 @@ export default async function Page() {
           </div>
         </div>
         <BlurImage
-          src='https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a122400099b42aca4/view?project=65905182817b88c986bf'
-          alt={itemData?.title}
+          src='/images/Participants_posing_for_a_group_photo_after_the_completion_of_business_skills_and_entrepreneurship_training.jpg'
+          alt={itemData?.title || 'About CeRID'}
           className='inset-0 w-full h-full object-cover object-center'
           priority
           fill

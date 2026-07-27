@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNewsBySlug } from '@/app/appwrite'
+import { getNewsBySlug } from '@/lib/content'
 import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
 

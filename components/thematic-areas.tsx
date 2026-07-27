@@ -1,5 +1,5 @@
 import React from 'react'
-import { getThematicAreas } from '@/app/appwrite'
+import { getThematicAreas } from '@/lib/content'
 import ItemCard from './item-card'
 
 export default async function ThematicAreas() {

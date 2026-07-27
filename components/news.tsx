@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNews } from '@/app/appwrite'
+import { getNews } from '@/lib/content'
 import ItemCard from './item-card'
 
 export default async function News() {

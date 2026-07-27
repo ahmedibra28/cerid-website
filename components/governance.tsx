@@ -1,4 +1,4 @@
-import { getShorts } from '@/app/appwrite'
+import { getShorts } from '@/lib/content'
 import BlurImage from '@/components/blur-image'
 import React from 'react'
 import Markdown from 'react-markdown'

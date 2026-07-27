@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { getShorts } from '@/app/appwrite'
+import { getShorts } from '@/lib/content'
 import Markdown from 'react-markdown'
 import HeroCarousel from '@/components/hero-carousel'
 
@@ -10,6 +10,16 @@ export default async function HeroSection() {
   const heroData = hero?.documents?.[0]
 
   const images = [
+    '/images/FEMALE.JPG',
+    '/images/pic.jpg',
+    '/images/pic_3.jpg',
+    '/images/pic_4.jpg',
+    '/images/img.JPEG',
+    '/images/PIC2.JPEG',
+    '/images/harvesting_vegetables.JPG',
+  ]
+
+  const images1 = [
     'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a040d002b83e82d75/view?project=65905182817b88c986bf',
     'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a05b50001c872bed8/view?project=65905182817b88c986bf',
     'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a06ee000ae0bb09df/view?project=65905182817b88c986bf',

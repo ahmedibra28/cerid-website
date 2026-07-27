@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/carousel'
 import BlurImage from '@/components/blur-image'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
-import { getDonors } from '@/app/appwrite'
+import { getDonors } from '@/lib/content'
 
 export default async function Donors() {
   const donor = await getDonors()
@@ -47,7 +47,7 @@ export default async function Donors() {
                       alt='Partner Logo'
                       className='mx-auto aspect-[2/1] overflow-hidden rounded-lg object-contain object-center'
                       height={90}
-                      src={item?.logo}
+                      src={item?.logo || '/images/logo.webp'}
                       width={180}
                     />
                   </div>

@@ -6,7 +6,6 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'rrslide.com' },
       { protocol: 'https', hostname: 'www.google.com' },
-      { protocol: 'https', hostname: 'cloud.appwrite.io' },
     ],
   },
 }

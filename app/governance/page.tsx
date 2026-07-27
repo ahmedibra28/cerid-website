@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPage } from '@/app/appwrite'
+import { getPage } from '@/lib/content'
 import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
 

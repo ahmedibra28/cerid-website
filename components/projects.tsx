@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProjects } from '@/app/appwrite'
+import { getProjects } from '@/lib/content'
 import ItemCard from './item-card'
 
 export default async function Projects() {

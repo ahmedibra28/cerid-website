@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProjectsBySlug } from '@/app/appwrite'
+import { getProjectsBySlug } from '@/lib/content'
 import Markdown from 'react-markdown'
 import Footer from '@/components/footer-contact'
 import BlurImage from '@/components/blur-image'
@@ -54,8 +54,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         {image && (
           <BlurImage
-            src={itemData?.coverImage || itemData?.image}
-            alt={itemData?.title}
+            src={image}
+            alt={itemData?.title || 'CeRID project'}
             className={`inset-0 w-full h-full object-cover ${objectPosition}`}
             priority
             fill
