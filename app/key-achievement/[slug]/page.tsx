@@ -1,57 +1,38 @@
-import React from 'react'
-import { getKeyAchievementsBySlug } from '@/lib/content'
-import Markdown from 'react-markdown'
-import Footer from '@/components/footer-contact'
-import BlurImage from '@/components/blur-image'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import ContentDetailPage from '@/components/content-detail-page'
+import {
+  getCollectionSlugs,
+  getKeyAchievementsBySlug,
+} from '@/lib/content'
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const item = await getKeyAchievementsBySlug(params.slug)
-  const itemData = item?.documents?.[0]
+type PageProps = { params: { slug: string } }
+
+export function generateStaticParams() {
+  return getCollectionSlugs('key-achievements').map((slug) => ({ slug }))
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { documents } = await getKeyAchievementsBySlug(params.slug)
+  const document = documents[0]
+  if (!document) return { title: 'Achievement not found' }
+
+  return {
+    title: document.title,
+    description: document.excerpt,
+    openGraph: document.image ? { images: [document.image] } : undefined,
+  }
+}
+
+export default async function Page({ params }: PageProps) {
+  const { documents } = await getKeyAchievementsBySlug(params.slug)
+  const document = documents[0]
+  if (!document) notFound()
 
   return (
-    <>
-      <section className='bg-gray-100 dark:bg-gray-800 py-12 md:py-16 lg:py-48 text-white relative h-[50vh]'>
-        <div className='container mx-auto px-4 md:px-6 z-50 absolute top-1/2 -translate-y-1/2'>
-          <div className='max-w-3xl mx-auto'>
-            <div className='space-y-4'>
-              <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
-                {itemData?.title}
-              </h1>
-              <div className='flex items-center space-x-4 '>
-                <div>
-                  <span className='font-medium'>CeRID</span>
-                  <span> - </span>
-                  <time dateTime='2023-05-16'>
-                    {new Date(itemData?.$createdAt).toLocaleDateString(
-                      'en-US',
-                      {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      }
-                    )}
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <BlurImage
-          src={itemData?.coverImage || itemData?.image || '/images/logo.webp'}
-          alt={itemData?.title || 'CeRID achievement'}
-          className='inset-0 w-full h-full object-cover object-center'
-          priority
-          fill
-        />
-      </section>
-
-      <div className='container mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20'>
-        <Markdown className='prose prose-gray mx-auto dark:prose-invert lg:max-w-3xl'>
-          {itemData?.content}
-        </Markdown>
-      </div>
-
-      <Footer />
-    </>
+    <ContentDetailPage
+      document={document}
+      image={document.coverImage || document.image}
+    />
   )
 }

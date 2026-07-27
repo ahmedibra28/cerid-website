@@ -23,15 +23,21 @@ export default async function Footer() {
             </h3>
             <div className='flex items-center space-x-2'>
               <PhoneIcon className='w-5 h-5 text-gray-500 dark:text-gray-400' />
-              <span className='text-gray-600 dark:text-gray-400'>
+              <a
+                className='text-gray-600 hover:text-brand dark:text-gray-400'
+                href={`tel:${item.mobile?.replace(/[^\d+]/g, '')}`}
+              >
                 {item.mobile}
-              </span>
+              </a>
             </div>
             <div className='flex items-center space-x-2'>
               <MailIcon className='w-5 h-5 text-gray-500 dark:text-gray-400' />
-              <span className='text-gray-600 dark:text-gray-400'>
+              <a
+                className='text-gray-600 hover:text-brand dark:text-gray-400'
+                href={`mailto:${item.email}`}
+              >
                 {item.email}
-              </span>
+              </a>
             </div>
             <div className='flex items-center space-x-2'>
               <LocateIcon className='w-5 h-5 text-gray-500 dark:text-gray-400' />
@@ -45,6 +51,7 @@ export default async function Footer() {
 
       <div className='container'>
         <iframe
+          title='CeRID office location'
           src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.465327109004!2d41.872786814043295!3d3.9239300489969957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17c26323f6bdb35b%3A0x4b1089e34d7fe8a1!2sCeRID!5e0!3m2!1sen!2sso!4v1640259822302!5m2!1sen!2sso'
           height='300'
           className='w-full'

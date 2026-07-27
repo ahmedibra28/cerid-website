@@ -27,7 +27,7 @@ export default function Navigation() {
         href='/#home'
       >
         <Avatar>
-          <AvatarImage src='/logo.webp' />
+          <AvatarImage src='/logo.webp' alt='CeRID logo' />
           <AvatarFallback>CeRID</AvatarFallback>
         </Avatar>
         <span className='text-2xl font-bold text-brand'>CeRID</span>
@@ -164,7 +164,7 @@ export default function Navigation() {
         <SheetContent side='left'>
           <Link href='/#home'>
             <Avatar>
-              <AvatarImage src='/logo.webp' />
+              <AvatarImage src='/logo.webp' alt='CeRID logo' />
               <AvatarFallback>CeRID</AvatarFallback>
             </Avatar>
             <span className='sr-only'>CeRID</span>

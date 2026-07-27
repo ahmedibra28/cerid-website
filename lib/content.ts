@@ -2,6 +2,7 @@ import 'server-only'
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { cache } from 'react'
 import matter from 'gray-matter'
 
 export type ContentDocument = {
@@ -18,64 +19,126 @@ export type ContentDocument = {
   email?: string
   mobile?: string
   address?: string
+  order?: number
   [key: string]: unknown
 }
 
-export type ContentResponse = {
-  documents: ContentDocument[]
+export type ContentResponse<T extends ContentDocument = ContentDocument> = {
+  documents: T[]
   total: number
 }
 
-const contentRoot = path.join(process.cwd(), 'content')
+export type CardDocument = ContentDocument & {
+  title: string
+  slug: string
+}
 
-function readCollection(collection: string): ContentDocument[] {
+const contentRoot = path.join(process.cwd(), 'content')
+const slugCollections = new Set([
+  'pages',
+  'shorts',
+  'thematic-areas',
+  'projects',
+  'key-achievements',
+  'news',
+])
+
+function validateDocument(collection: string, file: string, document: ContentDocument) {
+  const label = `content/${collection}/${file}`
+
+  if (!document.$id) throw new Error(`${label} is missing an id`)
+  if (Number.isNaN(Date.parse(document.$createdAt))) {
+    throw new Error(`${label} has an invalid createdAt date`)
+  }
+  if (slugCollections.has(collection) && (!document.title || !document.slug)) {
+    throw new Error(`${label} must include title and slug`)
+  }
+
+  for (const field of ['image', 'coverImage', 'logo'] as const) {
+    const asset = document[field]
+    if (!asset?.startsWith('/')) continue
+
+    const assetPath = path.join(process.cwd(), 'public', asset)
+    if (!fs.existsSync(assetPath)) {
+      throw new Error(`${label} references missing ${field}: ${asset}`)
+    }
+  }
+}
+
+const readCollection = cache((collection: string): ContentDocument[] => {
   const directory = path.join(contentRoot, collection)
 
   if (!fs.existsSync(directory)) return []
 
-  return fs
+  const documents = fs
     .readdirSync(directory)
     .filter((file) => file.endsWith('.mdx'))
-    .sort()
     .map((file) => {
       const source = fs.readFileSync(path.join(directory, file), 'utf8')
       const { data, content } = matter(source)
 
-      return {
+      const document = {
         ...data,
         $id: String(data.id ?? path.basename(file, '.mdx')),
         $createdAt: String(data.createdAt ?? '2024-01-01T00:00:00.000Z'),
+        order: Number(data.order ?? Number.MAX_SAFE_INTEGER),
         content: content.trim(),
       } as ContentDocument
-    })
-}
 
-function response(documents: ContentDocument[]): ContentResponse {
+      validateDocument(collection, file, document)
+      return document
+    })
+
+  return documents.sort(
+    (left, right) =>
+      (left.order ?? Number.MAX_SAFE_INTEGER) -
+        (right.order ?? Number.MAX_SAFE_INTEGER) ||
+      left.$createdAt.localeCompare(right.$createdAt)
+  )
+})
+
+function response<T extends ContentDocument>(documents: T[]): ContentResponse<T> {
   return { documents, total: documents.length }
 }
 
-function getAll(collection: string) {
-  return Promise.resolve(response(readCollection(collection)))
+function getAll<T extends ContentDocument = ContentDocument>(collection: string) {
+  return Promise.resolve(response(readCollection(collection) as T[]))
 }
 
-function getBySlug(collection: string, slug: string) {
+function getBySlug<T extends ContentDocument = ContentDocument>(
+  collection: string,
+  slug: string
+) {
   return Promise.resolve(
-    response(readCollection(collection).filter((document) => document.slug === slug))
+    response(
+      readCollection(collection).filter(
+        (document) => document.slug === slug
+      ) as T[]
+    )
   )
 }
 
-export const getPage = (slug: string) => getBySlug('pages', slug)
-export const getShorts = (slug: string) => getBySlug('shorts', slug)
+export function getCollectionSlugs(collection: string) {
+  return readCollection(collection)
+    .map((document) => document.slug)
+    .filter((slug): slug is string => Boolean(slug))
+}
+
+export const getPage = (slug: string) => getBySlug<CardDocument>('pages', slug)
+export const getShorts = (slug: string) => getBySlug<CardDocument>('shorts', slug)
 export const getCoreValues = () => getAll('core-values')
 export const getDonors = () => getAll('donors')
 export const getAddress = () => getAll('addresses')
-export const getThematicAreas = () => getAll('thematic-areas')
+export const getThematicAreas = () => getAll<CardDocument>('thematic-areas')
 export const getThematicAreasBySlug = (slug: string) =>
-  getBySlug('thematic-areas', slug)
-export const getProjects = () => getAll('projects')
-export const getProjectsBySlug = (slug: string) => getBySlug('projects', slug)
-export const getKeyAchievements = () => getAll('key-achievements')
+  getBySlug<CardDocument>('thematic-areas', slug)
+export const getProjects = () => getAll<CardDocument>('projects')
+export const getProjectsBySlug = (slug: string) =>
+  getBySlug<CardDocument>('projects', slug)
+export const getKeyAchievements = () =>
+  getAll<CardDocument>('key-achievements')
 export const getKeyAchievementsBySlug = (slug: string) =>
-  getBySlug('key-achievements', slug)
-export const getNews = () => getAll('news')
-export const getNewsBySlug = (slug: string) => getBySlug('news', slug)
+  getBySlug<CardDocument>('key-achievements', slug)
+export const getNews = () => getAll<CardDocument>('news')
+export const getNewsBySlug = (slug: string) =>
+  getBySlug<CardDocument>('news', slug)

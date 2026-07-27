@@ -7,8 +7,21 @@ import Navigation from '@/components/navigation'
 // change to arial font
 
 export const metadata: Metadata = {
-  title: 'CeRID',
-  description: 'Centre for Research and Integrated Development',
+  metadataBase: new URL('https://www.cerid.so'),
+  title: {
+    default: 'CeRID | Centre for Research and Integrated Development',
+    template: '%s | CeRID',
+  },
+  description:
+    'CeRID advances research, humanitarian support, climate resilience, education, and sustainable development across Somalia and the Horn of Africa.',
+  openGraph: {
+    type: 'website',
+    siteName: 'CeRID',
+    title: 'Centre for Research and Integrated Development',
+    description:
+      'Research, humanitarian support, climate resilience, education, and sustainable development.',
+    images: ['/images/logo.webp'],
+  },
 }
 
 export default function RootLayout({
