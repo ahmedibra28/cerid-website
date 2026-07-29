@@ -32,6 +32,9 @@ export default async function Page({ params }: PageProps) {
     <ContentDetailPage
       document={document}
       image={document.coverImage || document.image}
+      eyebrow='News and stories'
+      parentHref='/news'
+      parentLabel='News'
     />
   )
 }

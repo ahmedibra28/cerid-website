@@ -1,61 +1,61 @@
-import React from 'react'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { getShorts } from '@/lib/content'
-import Markdown from 'react-markdown'
-import HeroCarousel from '@/components/hero-carousel'
+import { ArrowRight } from 'lucide-react'
+import BlurImage from '@/components/blur-image'
+import { Button } from '@/components/ui/button'
 
-export default async function HeroSection() {
-  const hero = await getShorts('hero')
-  const heroData = hero?.documents?.[0]
-
-  const images = [
-    '/images/FEMALE.JPG',
-    '/images/pic.jpg',
-    '/images/pic_3.jpg',
-    '/images/pic_4.jpg',
-    '/images/img.JPEG',
-    '/images/PIC2.JPEG',
-    '/images/harvesting_vegetables.JPG',
-  ]
-
-  const images1 = [
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a040d002b83e82d75/view?project=65905182817b88c986bf',
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a05b50001c872bed8/view?project=65905182817b88c986bf',
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a06ee000ae0bb09df/view?project=65905182817b88c986bf',
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a094c002b118177c2/view?project=65905182817b88c986bf',
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a0d550021665762db/view?project=65905182817b88c986bf',
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a0d4e001d49918ba0/view?project=65905182817b88c986bf',
-    'https://cloud.appwrite.io/v1/storage/buckets/66471275000c7c4c56be/files/664a0e20001dd3886a07/view?project=65905182817b88c986bf',
-  ]
-
+export default function HeroSection() {
   return (
-    <section className='w-full py-12 bg-brand text-white' id='home'>
-      <div className='container px-4 md:px-6 w-[95%]'>
-        <div className='grid gap-6 lg:grid-cols-[1fr_350px] lg:gap-12 xl:grid-cols-[1fr_600px]'>
-          <div className='flex flex-col justify-center space-y-4'>
-            <div className='space-y-2'>
-              <h1 className='text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>
-                Centre for Research and Integrated Development
-              </h1>
-              <Markdown className='prose mt-8 max-w-[600px] text-gray-300 dark:text-gray-400 md:text-xl'>
-                {heroData?.content}
-              </Markdown>
-            </div>
-            <div className='flex flex-col gap-2 min-[400px]:flex-row'>
-              <Link href='/#contact-us' passHref>
-                <Button size='lg'> Contact Now </Button>
-              </Link>
-              <Link href='/about-us' passHref>
-                <Button size='lg' variant='outline' className='bg-transparent'>
-                  Learn More
-                </Button>
-              </Link>
+    <>
+      <section className='relative isolate min-h-[620px] overflow-hidden bg-slate-950 text-white lg:min-h-[680px]' id='home'>
+        <BlurImage
+          src='/images/Humanitarian.JPEG'
+          alt='CeRID staff supporting community members in Somalia'
+          className='object-cover object-center'
+          priority
+          fill
+          quality={90}
+        />
+        <div className='absolute inset-0 bg-slate-950/60' />
+
+        <div className='site-container relative flex min-h-[620px] items-center py-20 lg:min-h-[680px]'>
+          <div className='max-w-[680px]'>
+            <p className='eyebrow text-emerald-300'>Locally led. Evidence informed.</p>
+            <h1 className='mt-5 text-5xl font-extrabold leading-[1.03] tracking-[-0.045em] sm:text-6xl lg:text-7xl'>
+              Stronger communities. Lasting change.
+            </h1>
+            <p className='mt-7 max-w-[590px] text-lg leading-8 text-white/85 sm:text-xl'>
+              CeRID works alongside communities across Somalia to deliver
+              life-saving support and build resilient, self-reliant futures.
+            </p>
+            <div className='mt-9 flex flex-col gap-3 sm:flex-row'>
+              <Button asChild size='lg' className='h-[52px] rounded-sm bg-brand px-7 text-base font-bold hover:bg-emerald-700'>
+                <Link href='/#thematic-areas'>
+                  See our impact <ArrowRight className='ml-2 h-4 w-4' />
+                </Link>
+              </Button>
+              <Button asChild size='lg' variant='outline' className='h-[52px] rounded-sm border-white bg-transparent px-7 text-base font-bold text-white hover:bg-white hover:text-slate-950'>
+                <Link href='/#contact-us'>Partner with us</Link>
+              </Button>
             </div>
           </div>
-          <HeroCarousel images={images} />
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className='border-b border-slate-200 bg-warm-white' aria-label='CeRID impact'>
+        <div className='site-container grid divide-y divide-slate-200 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4'>
+          {[
+            ['125,000+', 'People reached with humanitarian assistance'],
+            ['20+', 'Primary schools established and supported'],
+            ['30,000+', 'Children reached through education'],
+            ['3,000+', 'Farmers building climate resilience'],
+          ].map(([value, label]) => (
+            <div key={value} className='px-6 py-8 sm:py-10 lg:px-9'>
+              <strong className='block text-3xl font-extrabold tracking-tight text-brand lg:text-4xl'>{value}</strong>
+              <span className='mt-2 block max-w-[230px] text-sm font-medium leading-6 text-slate-600'>{label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   )
 }

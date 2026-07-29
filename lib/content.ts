@@ -19,6 +19,11 @@ export type ContentDocument = {
   email?: string
   mobile?: string
   address?: string
+  city?: string
+  category?: string
+  location?: string
+  year?: string
+  alt?: string
   order?: number
   [key: string]: unknown
 }
@@ -52,6 +57,19 @@ function validateDocument(collection: string, file: string, document: ContentDoc
   }
   if (slugCollections.has(collection) && (!document.title || !document.slug)) {
     throw new Error(`${label} must include title and slug`)
+  }
+  if (
+    collection === 'gallery' &&
+    (!document.title ||
+      !document.category ||
+      !document.image ||
+      !document.alt ||
+      !document.location ||
+      !document.year)
+  ) {
+    throw new Error(
+      `${label} must include title, category, image, alt, location, and year`
+    )
   }
 
   for (const field of ['image', 'coverImage', 'logo'] as const) {
@@ -142,3 +160,12 @@ export const getKeyAchievementsBySlug = (slug: string) =>
 export const getNews = () => getAll<CardDocument>('news')
 export const getNewsBySlug = (slug: string) =>
   getBySlug<CardDocument>('news', slug)
+export type GalleryDocument = ContentDocument & {
+  title: string
+  category: string
+  image: string
+  alt: string
+  location: string
+  year: string
+}
+export const getGallery = () => getAll<GalleryDocument>('gallery')

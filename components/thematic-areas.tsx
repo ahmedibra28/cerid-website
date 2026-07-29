@@ -1,30 +1,18 @@
-import React from 'react'
+import ItemCard from '@/components/item-card'
 import { getThematicAreas } from '@/lib/content'
-import ItemCard from './item-card'
 
 export default async function ThematicAreas() {
-  const item = await getThematicAreas()
-  const itemData = item?.documents
+  const { documents } = await getThematicAreas()
 
   return (
-    <section className='py-16 md:py-24 px-6 md:px-12' id='thematic-areas'>
-      <div className='container mx-auto'>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {itemData?.map((item) => (
-            <ItemCard
-              key={item?.$id}
-              item={{ ...item, slug: `/thematic-areas/${item?.slug}` }}
-            />
-          ))}
-        </div>
-
-        {/* <div className='text-end'>
-          <Link href='/thematic-areas' passHref>
-            <Button variant='outline' className='w-48 mr-auto mt-8'>
-              View All Thematic Areas
-            </Button>
-          </Link>
-        </div> */}
+    <section className='site-container' id='thematic-areas'>
+      <div className='grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3'>
+        {documents.map((item) => (
+          <ItemCard
+            key={item.$id}
+            item={{ ...item, slug: `/thematic-areas/${item.slug}` }}
+          />
+        ))}
       </div>
     </section>
   )

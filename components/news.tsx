@@ -1,30 +1,18 @@
-import React from 'react'
+import ItemCard from '@/components/item-card'
 import { getNews } from '@/lib/content'
-import ItemCard from './item-card'
 
 export default async function News() {
-  const item = await getNews()
-  const itemData = item?.documents
+  const { documents } = await getNews()
 
   return (
-    <section className='py-12 px-6 md:px-12' id='news'>
-      <div className='container mx-auto'>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {itemData?.map((item) => (
-            <ItemCard
-              key={item?.$id}
-              item={{ ...item, slug: `/news/${item?.slug}` }}
-            />
-          ))}
-        </div>
-
-        {/* <div className='text-end'>
-          <Link href='/news' passHref>
-            <Button variant='outline' className='w-48 mr-auto mt-8'>
-              View All Thematic Areas
-            </Button>
-          </Link>
-        </div> */}
+    <section className='site-container' id='news'>
+      <div className='grid gap-10 md:grid-cols-2 lg:grid-cols-3'>
+        {documents.map((item) => (
+          <ItemCard
+            key={item.$id}
+            item={{ ...item, slug: `/news/${item.slug}` }}
+          />
+        ))}
       </div>
     </section>
   )

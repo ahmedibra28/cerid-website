@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/careers',
     '/core-values',
     '/governance',
+    '/gallery',
     '/mission-vision',
     '/news',
     '/thematic-areas',

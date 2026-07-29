@@ -1,8 +1,6 @@
-import React from 'react'
-import BlurImage from '@/components/blur-image'
 import Link from 'next/link'
-import { ArrowRightIcon } from 'lucide-react'
-import Markdown from 'react-markdown'
+import { ArrowRight } from 'lucide-react'
+import BlurImage from '@/components/blur-image'
 import type { CardDocument } from '@/lib/content'
 
 type ItemCardProps = {
@@ -11,34 +9,27 @@ type ItemCardProps = {
 
 export default function ItemCard({ item }: ItemCardProps) {
   return (
-    <div className='bg-white rounded-lg shadow-md overflow-hidden'>
-      <BlurImage
-        alt={item.title}
-        className='w-full h-48 object-cover'
-        height={300}
-        src={
-          item.image ||
-          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-        }
-        style={{
-          aspectRatio: '500/300',
-          objectFit: 'cover',
-        }}
-        width={500}
-      />
-      <div className='p-6'>
-        <h3 className='text-xl font-bold mb-2'>{item.title}</h3>
-        <Markdown className='prose prose-gray mx-auto dark:prose-invert line-clamp-3'>
-          {item.content}
-        </Markdown>
-        <Link
-          className='inline-flex items-center text-brand hover:text-green-800 font-medium transition-colors'
-          href={item.slug}
-        >
-          Read More
-          <ArrowRightIcon className='h-5 w-5 ml-2' />
-        </Link>
-      </div>
-    </div>
+    <article className='group border-t border-slate-300 pt-6'>
+      <Link href={item.slug} className='block'>
+        <div className='relative aspect-[16/10] overflow-hidden bg-slate-100'>
+          <BlurImage
+            alt={item.title}
+            className='object-cover transition-transform duration-500 group-hover:scale-[1.03]'
+            src={item.image || '/images/research.webp'}
+            fill
+          />
+        </div>
+        <p className='eyebrow mt-6'>CeRID programme</p>
+        <h2 className='mt-3 text-2xl font-bold leading-tight tracking-tight text-slate-950 group-hover:text-brand'>
+          {item.title}
+        </h2>
+        <p className='mt-4 line-clamp-3 leading-7 text-slate-600'>
+          {item.excerpt || item.content}
+        </p>
+        <span className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand'>
+          Read more <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
+        </span>
+      </Link>
+    </article>
   )
 }

@@ -30,6 +30,9 @@ export default async function Page({ params }: PageProps) {
     <ContentDetailPage
       document={document}
       image={document.coverImage || document.image}
+      eyebrow='Thematic area'
+      parentHref='/thematic-areas'
+      parentLabel='What we do'
     />
   )
 }

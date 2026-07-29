@@ -37,6 +37,9 @@ export default async function Page({ params }: PageProps) {
       document={document}
       image={document.coverImage || document.image}
       imagePosition={topAligned ? 'object-top' : 'object-center'}
+      eyebrow='Programme'
+      parentHref='/#projects'
+      parentLabel='Projects'
     />
   )
 }

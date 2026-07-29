@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
+import { Public_Sans } from 'next/font/google'
 // import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/navigation'
 
-// const inter = Inter({ subsets: ['latin'] })
-// change to arial font
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  variable: '--font-public-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cerid.so'),
@@ -31,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>
+      <body className={publicSans.variable}>
         <Navigation />
         <main>{children}</main>
       </body>

@@ -1,64 +1,68 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { getAddress } from '@/lib/content'
-import { LocateIcon, MailIcon, PhoneIcon } from 'lucide-react'
-import React from 'react'
 
 export default async function Footer() {
-  const address = await getAddress()
-  const addressData = address?.documents
+  const { documents } = await getAddress()
+  const primary = documents[0]
 
   return (
-    <footer className='w-full mt-8 py-8' id='contact-us'>
-      <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center'>
-        Get In Touch
-      </h2>
-      <p className='text-center md:text-lg'>
-        Let Us Help You Overshoot Your Goals in the Right Ways.
-      </p>
-
-      <div className='container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-8'>
-        {addressData.map((item, index) => (
-          <div key={index} className='space-y-2'>
-            <h3 className='text-lg font-bold text-gray-800 dark:text-gray-200'>
-              {item.office}
-            </h3>
-            <div className='flex items-center space-x-2'>
-              <PhoneIcon className='w-5 h-5 text-gray-500 dark:text-gray-400' />
-              <a
-                className='text-gray-600 hover:text-brand dark:text-gray-400'
-                href={`tel:${item.mobile?.replace(/[^\d+]/g, '')}`}
-              >
-                {item.mobile}
-              </a>
-            </div>
-            <div className='flex items-center space-x-2'>
-              <MailIcon className='w-5 h-5 text-gray-500 dark:text-gray-400' />
-              <a
-                className='text-gray-600 hover:text-brand dark:text-gray-400'
-                href={`mailto:${item.email}`}
-              >
-                {item.email}
-              </a>
-            </div>
-            <div className='flex items-center space-x-2'>
-              <LocateIcon className='w-5 h-5 text-gray-500 dark:text-gray-400' />
-              <span className='text-gray-600 dark:text-gray-400'>
-                {item.address}
-              </span>
-            </div>
+    <footer className='bg-forest text-white' id='contact-us'>
+      <div className='site-container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_0.7fr_1.1fr] lg:py-20'>
+        <div>
+          <div className='flex items-center gap-3'>
+            <Image src='/images/logo.webp' alt='' width={56} height={56} className='h-14 w-14 rounded-full' />
+            <span className='text-3xl font-extrabold'>CeRID</span>
           </div>
-        ))}
+          <p className='mt-6 max-w-sm leading-7 text-white/70'>
+            A Somali non-governmental organization advancing research,
+            humanitarian support, climate resilience, education, and sustainable development.
+          </p>
+        </div>
+
+        <div>
+          <h2 className='text-sm font-bold uppercase tracking-[0.16em] text-emerald-300'>Explore</h2>
+          <nav className='mt-5 grid gap-3 text-sm text-white/75'>
+            <Link href='/about-us' className='hover:text-white'>About us</Link>
+            <Link href='/#thematic-areas' className='hover:text-white'>What we do</Link>
+            <Link href='/#projects' className='hover:text-white'>Projects</Link>
+            <Link href='/gallery' className='hover:text-white'>Gallery</Link>
+            <Link href='/news' className='hover:text-white'>News</Link>
+          </nav>
+        </div>
+
+        <div>
+          <h2 className='text-sm font-bold uppercase tracking-[0.16em] text-emerald-300'>Organization</h2>
+          <nav className='mt-5 grid gap-3 text-sm text-white/75'>
+            <Link href='/governance' className='hover:text-white'>Governance</Link>
+            <Link href='/core-values' className='hover:text-white'>Core values</Link>
+            <Link href='/careers' className='hover:text-white'>Careers</Link>
+            <Link href='/#partners' className='hover:text-white'>Partners</Link>
+          </nav>
+        </div>
+
+        <div>
+          <h2 className='text-sm font-bold uppercase tracking-[0.16em] text-emerald-300'>Contact</h2>
+          <div className='mt-5 grid gap-4 text-sm leading-6 text-white/75'>
+            <a href={`mailto:${primary?.email}`} className='flex gap-3 hover:text-white'>
+              <Mail className='mt-1 h-4 w-4 shrink-0 text-emerald-300' /> {primary?.email}
+            </a>
+            <a href={`tel:${primary?.mobile?.replace(/[^\d+]/g, '')}`} className='flex gap-3 hover:text-white'>
+              <Phone className='mt-1 h-4 w-4 shrink-0 text-emerald-300' /> {primary?.mobile}
+            </a>
+            <p className='flex gap-3'>
+              <MapPin className='mt-1 h-4 w-4 shrink-0 text-emerald-300' /> {primary?.address}
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className='container'>
-        <iframe
-          title='CeRID office location'
-          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.465327109004!2d41.872786814043295!3d3.9239300489969957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17c26323f6bdb35b%3A0x4b1089e34d7fe8a1!2sCeRID!5e0!3m2!1sen!2sso!4v1640259822302!5m2!1sen!2sso'
-          height='300'
-          className='w-full'
-          loading='lazy'
-          style={{ border: '0' }}
-          allowFullScreen={true}
-        ></iframe>
+      <div className='border-t border-white/15'>
+        <div className='site-container flex flex-col gap-2 py-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between'>
+          <p>© {new Date().getFullYear()} CeRID. All rights reserved.</p>
+          <p>Centre for Research and Integrated Development</p>
+        </div>
       </div>
     </footer>
   )

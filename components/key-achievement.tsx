@@ -1,57 +1,49 @@
-import { ArrowRightIcon } from 'lucide-react'
-import React from 'react'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import BlurImage from '@/components/blur-image'
 import { getKeyAchievements } from '@/lib/content'
-import Link from 'next/link'
 
 export default async function KeyAchievement() {
-  const achievements = await getKeyAchievements()
-  const achievementsData = achievements?.documents
+  const { documents } = await getKeyAchievements()
 
   return (
-    <>
-      <section className='w-full py-12 md:py-24 lg:py-32' id='thematic-areas'>
-        <h2 className='container text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8'>
-          Thematic Areas
-        </h2>
+    <section className='section-padding bg-warm-white' id='thematic-areas'>
+      <div className='site-container'>
+        <div className='grid gap-6 border-b border-slate-300 pb-10 lg:grid-cols-2 lg:items-end'>
+          <div>
+            <p className='eyebrow'>Our priority areas</p>
+            <h2 className='section-title mt-4'>Focused on what creates lasting impact.</h2>
+          </div>
+          <p className='max-w-xl text-lg leading-8 text-slate-600 lg:justify-self-end'>
+            We combine life-saving assistance with long-term, community-led
+            solutions across education, climate resilience, protection, and research.
+          </p>
+        </div>
 
-        <div className='container grid items-centers gap-6 px-4 md:px-6 lg:grid-cols-3 lg:gap-12 grid-rev'>
-          {achievementsData.map((item) => (
-            <div
-              key={item.$id}
-              className='bg-white rounded-lg shadow-md overflow-hidden'
-            >
-              <BlurImage
-                alt='Thematic Areas 2'
-                className='w-full h-48 object-cover'
-                height={300}
-                src={
-                  item?.image ||
-                  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                }
-                style={{
-                  aspectRatio: '500/300',
-                  objectFit: 'cover',
-                }}
-                width={500}
-              />
-              <div className='p-6'>
-                <h3 className='text-xl font-bold mb-2'>{item?.title}</h3>
-                <p className='text-gray-700 mb-4 line-clamp-5222'>
-                  {item?.excerpt}
-                </p>
-                <Link
-                  className='inline-flex items-center text-brand hover:text-green-800 font-medium transition-colors'
-                  href={`key-achievement/${item.slug}`}
-                >
-                  Read More
-                  <ArrowRightIcon className='h-5 w-5 ml-2' />
-                </Link>
-              </div>
-            </div>
+        <div className='mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
+          {documents.slice(0, 3).map((item) => (
+            <article key={item.$id} className='group bg-white'>
+              <Link href={`/key-achievement/${item.slug}`} className='block overflow-hidden'>
+                <div className='relative aspect-[4/3] overflow-hidden'>
+                  <BlurImage
+                    alt={item.title}
+                    className='object-cover transition-transform duration-500 group-hover:scale-[1.03]'
+                    src={item.image || '/images/Humanitarian.JPEG'}
+                    fill
+                  />
+                </div>
+                <div className='border border-t-0 border-slate-200 p-7'>
+                  <h3 className='text-2xl font-bold leading-tight tracking-tight text-slate-950'>{item.title}</h3>
+                  <p className='mt-4 line-clamp-3 leading-7 text-slate-600'>{item.excerpt}</p>
+                  <span className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand'>
+                    Read more <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
+                  </span>
+                </div>
+              </Link>
+            </article>
           ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

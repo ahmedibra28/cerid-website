@@ -1,49 +1,18 @@
-import React from 'react'
-import { getPage } from '@/lib/content'
 import Footer from '@/components/footer-contact'
+import InteriorHero from '@/components/interior-hero'
 import News from '@/components/news'
 
-export default async function Page() {
-  const item = await getPage('about-us')
-  const itemData = item?.documents?.[0]
-
-  const topContent =
-    'Group of Youth posing photo after the completion of business skills and entrepreneurship training in SaMTEC Beledhawa with support from USAID CBCR Projects.'
-
+export default function Page() {
   return (
     <>
-      <section className='bg-gray-100 dark:bg-gray-800 py-3'>
-        <div className='container mx-auto px-4 md:px-6'>
-          <div className='max-w-3xl mx-auto'>
-            <div className='space-y-4'>
-              <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
-                News
-              </h1>
-              <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-400'>
-                {/* <div>
-                  <span className='font-medium'>CeRID</span>
-                  <span> - </span>
-                  <time dateTime={new Date(itemData?.$createdAt).toISOString()}>
-                    {new Date(itemData?.$createdAt).toLocaleDateString(
-                      'en-US',
-                      {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      }
-                    )}
-                  </time>
-                </div> */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className='container mx-auto px-4 md:px-6 py-12'>
+      <InteriorHero
+        eyebrow='News and stories'
+        title='Updates from our work.'
+        description='Stories, programme milestones, and perspectives from the communities and partners we work alongside.'
+      />
+      <main className='section-padding bg-white'>
         <News />
-      </div>
-
+      </main>
       <Footer />
     </>
   )

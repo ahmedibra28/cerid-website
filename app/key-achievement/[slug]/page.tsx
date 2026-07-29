@@ -33,6 +33,9 @@ export default async function Page({ params }: PageProps) {
     <ContentDetailPage
       document={document}
       image={document.coverImage || document.image}
+      eyebrow='Our impact'
+      parentHref='/#thematic-areas'
+      parentLabel='Priority areas'
     />
   )
 }

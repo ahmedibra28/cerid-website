@@ -1,45 +1,32 @@
-import React from 'react'
-import { getPage } from '@/lib/content'
+import Link from 'next/link'
 import Footer from '@/components/footer-contact'
+import InteriorHero from '@/components/interior-hero'
 
-export default async function Page() {
-  const item = await getPage('about-us')
-  const itemData = item?.documents?.[0]
-
+export default function Page() {
   return (
     <>
-      <section className='bg-gray-100 dark:bg-gray-800 py-3'>
-        <div className='container mx-auto px-4 md:px-6'>
-          <div className='max-w-3xl mx-auto'>
-            <div className='space-y-4'>
-              <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
-                Careers
-              </h1>
-              <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-400'>
-                {/* <div>
-                  <span className='font-medium'>CeRID</span>
-                  <span> - </span>
-                  <time dateTime='2023-05-16'>
-                    {new Date(itemData?.$createdAt).toLocaleDateString(
-                      'en-US',
-                      {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      }
-                    )}
-                  </time>
-                </div> */}
-              </div>
-            </div>
+      <InteriorHero
+        eyebrow='Careers'
+        title='Build change with us.'
+        description='Join a locally led team using research, partnership, and practical experience to strengthen communities across Somalia.'
+      />
+      <main className='section-padding bg-white'>
+        <div className='site-container grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20'>
+          <div>
+            <p className='eyebrow'>Open opportunities</p>
+            <h2 className='section-title mt-4'>Work that matters.</h2>
+          </div>
+          <div className='border-y border-slate-300 py-10'>
+            <h3 className='text-2xl font-bold text-slate-950'>There are no current openings.</h3>
+            <p className='mt-4 max-w-2xl leading-7 text-slate-600'>
+              We regularly recruit programme, research, operations, and community engagement professionals. Check back for future opportunities.
+            </p>
+            <Link href='/#contact-us' className='mt-7 inline-flex border-b-2 border-brand pb-1 text-sm font-bold text-brand'>
+              Contact our team
+            </Link>
           </div>
         </div>
-      </section>
-
-      <div className='container mx-auto px-4 md:px-6 py-12'>
-        No current openings
-      </div>
-
+      </main>
       <Footer />
     </>
   )
