@@ -33,6 +33,8 @@ export default async function Page({ params }: PageProps) {
       eyebrow='Thematic area'
       parentHref='/thematic-areas'
       parentLabel='What we do'
+      heroTone='forest'
+      showDate={false}
     />
   )
 }

@@ -11,6 +11,8 @@ type ContentDetailPageProps = {
   eyebrow?: string
   parentHref?: string
   parentLabel?: string
+  heroTone?: 'light' | 'forest'
+  showDate?: boolean
 }
 
 export default function ContentDetailPage({
@@ -20,8 +22,10 @@ export default function ContentDetailPage({
   eyebrow = 'Field impact',
   parentHref = '/',
   parentLabel = 'CeRID programmes',
+  heroTone = 'light',
+  showDate = true,
 }: ContentDetailPageProps) {
-  const publishedAt = new Date(document.$createdAt)
+  const publishedAt = new Date(document.lastReviewed || document.$createdAt)
   const formattedDate = publishedAt.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -30,28 +34,44 @@ export default function ContentDetailPage({
 
   return (
     <>
-      <header className='bg-warm-white'>
+      <header className={heroTone === 'forest' ? 'bg-forest text-white' : 'bg-warm-white'}>
         <div className='site-container py-14 md:py-20'>
-          <nav className='flex items-center gap-2 text-xs font-semibold text-slate-500' aria-label='Breadcrumb'>
-            <Link href='/' className='hover:text-brand'>Home</Link>
+          <nav className={`flex items-center gap-2 text-xs font-semibold ${
+            heroTone === 'forest' ? 'text-white/60' : 'text-slate-500'
+          }`} aria-label='Breadcrumb'>
+            <Link href='/' className={heroTone === 'forest' ? 'hover:text-white' : 'hover:text-brand'}>Home</Link>
             <span aria-hidden='true'>/</span>
-            <Link href={parentHref} className='text-slate-800 hover:text-brand'>{parentLabel}</Link>
+            <Link
+              href={parentHref}
+              className={heroTone === 'forest' ? 'text-white/90 hover:text-white' : 'text-slate-800 hover:text-brand'}
+            >
+              {parentLabel}
+            </Link>
           </nav>
           <div className='mt-12 max-w-5xl'>
-            <p className='eyebrow'>{eyebrow}</p>
-            <h1 className='mt-5 text-4xl font-extrabold leading-[1.04] tracking-[-0.045em] text-slate-950 sm:text-6xl lg:text-7xl'>
+            <p className={heroTone === 'forest' ? 'eyebrow text-emerald-300' : 'eyebrow'}>{eyebrow}</p>
+            <h1 className={`mt-5 text-4xl font-extrabold leading-[1.04] tracking-[-0.045em] sm:text-6xl lg:text-7xl ${
+              heroTone === 'forest' ? 'text-white' : 'text-slate-950'
+            }`}>
               {document.title}
             </h1>
             {document.excerpt && (
-              <p className='mt-7 line-clamp-5 max-w-3xl text-lg leading-8 text-slate-600 sm:line-clamp-none sm:text-xl sm:leading-9'>
+              <p className={`mt-7 line-clamp-5 max-w-3xl text-lg leading-8 sm:line-clamp-none sm:text-xl sm:leading-9 ${
+                heroTone === 'forest' ? 'text-white/75' : 'text-slate-600'
+              }`}>
                 {document.excerpt}
               </p>
             )}
-            <p className='mt-7 text-sm font-semibold text-slate-500'>
-              <span className='text-slate-950'>CeRID</span>
-              <span aria-hidden='true'> · </span>
-              <time dateTime={publishedAt.toISOString()}>{formattedDate}</time>
-            </p>
+            {showDate && (
+              <p className={`mt-7 text-sm font-semibold ${
+                heroTone === 'forest' ? 'text-white/60' : 'text-slate-500'
+              }`}>
+                <span className={heroTone === 'forest' ? 'text-white' : 'text-slate-950'}>CeRID</span>
+                <span aria-hidden='true'> · </span>
+                <span>{document.lastReviewed ? 'Last reviewed ' : ''}</span>
+                <time dateTime={publishedAt.toISOString()}>{formattedDate}</time>
+              </p>
+            )}
           </div>
         </div>
       </header>

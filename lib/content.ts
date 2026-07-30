@@ -24,6 +24,25 @@ export type ContentDocument = {
   location?: string
   year?: string
   alt?: string
+  status?: string
+  start_date?: string
+  end_date?: string
+  locations?: string[]
+  funding_partner?: string
+  member_organization?: string
+  partner_program?: string
+  project_code?: string
+  featured?: boolean
+  galleryImages?: string[]
+  galleryAlts?: string[]
+  highlights?: Array<{ value: string; label: string }>
+  program_areas?: string[]
+  metric_value?: string
+  metric_label?: string
+  reporting_period?: string
+  source?: string
+  evidence_status?: string
+  lastReviewed?: string
   order?: number
   [key: string]: unknown
 }
@@ -79,6 +98,14 @@ function validateDocument(collection: string, file: string, document: ContentDoc
     const assetPath = path.join(process.cwd(), 'public', asset)
     if (!fs.existsSync(assetPath)) {
       throw new Error(`${label} references missing ${field}: ${asset}`)
+    }
+  }
+
+  for (const asset of document.galleryImages ?? []) {
+    if (!asset.startsWith('/')) continue
+    const assetPath = path.join(process.cwd(), 'public', asset)
+    if (!fs.existsSync(assetPath)) {
+      throw new Error(`${label} references missing gallery image: ${asset}`)
     }
   }
 }

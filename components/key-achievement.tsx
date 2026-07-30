@@ -1,48 +1,50 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import BlurImage from '@/components/blur-image'
 import { getKeyAchievements } from '@/lib/content'
 
 export default async function KeyAchievement() {
   const { documents } = await getKeyAchievements()
+  const results = documents.filter((item) => item.metric_value).slice(0, 3)
 
   return (
-    <section className='section-padding bg-warm-white' id='thematic-areas'>
+    <section className='section-padding bg-forest text-white' id='impact-areas'>
       <div className='site-container'>
-        <div className='grid gap-6 border-b border-slate-300 pb-10 lg:grid-cols-2 lg:items-end'>
+        <div className='grid gap-6 border-b border-white/20 pb-10 lg:grid-cols-2 lg:items-end'>
           <div>
-            <p className='eyebrow'>Our priority areas</p>
-            <h2 className='section-title mt-4'>Focused on what creates lasting impact.</h2>
+            <p className='eyebrow text-emerald-300'>Our impact</p>
+            <h2 className='mt-4 max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-[-0.035em] text-white md:text-5xl'>
+              Results with a record behind them.
+            </h2>
           </div>
-          <p className='max-w-xl text-lg leading-8 text-slate-600 lg:justify-self-end'>
-            We combine life-saving assistance with long-term, community-led
-            solutions across education, climate resilience, protection, and research.
-          </p>
+          <div className='max-w-xl lg:justify-self-end'>
+            <p className='text-lg leading-8 text-white/70'>
+              Explore reported outcomes, their time period, and the programme
+              evidence used to support each figure.
+            </p>
+            <Link href='/impact' className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-emerald-300'>
+              Explore all impact and results <ArrowRight className='h-4 w-4' />
+            </Link>
+          </div>
         </div>
 
-        <div className='mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-          {documents.slice(0, 3).map((item) => (
-            <article key={item.$id} className='group bg-white'>
-              <Link href={`/key-achievement/${item.slug}`} className='block overflow-hidden'>
-                <div className='relative aspect-[4/3] overflow-hidden'>
-                  <BlurImage
-                    alt={item.title}
-                    className='object-cover transition-transform duration-500 group-hover:scale-[1.03]'
-                    src={item.image || '/images/Humanitarian.JPEG'}
-                    fill
-                  />
-                </div>
-                <div className='border border-t-0 border-slate-200 p-7'>
-                  <h3 className='text-2xl font-bold leading-tight tracking-tight text-slate-950'>{item.title}</h3>
-                  <p className='mt-4 line-clamp-3 leading-7 text-slate-600'>{item.excerpt}</p>
-                  <span className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand'>
-                    Read more <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
-                  </span>
-                </div>
-              </Link>
-            </article>
+        <dl className='mt-10 grid border-y border-white/20 md:grid-cols-3'>
+          {results.map((item, index) => (
+            <div
+              key={item.$id}
+              className={`py-9 md:px-8 ${index > 0 ? 'border-t border-white/20 md:border-l md:border-t-0' : ''}`}
+            >
+              <dd className='text-5xl font-extrabold tracking-[-0.045em] text-emerald-300'>
+                {item.metric_value}
+              </dd>
+              <dt className='mt-4 max-w-xs font-bold leading-7 text-white'>
+                {item.metric_label}
+              </dt>
+              <p className='mt-3 text-xs font-semibold uppercase tracking-[0.1em] text-white/50'>
+                {item.reporting_period}
+              </p>
+            </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   )

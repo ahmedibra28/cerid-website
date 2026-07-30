@@ -8,6 +8,15 @@
 - Mobile detail screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-detail-mobile.png`
 - Offices screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-offices.png`
 - Mobile offices screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-offices-mobile.png`
+- Project cards screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-projects-home.png`
+- Project detail screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-project-detail.png`
+- Mobile project detail screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-project-detail-mobile.png`
+- Project comparison: `/Users/ahmed/Desktop/dev/CeRID/cerid/project-design-comparison.png`
+- Projects archive screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-projects-archive.png`
+- Mobile projects archive screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-projects-archive-mobile.png`
+- Homepage thematic areas screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-thematic-home.png`
+- Thematic detail green-header screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-thematic-detail-green.png`
+- Impact overview screenshot: `/Users/ahmed/Desktop/dev/CeRID/cerid/implementation-impact.png`
 - Combined comparison: `/Users/ahmed/Desktop/dev/CeRID/cerid/design-comparison.png`
 - Desktop viewport request: 1440 × 1000 CSS px
 - Desktop captured pixels: 1425 × 990 at device density 1 (browser scrollbar and viewport chrome account for the difference)
@@ -75,6 +84,27 @@ spacing, border, color, and image treatments.
    evidence is saved at `implementation-gallery-mobile.png`. The editorial
    feature grid, caption hierarchy, and filter controls remain consistent with
    the selected Field Impact Editorial direction.
+8. The three supplied project records were reviewed as homepage cards and full
+   project details. The combined comparison confirms that the new status
+   treatments, image-led cards, typography, warm-white sections, and forest
+   metadata hero extend the selected institutional direction consistently.
+9. The first mobile project-detail pass found a P2 horizontal overflow caused
+   by the desktop hero-image aspect ratio interacting with its minimum height.
+   The mobile frame was changed to an explicit 260 px height with the wide
+   aspect ratio restored at the `sm` breakpoint. Post-fix evidence measures a
+   335 px image frame in a 375 px content viewport with no overflow.
+10. The projects archive and homepage thematic-area section were checked at
+    desktop and mobile widths. Ongoing, completed, and archive states are
+    visually distinct without introducing new colors or component styles. The
+    five thematic areas use the same documentary image, typography, and
+    hairline-divider system as the selected design direction.
+11. All thematic-area detail pages were aligned with the institutional
+    forest-green interior header. Desktop and mobile checks confirm readable
+    contrast, consistent breadcrumb treatment, and no horizontal overflow.
+12. The former key-achievement content was repositioned as “Impact and
+    results,” with a dedicated overview, five public detail routes, homepage
+    feature cards, and primary navigation access. Desktop and mobile checks
+    confirm consistent green headers, documentary imagery, and no overflow.
 
 ## Interaction and technical checks
 
@@ -84,7 +114,14 @@ spacing, border, color, and image treatments.
 - Gallery category filters tested; the selected category exposes only matching
   photographs.
 - Gallery lightbox open, close, previous/next, and keyboard controls verified.
-- Production build completed successfully across all 34 generated pages.
+- All three supplied project routes, status labels, metadata, results, and
+  documentary galleries verified.
+- Project cards expose the correct destinations for both ongoing projects and
+  the completed project.
+- Project status filters verified with counts of 2 ongoing, 1 completed, and 6
+  archive records.
+- Homepage and navigation links expose both `/projects` and `/thematic-areas`.
+- Production build completed successfully across all 42 generated pages.
 - Browser console checked: no runtime errors.
 - Breadcrumbs, category labels, article dates, and responsive long-form
   typography were checked across each dynamic content family.

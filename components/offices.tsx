@@ -10,7 +10,12 @@ export default async function Offices() {
         <div className='grid gap-8 border-b border-slate-300 pb-10 lg:grid-cols-2 lg:items-end'>
           <div>
             <p className='eyebrow'>Where we work</p>
-            <h2 className='section-title mt-4'>Close to the communities we serve.</h2>
+            <h2 className='section-title mt-4'>
+              Close to the communities we serve.
+            </h2>
+            <span className='mt-4 max-w-xl text-sm leading-6 text-red-500'>
+              JL, KG, WB, (MAP)
+            </span>
           </div>
           <p className='max-w-xl text-lg leading-8 text-slate-600 lg:justify-self-end'>
             Our offices connect national leadership with local knowledge,
@@ -22,7 +27,7 @@ export default async function Offices() {
           {documents.map((office, index) => {
             const phone = office.mobile?.split('/')[0].replace(/[^\d+]/g, '')
             const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-              office.address || office.city || 'Somalia'
+              office.address || office.city || 'Somalia',
             )}`
 
             return (
@@ -49,11 +54,17 @@ export default async function Offices() {
                     <MapPin className='mt-1 h-4 w-4 shrink-0 text-brand' />
                     {office.address}
                   </p>
-                  <a href={`tel:${phone}`} className='flex gap-3 hover:text-brand'>
+                  <a
+                    href={`tel:${phone}`}
+                    className='flex gap-3 hover:text-brand'
+                  >
                     <Phone className='mt-1 h-4 w-4 shrink-0 text-brand' />
                     {office.mobile}
                   </a>
-                  <a href={`mailto:${office.email}`} className='flex gap-3 hover:text-brand'>
+                  <a
+                    href={`mailto:${office.email}`}
+                    className='flex gap-3 hover:text-brand'
+                  >
                     <Mail className='mt-1 h-4 w-4 shrink-0 text-brand' />
                     {office.email}
                   </a>

@@ -5,15 +5,24 @@ export default async function Donors() {
   const { documents } = await getDonors()
 
   return (
-    <section className='border-y border-slate-200 bg-warm-white py-14 md:py-20' id='partners'>
+    <section
+      className='border-y border-slate-200 bg-warm-white py-14 md:py-20'
+      id='partners'
+    >
       <div className='site-container'>
         <div className='md:flex md:items-end md:justify-between'>
           <div>
             <p className='eyebrow'>Working together</p>
-            <h2 className='mt-3 text-3xl font-bold tracking-tight text-slate-950'>Our partners and donors</h2>
+            <h2 className='mt-3 text-3xl font-bold tracking-tight text-slate-950'>
+              Our partners and donors{' '}
+            </h2>
+            <span className='mt-4 max-w-xl text-sm leading-6 text-red-500'>
+              NIRAS, GIZ, SDC, UNDP, UNOCHA, FAO, K.GALBED, JL, FGS
+            </span>
           </div>
           <p className='mt-4 max-w-xl text-sm leading-6 text-slate-600 md:mt-0'>
-            Trusted partnerships help us reach more communities and build sustainable change.
+            Trusted partnerships help us reach more communities and build
+            sustainable change.
           </p>
         </div>
         <div className='mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-4 lg:grid-cols-8'>

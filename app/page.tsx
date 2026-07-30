@@ -7,6 +7,7 @@ import HeroSection from '@/components/hero-section'
 import KeyAchievement from '@/components/key-achievement'
 import Projects from '@/components/projects'
 import Offices from '@/components/offices'
+import ThematicAreasHome from '@/components/thematic-areas-home'
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
         </div>
       </section>
 
+      <ThematicAreasHome />
       <KeyAchievement />
       <Projects />
       <Donors />

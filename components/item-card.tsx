@@ -5,9 +5,10 @@ import type { CardDocument } from '@/lib/content'
 
 type ItemCardProps = {
   item: CardDocument & { slug: string }
+  eyebrow?: string
 }
 
-export default function ItemCard({ item }: ItemCardProps) {
+export default function ItemCard({ item, eyebrow = 'CeRID programme' }: ItemCardProps) {
   return (
     <article className='group border-t border-slate-300 pt-6'>
       <Link href={item.slug} className='block'>
@@ -19,7 +20,7 @@ export default function ItemCard({ item }: ItemCardProps) {
             fill
           />
         </div>
-        <p className='eyebrow mt-6'>CeRID programme</p>
+        <p className='eyebrow mt-6'>{eyebrow}</p>
         <h2 className='mt-3 text-2xl font-bold leading-tight tracking-tight text-slate-950 group-hover:text-brand'>
           {item.title}
         </h2>

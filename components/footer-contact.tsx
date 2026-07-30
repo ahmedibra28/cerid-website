@@ -25,8 +25,9 @@ export default async function Footer() {
           <h2 className='text-sm font-bold uppercase tracking-[0.16em] text-emerald-300'>Explore</h2>
           <nav className='mt-5 grid gap-3 text-sm text-white/75'>
             <Link href='/about-us' className='hover:text-white'>About us</Link>
-            <Link href='/#thematic-areas' className='hover:text-white'>What we do</Link>
-            <Link href='/#projects' className='hover:text-white'>Projects</Link>
+            <Link href='/thematic-areas' className='hover:text-white'>What we do</Link>
+            <Link href='/projects' className='hover:text-white'>Projects</Link>
+            <Link href='/impact' className='hover:text-white'>Impact and results</Link>
             <Link href='/gallery' className='hover:text-white'>Gallery</Link>
             <Link href='/news' className='hover:text-white'>News</Link>
           </nav>

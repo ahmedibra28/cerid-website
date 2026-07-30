@@ -1,0 +1,269 @@
+import Link from 'next/link'
+import Markdown from 'react-markdown'
+import { CalendarDays, MapPin } from 'lucide-react'
+import BlurImage from '@/components/blur-image'
+import Footer from '@/components/footer-contact'
+import type { CardDocument } from '@/lib/content'
+
+function formatPeriod(date?: string) {
+  if (!date) return ''
+  return new Intl.DateTimeFormat('en', {
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${date}T00:00:00Z`))
+}
+
+function projectBody(content: string) {
+  const start = content.indexOf('## Project Overview')
+  const substantive = start >= 0 ? content.slice(start) : content
+  return substantive.split('# Suggested Website Card Content')[0].trim()
+}
+
+function headingId(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[*_`]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
+export default function ProjectDetailPage({
+  document,
+}: {
+  document: CardDocument
+}) {
+  const location =
+    document.location ||
+    (document.locations as string[] | undefined)?.join(' · ') ||
+    'Somalia'
+  const period =
+    document.start_date && document.end_date
+      ? `${formatPeriod(document.start_date)} – ${formatPeriod(document.end_date)}`
+      : 'Programme archive'
+  const partner =
+    document.funding_partner ||
+    document.member_organization ||
+    document.partner_program
+  const gallery = document.galleryImages ?? []
+  const highlights = document.highlights ?? []
+  const status = document.status || 'Archive'
+  const ongoing = status === 'Ongoing'
+  const body = projectBody(document.content)
+  const sectionLinks = Array.from(body.matchAll(/^##\s+(.+)$/gm)).map((match) => ({
+    label: match[1].replace(/[*_`]/g, '').trim(),
+    id: headingId(match[1]),
+  }))
+
+  return (
+    <>
+      <main>
+        <header className='bg-forest text-white'>
+          <div className='site-container py-14 md:py-20 lg:py-24'>
+            <nav className='flex items-center gap-2 text-xs font-semibold text-white/60' aria-label='Breadcrumb'>
+              <Link href='/' className='hover:text-white'>Home</Link>
+              <span aria-hidden='true'>/</span>
+              <Link href='/#projects' className='hover:text-white'>Projects</Link>
+            </nav>
+
+            <div className='mt-12 grid gap-10 lg:grid-cols-[1fr_0.45fr] lg:items-end'>
+              <div>
+                <span className={`inline-flex border px-3 py-2 text-xs font-extrabold uppercase tracking-[0.15em] ${
+                  ongoing
+                    ? 'border-emerald-300 bg-emerald-300 text-forest'
+                    : 'border-white/35 text-white'
+                }`}>
+                  {status}
+                </span>
+                <h1 className='mt-6 max-w-5xl text-4xl font-extrabold leading-[1.03] tracking-[-0.045em] sm:text-6xl lg:text-7xl'>
+                  {document.title}
+                </h1>
+                {document.excerpt && (
+                  <p className='mt-7 max-w-3xl text-lg leading-8 text-white/75 sm:text-xl sm:leading-9'>
+                    {document.excerpt}
+                  </p>
+                )}
+              </div>
+
+              <dl className='border-t border-white/25 pt-6 text-sm lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0'>
+                <div className='flex gap-3 border-b border-white/15 pb-5'>
+                  <CalendarDays className='mt-0.5 h-5 w-5 shrink-0 text-emerald-300' aria-hidden='true' />
+                  <div>
+                    <dt className='font-bold text-white'>Implementation period</dt>
+                    <dd className='mt-1 leading-6 text-white/65'>{period}</dd>
+                  </div>
+                </div>
+                <div className='flex gap-3 py-5'>
+                  <MapPin className='mt-0.5 h-5 w-5 shrink-0 text-emerald-300' aria-hidden='true' />
+                  <div>
+                    <dt className='font-bold text-white'>Location</dt>
+                    <dd className='mt-1 leading-6 text-white/65'>{location}</dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </header>
+
+        <section className='bg-white pt-10 md:pt-14' aria-label='Project overview image'>
+          <div className='site-container'>
+            <div className='relative h-[260px] overflow-hidden bg-slate-100 sm:h-auto sm:min-h-[300px] sm:aspect-[16/7]'>
+              <BlurImage
+                src={document.coverImage || document.image || '/images/research.webp'}
+                alt={`${document.title} field activity`}
+                fill
+                priority
+                sizes='(min-width: 1280px) 1280px, 100vw'
+                className='object-cover'
+              />
+            </div>
+          </div>
+        </section>
+
+        {highlights.length > 0 && (
+          <section className='bg-white pt-12 md:pt-16' aria-labelledby='results-heading'>
+            <div className='site-container'>
+              <div className='border-y border-slate-300 py-8'>
+                <p id='results-heading' className='eyebrow'>
+                  {ongoing ? 'Selected results to date' : 'Final results'}
+                </p>
+                <dl className='mt-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-4'>
+                  {highlights.map((item) => (
+                    <div key={`${item.value}-${item.label}`}>
+                      <dd className='text-4xl font-extrabold tracking-[-0.04em] text-forest md:text-5xl'>
+                        {item.value}
+                      </dd>
+                      <dt className='mt-2 text-sm font-bold leading-6 text-slate-600'>
+                        {item.label}
+                      </dt>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <article className='section-padding bg-white'>
+          <div className='site-container grid gap-12 lg:grid-cols-[260px_minmax(0,760px)] lg:gap-20'>
+            <aside className='h-fit border-t-2 border-brand pt-5 lg:sticky lg:top-36'>
+              <p className='eyebrow'>Project at a glance</p>
+              <dl className='mt-6 grid gap-5 text-sm'>
+                <div>
+                  <dt className='font-bold text-slate-950'>Status</dt>
+                  <dd className='mt-1 text-slate-600'>{status}</dd>
+                </div>
+                {document.project_code && (
+                  <div>
+                    <dt className='font-bold text-slate-950'>Project code</dt>
+                    <dd className='mt-1 text-slate-600'>{document.project_code}</dd>
+                  </div>
+                )}
+                {partner && (
+                  <div>
+                    <dt className='font-bold text-slate-950'>Funding partner</dt>
+                    <dd className='mt-1 leading-6 text-slate-600'>{partner}</dd>
+                  </div>
+                )}
+                {document.program_areas && document.program_areas.length > 0 && (
+                  <div>
+                    <dt className='font-bold text-slate-950'>Programme areas</dt>
+                    <dd className='mt-2 flex flex-wrap gap-2'>
+                      {document.program_areas.map((area) => (
+                        <span key={area} className='border border-slate-300 px-2.5 py-1 text-xs font-semibold text-slate-600'>
+                          {area}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                )}
+                <div>
+                  <dt className='font-bold text-slate-950'>Implemented by</dt>
+                  <dd className='mt-1 text-slate-600'>CeRID</dd>
+                </div>
+              </dl>
+              {sectionLinks.length > 1 && (
+                <nav className='mt-8 border-t border-slate-200 pt-6' aria-label='On this project page'>
+                  <p className='text-xs font-extrabold uppercase tracking-[0.12em] text-slate-500'>On this page</p>
+                  <ol className='mt-4 grid gap-3'>
+                    {sectionLinks.map((section, index) => (
+                      <li key={section.id}>
+                        <a href={`#${section.id}`} className='flex gap-3 text-sm font-semibold leading-5 text-slate-600 hover:text-brand'>
+                          <span className='text-xs text-slate-400'>{String(index + 1).padStart(2, '0')}</span>
+                          {section.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              )}
+            </aside>
+
+            <Markdown
+              components={{
+                h2: ({ children }) => {
+                  const label = String(children)
+                  return <h2 id={headingId(label)} className='scroll-mt-36'>{children}</h2>
+                },
+              }}
+              className='prose prose-lg prose-slate max-w-none prose-headings:font-extrabold prose-headings:tracking-tight prose-h1:mt-16 prose-h1:text-4xl prose-h2:mt-14 prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-li:my-2 prose-a:font-semibold prose-a:text-brand prose-strong:text-slate-950 prose-blockquote:border-brand prose-blockquote:bg-warm-white prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:not-italic'
+            >
+              {body}
+            </Markdown>
+          </div>
+        </article>
+
+        {gallery.length > 0 && (
+          <section className='bg-warm-white py-16 md:py-24' aria-labelledby='field-gallery'>
+            <div className='site-container'>
+              <p className='eyebrow'>From the field</p>
+              <div className='mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end'>
+                <h2 id='field-gallery' className='section-title'>Project in pictures</h2>
+                <p className='max-w-md text-sm leading-6 text-slate-500'>
+                  Documentary photographs from implementation, training, and community-led activities.
+                </p>
+              </div>
+              <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+                {gallery.map((src, index) => (
+                  <figure
+                    key={src}
+                    className={index === 0 ? 'sm:col-span-2' : ''}
+                  >
+                    <div className={`relative overflow-hidden bg-slate-200 ${
+                      index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'
+                    }`}>
+                      <BlurImage
+                        src={src}
+                        alt={document.galleryAlts?.[index] || `${document.title} programme activity`}
+                        fill
+                        sizes={index === 0 ? '(min-width: 1024px) 66vw, 100vw' : '(min-width: 1024px) 33vw, 50vw'}
+                        className='object-cover'
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className='border-t border-slate-200 bg-white py-14' aria-label='Continue exploring'>
+          <div className='site-container flex flex-col justify-between gap-6 md:flex-row md:items-center'>
+            <div>
+              <p className='eyebrow'>Continue exploring</p>
+              <h2 className='mt-3 text-2xl font-extrabold tracking-tight text-slate-950'>
+                See how this work connects to CeRID’s wider programme.
+              </h2>
+            </div>
+            <div className='flex flex-wrap gap-5 text-sm font-bold'>
+              <Link href='/thematic-areas' className='text-brand hover:text-forest'>Explore thematic areas</Link>
+              <Link href='/impact' className='text-brand hover:text-forest'>View impact and results</Link>
+              <Link href='/projects' className='text-brand hover:text-forest'>All projects</Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
+}

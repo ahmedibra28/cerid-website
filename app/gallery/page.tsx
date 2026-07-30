@@ -5,7 +5,7 @@ import Footer from '@/components/footer-contact'
 import { getGallery } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Gallery | CeRID',
+  title: 'Gallery',
   description:
     'Stories in pictures from CeRID programmes and community-led action across Somalia.',
 }

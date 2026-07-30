@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import ContentDetailPage from '@/components/content-detail-page'
+import ProjectDetailPage from '@/components/project-detail-page'
 import { getCollectionSlugs, getProjectsBySlug } from '@/lib/content'
 
 type PageProps = { params: { slug: string } }
@@ -26,20 +26,5 @@ export default async function Page({ params }: PageProps) {
   const document = documents[0]
   if (!document) notFound()
 
-  const topAligned = [
-    'somalia-multisector-emergency-response',
-    'cross-border-community-resilience',
-    'building-resilience-and-improving-sustainable-livelihood-skills-of-vulnerable-idphost-women-in-luuq-district',
-  ].includes(document.slug)
-
-  return (
-    <ContentDetailPage
-      document={document}
-      image={document.coverImage || document.image}
-      imagePosition={topAligned ? 'object-top' : 'object-center'}
-      eyebrow='Programme'
-      parentHref='/#projects'
-      parentLabel='Projects'
-    />
-  )
+  return <ProjectDetailPage document={document} />
 }

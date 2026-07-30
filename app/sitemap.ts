@@ -11,15 +11,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/core-values',
     '/governance',
     '/gallery',
+    '/impact',
     '/mission-vision',
     '/news',
+    '/projects',
     '/thematic-areas',
   ]
 
   const contentRoutes = [
     ['projects', '/projects'],
     ['news', '/news'],
-    ['key-achievements', '/key-achievement'],
+    ['key-achievements', '/impact'],
     ['thematic-areas', '/thematic-areas'],
   ].flatMap(([collection, prefix]) =>
     getCollectionSlugs(collection).map((slug) => `${prefix}/${slug}`)
