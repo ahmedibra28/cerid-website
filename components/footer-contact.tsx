@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { getAddress } from '@/lib/content'
+import { resolveImageUrl } from '@/lib/image-url'
 
 export default async function Footer() {
   const { documents } = await getAddress()
@@ -12,7 +13,7 @@ export default async function Footer() {
       <div className='site-container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_0.7fr_1.1fr] lg:py-20'>
         <div>
           <div className='flex items-center gap-3'>
-            <Image src='/images/logo.webp' alt='' width={56} height={56} className='h-14 w-14 rounded-full' />
+            <Image src={resolveImageUrl('/images/logo.webp')} alt='' width={56} height={56} className='h-14 w-14 rounded-full' />
             <span className='text-3xl font-extrabold'>CeRID</span>
           </div>
           <p className='mt-6 max-w-sm leading-7 text-white/70'>

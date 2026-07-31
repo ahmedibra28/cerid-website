@@ -5,6 +5,7 @@ const base64 =
 
 import React from 'react'
 import Image from 'next/image'
+import { resolveImageUrl } from '@/lib/image-url'
 
 interface BlurImageProps {
   src: string
@@ -38,7 +39,7 @@ const BlurImage: React.FC<BlurImageProps> = ({
     <Image
       fill={fill}
       priority={priority}
-      src={src}
+      src={resolveImageUrl(src)}
       width={width}
       height={height}
       blurDataURL={base64}

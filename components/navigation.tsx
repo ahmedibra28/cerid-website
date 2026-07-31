@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { ExternalLink, Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { resolveImageUrl } from '@/lib/image-url'
 
 const links = [
   { href: '/about-us', label: 'Who we are' },
@@ -85,7 +86,7 @@ export default function Navigation() {
           aria-label='CeRID home'
         >
           <Image
-            src='/images/logo.webp'
+            src={resolveImageUrl('/images/logo.webp')}
             alt=''
             width={48}
             height={48}

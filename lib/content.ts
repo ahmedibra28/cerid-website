@@ -58,6 +58,7 @@ export type CardDocument = ContentDocument & {
 }
 
 const contentRoot = path.join(process.cwd(), 'content')
+const usesRemoteImages = Boolean(process.env.NEXT_PUBLIC_R2_PUBLIC_URL)
 const slugCollections = new Set([
   'pages',
   'shorts',
@@ -94,6 +95,7 @@ function validateDocument(collection: string, file: string, document: ContentDoc
   for (const field of ['image', 'coverImage', 'logo'] as const) {
     const asset = document[field]
     if (!asset?.startsWith('/')) continue
+    if (usesRemoteImages && asset.startsWith('/images/')) continue
 
     const assetPath = path.join(process.cwd(), 'public', asset)
     if (!fs.existsSync(assetPath)) {
@@ -103,6 +105,7 @@ function validateDocument(collection: string, file: string, document: ContentDoc
 
   for (const asset of document.galleryImages ?? []) {
     if (!asset.startsWith('/')) continue
+    if (usesRemoteImages && asset.startsWith('/images/')) continue
     const assetPath = path.join(process.cwd(), 'public', asset)
     if (!fs.existsSync(assetPath)) {
       throw new Error(`${label} references missing gallery image: ${asset}`)

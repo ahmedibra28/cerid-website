@@ -3,6 +3,7 @@ import { Public_Sans } from 'next/font/google'
 // import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/navigation'
+import { resolveImageUrl } from '@/lib/image-url'
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Centre for Research and Integrated Development',
     description:
       'Research, humanitarian support, climate resilience, education, and sustainable development.',
-    images: ['/images/logo.webp'],
+    images: [resolveImageUrl('/images/logo.webp')],
   },
 }
 
