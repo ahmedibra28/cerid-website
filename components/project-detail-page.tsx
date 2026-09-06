@@ -82,6 +82,7 @@ export default function ProjectDetailPage({
     document.funding_partner ||
     document.member_organization ||
     document.partner_program
+  const gallery = document.galleryImages ?? []
   const highlights = document.highlights ?? []
   const status = document.status || 'Archive'
   const ongoing = status === 'Ongoing'
@@ -248,6 +249,40 @@ export default function ProjectDetailPage({
             </Markdown>
           </div>
         </article>
+
+        {gallery.length > 0 && (
+          <section className='bg-warm-white py-16 md:py-24' aria-labelledby='field-gallery'>
+            <div className='site-container'>
+              <p className='eyebrow'>From the field</p>
+              <div className='mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end'>
+                <h2 id='field-gallery' className='section-title'>Project in pictures</h2>
+                <p className='max-w-md text-sm leading-6 text-slate-500'>
+                  Documentary photographs from implementation, training, and community-led activities.
+                </p>
+              </div>
+              <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+                {gallery.map((src, index) => (
+                  <figure
+                    key={src}
+                    className={index === 0 ? 'sm:col-span-2' : ''}
+                  >
+                    <div className={`relative overflow-hidden bg-slate-200 ${
+                      index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'
+                    }`}>
+                      <BlurImage
+                        src={src}
+                        alt={document.galleryAlts?.[index] || `${document.title} programme activity`}
+                        fill
+                        sizes={index === 0 ? '(min-width: 1024px) 66vw, 100vw' : '(min-width: 1024px) 33vw, 50vw'}
+                        className='object-cover'
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
       </main>
       <Footer />
