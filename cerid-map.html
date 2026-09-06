@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CeRID Project Locations in Somalia</title>
+<style>
+:root{--bg:#f5f8fd;--card:#fff;--text:#102046;--muted:#66758f;--line:rgba(16,32,70,.1);--Education:#6d28d9;--WASH:#0891b2;--Nutrition:#ea580c;--Health:#16a34a;--Livelihoods:#2563eb}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#fbfdff,#f5f8fd);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text)}
+.page{width:min(1280px,calc(100% - 24px));margin:24px auto} .hero{text-align:center;margin-bottom:18px} .hero h1{margin:0;font-size:clamp(28px,4vw,54px);letter-spacing:-.03em} .hero p{color:var(--muted);margin:9px auto 0;max-width:780px}
+.toolbar{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:16px 0 20px} .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font-weight:700;color:var(--text);cursor:pointer} .chip.active{background:var(--text);color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.65fr);gap:18px;align-items:start} .card{background:#fff;border:1px solid rgba(16,32,70,.08);border-radius:22px;box-shadow:0 16px 42px rgba(16,32,70,.10)}
+.map-card{position:relative;overflow:hidden} .map-head{padding:18px 20px 0} .map-head h2{margin:0;font-size:21px} .map-head p{margin:6px 0 0;color:var(--muted);font-size:14px} .svg-wrap{padding:12px} svg{display:block;width:100%;height:auto;border-radius:18px;background:#e9f5ff}
+.country{fill:#eef1f5;stroke:#d2d8e2;stroke-width:1.4} .somalia{fill:#efe5ca;stroke:#fff;stroke-width:2.4;filter:drop-shadow(0 8px 12px rgba(16,32,70,.09))} .country-label{fill:rgba(16,32,70,.46);font-weight:800;letter-spacing:.15em;text-anchor:middle;pointer-events:none} .somalia-label{fill:rgba(16,32,70,.6)}
+.pin-group{cursor:pointer} .pin-pulse{fill:none;stroke-width:3;opacity:.28;animation:pulse 2.5s ease-out infinite;transform-origin:center} .pin-dot{stroke:#fff;stroke-width:4;filter:drop-shadow(0 5px 8px rgba(16,32,70,.24));transition:transform .16s ease} .pin-group:hover .pin-dot,.pin-group.active .pin-dot{transform:scale(1.16)} .pin-label rect{fill:rgba(255,255,255,.97);stroke:rgba(16,32,70,.12);rx:10} .pin-label text{fill:var(--text);font-size:15px;font-weight:800;dominant-baseline:middle}
+.legend{display:flex;flex-wrap:wrap;gap:12px;padding:0 20px 18px} .legend-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);font-weight:700} .swatch{width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(16,32,70,.1)}
+.side{padding:18px} .side h3{margin:0 0 6px;font-size:22px} .side>p{margin:0 0 15px;color:var(--muted);font-size:14px} .project-list{display:grid;gap:10px} .project-item{border:1px solid rgba(16,32,70,.09);border-radius:15px;padding:13px;cursor:pointer} .project-item.active{border-color:rgba(16,32,70,.25);box-shadow:0 8px 18px rgba(16,32,70,.08)} .top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px} .title{font-weight:800} .badge{font-size:11px;font-weight:800;color:#fff;padding:5px 9px;border-radius:999px} .meta,.status{font-size:13px;color:var(--muted);line-height:1.4} .status{margin-top:6px;font-size:12px;font-weight:700}
+.tooltip{position:absolute;z-index:5;pointer-events:none;background:rgba(16,32,70,.97);color:#fff;padding:13px 14px;border-radius:14px;max-width:280px;opacity:0;transform:translateY(6px);transition:.15s;box-shadow:0 14px 30px rgba(16,32,70,.25)} .tooltip.visible{opacity:1;transform:none} .tooltip strong{display:block;margin-bottom:5px} .tooltip span{display:block;color:#dbe8ff;font-size:13px;line-height:1.4}
+.note{margin-top:14px;padding:12px 13px;border-radius:14px;background:#f7fafc;border:1px dashed rgba(16,32,70,.14);color:var(--muted);font-size:13px} code{background:rgba(16,32,70,.06);padding:2px 5px;border-radius:5px}
+@keyframes pulse{0%{transform:scale(.75);opacity:.4}75%,100%{transform:scale(2.1);opacity:0}} @media(max-width:1000px){.layout{grid-template-columns:1fr}} @media(max-width:600px){.page{width:calc(100% - 12px);margin:8px auto}.hero p{font-size:14px}}
+</style>
+</head>
+<body><main class="page">
+<section class="hero"><h1>CeRID Project Locations in Somalia</h1><p>Offline interactive SVG map. The complete Somalia outline is drawn by combining the Somalia and Somaliland geographic shapes from the source dataset.</p></section>
+<div class="toolbar" id="toolbar"></div>
+<section class="layout">
+<article class="card map-card"><div class="map-head"><h2>Somalia Project Coverage Map</h2><p>Filter locations by project category, then click a pin for details.</p></div>
+<div class="svg-wrap"><svg id="map" viewBox="0 0 1100 820" role="img" aria-labelledby="title desc"><title id="title">CeRID project locations in Somalia</title><desc id="desc">The complete Somalia outline, including the northern area around Hargeisa, with five sample CeRID project markers.</desc><defs><linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5fbff"/><stop offset="1" stop-color="#dcefff"/></linearGradient></defs><rect width="1100" height="820" fill="url(#ocean)"/>
+<g id="base"><path class="country" d="M 745.72 316.98 L 649.46 419.90 L 605.08 421.41 L 574.72 445.50 L 552.88 446.13 L 543.56 456.90 L 520.29 456.89 L 506.55 445.35 L 475.43 459.63 L 465.36 473.86 L 442.64 471.17 L 435.10 467.23 L 427.12 468.18 L 416.35 467.83 L 373.23 438.83 L 349.52 438.83 L 337.88 427.58 L 337.88 408.39 L 320.19 402.64 L 300.06 365.36 L 284.50 357.41 L 278.53 343.69 L 261.26 326.94 L 240.34 324.48 L 251.95 304.88 L 270.03 304.03 L 275.12 293.51 L 274.66 262.49 L 284.74 226.28 L 300.88 216.57 L 304.30 202.37 L 318.91 175.80 L 339.46 158.52 L 353.31 124.07 L 358.73 93.92 L 398.40 101.27 L 409.04 75.00 L 429.71 90.99 L 449.69 82.71 L 457.90 90.07 L 481.26 90.49 L 510.91 104.59 L 519.72 116.71 L 534.82 127.97 L 548.83 148.48 L 560.48 159.78 L 548.50 175.20 L 536.98 191.52 L 539.63 201.12 L 540.17 211.68 L 559.20 212.26 L 567.40 209.80 L 574.96 215.99 L 567.54 228.27 L 580.12 247.34 L 592.68 263.98 L 605.69 276.30 L 717.07 317.19 L 745.72 316.98 Z"/><path class="country" d="M 453.19 750.00 L 404.29 715.85 L 401.97 696.06 L 278.44 626.61 L 272.69 622.87 L 272.34 586.76 L 282.10 572.96 L 298.87 550.41 L 311.26 525.57 L 296.28 486.42 L 292.29 469.30 L 276.14 445.59 L 297.10 425.18 L 320.19 402.64 L 337.88 408.39 L 337.88 427.58 L 349.52 438.83 L 373.23 438.83 L 416.35 467.83 L 427.12 468.18 L 435.10 467.23 L 442.64 471.17 L 465.36 473.86 L 475.43 459.63 L 506.55 445.35 L 520.29 456.89 L 543.56 456.90 L 513.79 495.61 L 514.20 619.74 L 534.37 647.85 L 510.51 661.46 L 502.10 675.69 L 489.33 678.19 L 484.50 702.22 L 473.56 715.99 L 466.91 738.71 L 453.19 750.00 Z"/><path class="country" d="M 560.48 159.78 L 575.06 162.81 L 585.33 154.29 L 593.39 165.09 L 592.32 179.56 L 572.89 187.89 L 587.52 197.40 L 574.96 215.99 L 567.40 209.80 L 559.20 212.26 L 540.17 211.68 L 539.63 201.12 L 536.98 191.52 L 548.50 175.20 L 560.48 159.78 Z"/><path class="somalia" d="M 514.20 619.74 L 513.79 495.61 L 543.56 456.90 L 552.88 446.13 L 574.72 445.50 L 605.08 421.41 L 649.46 419.90 L 745.72 316.98 L 717.07 317.19 L 605.69 276.30 L 592.68 263.98 L 580.12 247.34 L 567.54 228.27 L 574.96 215.99 L 587.52 197.40 L 598.60 203.81 L 605.28 218.16 L 620.65 232.67 L 637.56 232.79 L 669.67 223.92 L 706.75 219.81 L 736.74 209.03 L 753.63 206.75 L 765.80 200.41 L 785.20 199.19 L 785.20 199.19 L 796.09 198.51 L 811.79 193.34 L 829.85 189.84 L 845.97 177.92 L 858.88 177.83 L 859.66 187.45 L 856.51 207.67 L 856.64 225.90 L 849.45 238.42 L 839.85 275.78 L 823.45 314.27 L 802.39 358.15 L 773.15 408.36 L 744.07 446.63 L 704.00 493.19 L 669.91 520.80 L 618.95 554.63 L 587.20 580.55 L 549.92 621.82 L 542.06 639.78 L 534.37 647.85 L 514.20 619.74 Z"/></g>
+<g id="labels"><text class="country-label" x="567.24" y="185.65" font-size="13">DJIBOUTI</text>
+<text class="country-label" x="412.24" y="358.31" font-size="18">ETHIOPIA</text>
+<text class="country-label" x="415.64" y="583.69" font-size="18">KENYA</text>
+<text class="country-label somalia-label" x="688.17" y="396.00" font-size="29">SOMALIA</text></g><g id="pins"></g></svg></div><div class="legend" id="legend"></div><div class="tooltip" id="tooltip"></div></article>
+<aside class="card side"><h3>Project Details</h3><p>These are sample locations. You can replace them with the real CeRID projects later.</p><div class="project-list" id="projectList"></div><div class="note">Edit the <code>projectLocations</code> array. Coordinates must be <code>[longitude, latitude]</code>.</div></aside>
+</section></main>
+<script>
+const MAP_CONFIG={"minX": 3668442.537109887, "maxY": 1684525.0355586156, "scale": 0.00030602255540110773, "offsetX": 240.34284017259733, "offsetY": 75.0, "canvasWidth": 1100, "canvasHeight": 820};
+const projectLocations=[
+  {
+    "name": "Hargeisa",
+    "coordinates": [
+      44.064,
+      9.562
+    ],
+    "category": "Education",
+    "project": "Education and community development",
+    "status": "Active"
+  },
+  {
+    "name": "Garowe",
+    "coordinates": [
+      48.485,
+      8.405
+    ],
+    "category": "WASH",
+    "project": "Water, sanitation and resilience",
+    "status": "Active"
+  },
+  {
+    "name": "Baidoa",
+    "coordinates": [
+      43.65,
+      3.119
+    ],
+    "category": "Nutrition",
+    "project": "Nutrition and food security",
+    "status": "Active"
+  },
+  {
+    "name": "Mogadishu",
+    "coordinates": [
+      45.318,
+      2.047
+    ],
+    "category": "Health",
+    "project": "Health and emergency support",
+    "status": "Active"
+  },
+  {
+    "name": "Kismayo",
+    "coordinates": [
+      42.545,
+      -0.358
+    ],
+    "category": "Livelihoods",
+    "project": "Livelihoods and protection",
+    "status": "Completed"
+  }
+];
+const COLORS={Education:'#6d28d9',WASH:'#0891b2',Nutrition:'#ea580c',Health:'#16a34a',Livelihoods:'#2563eb'};
+const ns='http://www.w3.org/2000/svg', toolbar=document.getElementById('toolbar'), pins=document.getElementById('pins'), legend=document.getElementById('legend'), list=document.getElementById('projectList'), tooltip=document.getElementById('tooltip'), mapCard=document.querySelector('.map-card');
+let activeCategory='All',activeName=projectLocations[0].name;
+function merc(lon,lat){const R=6378137;return [R*lon*Math.PI/180,R*Math.log(Math.tan(Math.PI/4+(lat*Math.PI/180)/2))]}
+function project(coords){const [x,y]=merc(coords[0],coords[1]);return [MAP_CONFIG.offsetX+(x-MAP_CONFIG.minX)*MAP_CONFIG.scale,MAP_CONFIG.offsetY+(MAP_CONFIG.maxY-y)*MAP_CONFIG.scale]}
+function categories(){return ['All',...new Set(projectLocations.map(x=>x.category))]}
+function filtered(){return activeCategory==='All'?projectLocations:projectLocations.filter(x=>x.category===activeCategory)}
+function showTip(e,item){tooltip.innerHTML=`<strong>${item.name}</strong><span>${item.project}</span><span>${item.category} · ${item.status}</span>`;const r=mapCard.getBoundingClientRect();const x=Math.min(Math.max(e.clientX-r.left+12,12),r.width-295);const y=Math.min(Math.max(e.clientY-r.top-80,12),r.height-110);tooltip.style.left=x+'px';tooltip.style.top=y+'px';tooltip.classList.add('visible')} function hideTip(){tooltip.classList.remove('visible')}
+function renderToolbar(){toolbar.innerHTML='';categories().forEach(c=>{const b=document.createElement('button');b.className='chip'+(c===activeCategory?' active':'');b.textContent=c;b.onclick=()=>{activeCategory=c;render()};toolbar.appendChild(b)})}
+function renderLegend(){legend.innerHTML='';categories().slice(1).forEach(c=>{const d=document.createElement('div');d.className='legend-item';const s=document.createElement('span');s.className='swatch';s.style.background=COLORS[c]||'#2668d8';d.append(s,document.createTextNode(c));legend.appendChild(d)})}
+function renderPins(data){pins.innerHTML='';data.forEach((item,i)=>{const [x,y]=project(item.coordinates),color=COLORS[item.category]||'#2668d8',w=Math.max(82,item.name.length*9+24),left=x>MAP_CONFIG.canvasWidth*.70,labelX=left?-(w+20):20;const g=document.createElementNS(ns,'g');g.setAttribute('class','pin-group'+(item.name===activeName?' active':''));g.setAttribute('transform',`translate(${x},${y})`);g.setAttribute('tabindex','0');const pulse=document.createElementNS(ns,'circle');pulse.setAttribute('class','pin-pulse');pulse.setAttribute('r','15');pulse.setAttribute('stroke',color);pulse.style.animationDelay=(i*.2)+'s';const dot=document.createElementNS(ns,'circle');dot.setAttribute('class','pin-dot');dot.setAttribute('r','11');dot.setAttribute('fill',color);const lg=document.createElementNS(ns,'g');lg.setAttribute('class','pin-label');lg.setAttribute('transform',`translate(${labelX},-18)`);const rect=document.createElementNS(ns,'rect');rect.setAttribute('width',w);rect.setAttribute('height',36);const text=document.createElementNS(ns,'text');text.setAttribute('x',12);text.setAttribute('y',18);text.textContent=item.name;lg.append(rect,text);g.append(pulse,dot,lg);g.addEventListener('mouseenter',e=>showTip(e,item));g.addEventListener('mousemove',e=>showTip(e,item));g.addEventListener('mouseleave',hideTip);g.addEventListener('focus',e=>showTip(e,item));g.addEventListener('blur',hideTip);g.addEventListener('click',()=>{activeName=item.name;render()});pins.appendChild(g)})}
+function renderList(data){list.innerHTML='';data.forEach(item=>{const c=document.createElement('article');c.className='project-item'+(item.name===activeName?' active':'');c.innerHTML=`<div class="top"><div class="title">${item.name}</div><span class="badge" style="background:${COLORS[item.category]||'#2668d8'}">${item.category}</span></div><div class="meta">${item.project}</div><div class="status">Status: ${item.status}</div>`;c.onclick=()=>{activeName=item.name;render()};list.appendChild(c)})}
+function render(){renderToolbar();renderLegend();const data=filtered();if(!data.some(x=>x.name===activeName))activeName=data[0]?.name||null;renderPins(data);renderList(data)} render();
+</script></body></html>

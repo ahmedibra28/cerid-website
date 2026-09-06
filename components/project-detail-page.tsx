@@ -15,9 +15,46 @@ function formatPeriod(date?: string) {
 }
 
 function projectBody(content: string) {
-  const start = content.indexOf('## Project Overview')
-  const substantive = start >= 0 ? content.slice(start) : content
-  return substantive.split('# Suggested Website Card Content')[0].trim()
+  const requestedSections = [
+    { title: 'Project Overview', aliases: ['project overview'] },
+    { title: 'Overall Goal', aliases: ['overall goal'] },
+    {
+      title: 'Key Objectives',
+      aliases: ['key objectives', 'project objectives'],
+    },
+    {
+      title: 'Emerging Impact',
+      aliases: ['emerging impact', 'project impact'],
+    },
+  ]
+  const headings = Array.from(content.matchAll(/^(#{1,6})\s+(.+)$/gm)).map(
+    (match) => ({
+      start: match.index,
+      contentStart: (match.index ?? 0) + match[0].length,
+      level: match[1].length,
+      label: match[2].replace(/[*_`]/g, '').trim().toLowerCase(),
+    })
+  )
+
+  return requestedSections
+    .map((section) => {
+      const headingIndex = headings.findIndex((heading) =>
+        section.aliases.includes(heading.label)
+      )
+      if (headingIndex < 0) return ''
+
+      const heading = headings[headingIndex]
+      const nextHeading = headings
+        .slice(headingIndex + 1)
+        .find((candidate) => candidate.level <= heading.level)
+      const sectionContent = content
+        .slice(heading.contentStart, nextHeading?.start ?? content.length)
+        .trim()
+
+      return `## ${section.title}\n\n${sectionContent}`
+    })
+    .filter(Boolean)
+    .join('\n\n')
 }
 
 function headingId(value: string) {
@@ -45,7 +82,6 @@ export default function ProjectDetailPage({
     document.funding_partner ||
     document.member_organization ||
     document.partner_program
-  const gallery = document.galleryImages ?? []
   const highlights = document.highlights ?? []
   const status = document.status || 'Archive'
   const ongoing = status === 'Ongoing'
@@ -125,7 +161,7 @@ export default function ProjectDetailPage({
             <div className='site-container'>
               <div className='border-y border-slate-300 py-8'>
                 <p id='results-heading' className='eyebrow'>
-                  {ongoing ? 'Selected results to date' : 'Final results'}
+                  Selected results to date
                 </p>
                 <dl className='mt-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-4'>
                   {highlights.map((item) => (
@@ -213,55 +249,6 @@ export default function ProjectDetailPage({
           </div>
         </article>
 
-        {gallery.length > 0 && (
-          <section className='bg-warm-white py-16 md:py-24' aria-labelledby='field-gallery'>
-            <div className='site-container'>
-              <p className='eyebrow'>From the field</p>
-              <div className='mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end'>
-                <h2 id='field-gallery' className='section-title'>Project in pictures</h2>
-                <p className='max-w-md text-sm leading-6 text-slate-500'>
-                  Documentary photographs from implementation, training, and community-led activities.
-                </p>
-              </div>
-              <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
-                {gallery.map((src, index) => (
-                  <figure
-                    key={src}
-                    className={index === 0 ? 'sm:col-span-2' : ''}
-                  >
-                    <div className={`relative overflow-hidden bg-slate-200 ${
-                      index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'
-                    }`}>
-                      <BlurImage
-                        src={src}
-                        alt={document.galleryAlts?.[index] || `${document.title} programme activity`}
-                        fill
-                        sizes={index === 0 ? '(min-width: 1024px) 66vw, 100vw' : '(min-width: 1024px) 33vw, 50vw'}
-                        className='object-cover'
-                      />
-                    </div>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        <section className='border-t border-slate-200 bg-white py-14' aria-label='Continue exploring'>
-          <div className='site-container flex flex-col justify-between gap-6 md:flex-row md:items-center'>
-            <div>
-              <p className='eyebrow'>Continue exploring</p>
-              <h2 className='mt-3 text-2xl font-extrabold tracking-tight text-slate-950'>
-                See how this work connects to CeRID’s wider programme.
-              </h2>
-            </div>
-            <div className='flex flex-wrap gap-5 text-sm font-bold'>
-              <Link href='/thematic-areas' className='text-brand hover:text-forest'>Explore thematic areas</Link>
-              <Link href='/impact' className='text-brand hover:text-forest'>View impact and results</Link>
-              <Link href='/projects' className='text-brand hover:text-forest'>All projects</Link>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>

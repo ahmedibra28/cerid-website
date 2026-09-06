@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import BlurImage from '@/components/blur-image'
 import { Button } from '@/components/ui/button'
+import { headlineImpactMetrics } from '@/lib/impact-data'
 
 export default function HeroSection() {
   return (
@@ -43,22 +44,17 @@ export default function HeroSection() {
 
       <section className='border-b border-slate-200 bg-warm-white' aria-labelledby='headline-results'>
         <h2 id='headline-results' className='sr-only'>Reported programme results</h2>
-        <div className='site-container grid divide-y divide-slate-200 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4'>
-          {[
-            ['125,000+', 'People reached with humanitarian assistance'],
-            ['20+', 'Primary schools established and supported'],
-            ['3,000+', 'Children supported through primary education'],
-            ['2,000+', 'Farmers and pastoralists using climate-smart practices'],
-          ].map(([value, label]) => (
-            <div key={value} className='px-6 py-8 sm:py-10 lg:px-9'>
-              <strong className='block text-3xl font-extrabold tracking-tight text-brand lg:text-4xl'>{value}</strong>
-              <span className='mt-2 block max-w-[230px] text-sm font-medium leading-6 text-slate-600'>{label}</span>
+        <div className='site-container grid divide-y divide-slate-200 md:grid-cols-3 md:divide-x md:divide-y-0'>
+          {headlineImpactMetrics.map((metric) => (
+            <div key={metric.value} className='px-6 py-8 sm:py-10 lg:px-9'>
+              <strong className='block text-3xl font-extrabold tracking-tight text-brand lg:text-4xl'>{metric.value}</strong>
+              <span className='mt-2 block max-w-[260px] text-sm font-medium leading-6 text-slate-600'>{metric.label}</span>
             </div>
           ))}
         </div>
         <div className='site-container border-t border-slate-200 py-4'>
           <p className='text-xs leading-5 text-slate-500'>
-            Cumulative figures reported in CeRID programme records. Reporting periods and evidence notes are provided on the Impact page.
+            Cumulative organisational figures supplied by CeRID. The programme investment breakdown is provided on the Impact page.
           </p>
         </div>
       </section>

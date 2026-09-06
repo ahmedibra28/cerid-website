@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ExternalLink, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { resolveImageUrl } from '@/lib/image-url'
@@ -16,10 +16,6 @@ const links = [
   { href: '/news', label: 'News' },
 ]
 const mobileLinks = [...links, { href: '/careers', label: 'Careers' }]
-const externalLinks = [
-  { href: 'https://mail.cerid.so:2096/login/', label: 'Email login' },
-  { href: 'https://erp.cerid.so', label: 'ERP' },
-]
 
 export default function Navigation() {
   const [open, setOpen] = useState(false)
@@ -62,19 +58,6 @@ export default function Navigation() {
             <Link href='/#contact-us' className='hover:text-white'>
               Contact
             </Link>
-            {externalLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target='_blank'
-                rel='noreferrer'
-                className='inline-flex items-center gap-1.5 hover:text-white'
-              >
-                {link.label}
-                <ExternalLink className='h-3 w-3' aria-hidden='true' />
-                <span className='sr-only'>(opens in a new tab)</span>
-              </a>
-            ))}
           </div>
         </div>
       </div>
@@ -157,24 +140,6 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <div className='mt-3 border-t border-slate-200 pt-4'>
-              <p className='mb-2 text-xs font-extrabold uppercase tracking-[0.12em] text-slate-500'>
-                Staff access
-              </p>
-              {externalLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target='_blank'
-                  rel='noreferrer'
-                  className='flex items-center justify-between border-b border-slate-100 py-3 text-base font-semibold text-slate-800'
-                >
-                  {link.label}
-                  <ExternalLink className='h-4 w-4 text-slate-400' aria-hidden='true' />
-                  <span className='sr-only'>(opens in a new tab)</span>
-                </a>
-              ))}
-            </div>
             <Button asChild className='mt-4 h-12 rounded-sm bg-brand font-bold'>
               <Link href='/#contact-us' onClick={() => setOpen(false)}>
                 Partner with us

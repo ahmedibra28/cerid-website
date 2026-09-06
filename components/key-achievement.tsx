@@ -1,11 +1,8 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { getKeyAchievements } from '@/lib/content'
+import { headlineImpactMetrics } from '@/lib/impact-data'
 
-export default async function KeyAchievement() {
-  const { documents } = await getKeyAchievements()
-  const results = documents.filter((item) => item.metric_value).slice(0, 3)
-
+export default function KeyAchievement() {
   return (
     <section className='section-padding bg-forest text-white' id='impact-areas'>
       <div className='site-container'>
@@ -28,20 +25,17 @@ export default async function KeyAchievement() {
         </div>
 
         <dl className='mt-10 grid border-y border-white/20 md:grid-cols-3'>
-          {results.map((item, index) => (
+          {headlineImpactMetrics.map((metric, index) => (
             <div
-              key={item.$id}
+              key={metric.value}
               className={`py-9 md:px-8 ${index > 0 ? 'border-t border-white/20 md:border-l md:border-t-0' : ''}`}
             >
               <dd className='text-5xl font-extrabold tracking-[-0.045em] text-emerald-300'>
-                {item.metric_value}
+                {metric.value}
               </dd>
               <dt className='mt-4 max-w-xs font-bold leading-7 text-white'>
-                {item.metric_label}
+                {metric.label}
               </dt>
-              <p className='mt-3 text-xs font-semibold uppercase tracking-[0.1em] text-white/50'>
-                {item.reporting_period}
-              </p>
             </div>
           ))}
         </dl>
