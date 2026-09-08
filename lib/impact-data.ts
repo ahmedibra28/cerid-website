@@ -4,7 +4,7 @@ export const headlineImpactMetrics = [
     label: 'People reached across CeRID programmes',
   },
   {
-    value: '12M',
+    value: '$12M',
     label: 'Invested across CeRID programmes',
   },
   {

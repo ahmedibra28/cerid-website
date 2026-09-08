@@ -43,6 +43,10 @@ export type ContentDocument = {
   source?: string
   evidence_status?: string
   lastReviewed?: string
+  platform?: string
+  external_url?: string
+  published_date?: string
+  cta_label?: string
   order?: number
   [key: string]: unknown
 }
@@ -190,6 +194,7 @@ export const getKeyAchievementsBySlug = (slug: string) =>
 export const getNews = () => getAll<CardDocument>('news')
 export const getNewsBySlug = (slug: string) =>
   getBySlug<CardDocument>('news', slug)
+export const getSocialUpdates = () => getAll<CardDocument>('social-updates')
 export type GalleryDocument = ContentDocument & {
   title: string
   category: string

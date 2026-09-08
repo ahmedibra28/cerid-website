@@ -11,7 +11,7 @@ export default async function Page() {
     <StandardContentPage
       document={document}
       eyebrow='Who we are'
-      description='A Somali organization bringing together research, local leadership, and integrated programmes to create lasting change.'
+      description='A regional organization in the Horn of Africa that brings together research, local leadership, and integrated programmes to create lasting change.'
       image='/images/Participants_posing_for_a_group_photo_after_the_completion_of_business_skills_and_entrepreneurship_training.jpg'
       imageAlt='Graduates of a CeRID-supported skills programme'
     />

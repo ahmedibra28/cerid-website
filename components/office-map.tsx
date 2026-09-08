@@ -78,7 +78,6 @@ export default function OfficeMap({ offices }: { offices: Office[] }) {
 
   if (!activeOffice) return null
 
-  const phone = activeOffice.mobile.split('/')[0].replace(/[^\d+]/g, '')
   const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     activeOffice.address || activeOffice.city,
   )}`
@@ -218,10 +217,6 @@ export default function OfficeMap({ offices }: { offices: Office[] }) {
               <MapPin className='mt-1 h-4 w-4 shrink-0 text-brand' aria-hidden='true' />
               {activeOffice.address}
             </p>
-            <a href={`tel:${phone}`} className='flex gap-3 hover:text-brand'>
-              <Phone className='mt-1 h-4 w-4 shrink-0 text-brand' aria-hidden='true' />
-              {activeOffice.mobile}
-            </a>
             <a href={`mailto:${activeOffice.email}`} className='flex gap-3 hover:text-brand'>
               <Mail className='mt-1 h-4 w-4 shrink-0 text-brand' aria-hidden='true' />
               {activeOffice.email}
@@ -236,6 +231,29 @@ export default function OfficeMap({ offices }: { offices: Office[] }) {
             Get directions <ArrowUpRight className='h-4 w-4' aria-hidden='true' />
           </a>
         </aside>
+      </div>
+
+      <div className='border-t border-white/15 bg-forest px-6 py-7 text-white md:px-9'>
+        <div className='flex flex-col justify-between gap-6 sm:flex-row sm:items-center'>
+          <div className='flex items-center gap-4'>
+            <span className='grid h-12 w-12 shrink-0 place-items-center rounded-full bg-emerald-300 text-[#064e3b]'>
+              <Phone className='h-5 w-5' aria-hidden='true' />
+            </span>
+            <div>
+              <p className='text-xs font-extrabold uppercase tracking-[0.16em] text-emerald-300'>
+                CeRID hotline
+              </p>
+              <p className='mt-1 text-sm text-white/70'>Call for information and assistance.</p>
+            </div>
+          </div>
+          <a
+            href='tel:4444'
+            className='inline-flex min-h-12 items-center justify-center gap-3 border-2 border-white bg-white px-7 text-base font-extrabold text-[#064e3b] transition-colors hover:border-emerald-300 hover:bg-emerald-300 hover:text-[#052e25] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white'
+            aria-label='Call the CeRID hotline at 4444'
+          >
+            Call hotline <span className='text-2xl tracking-tight'>4444</span>
+          </a>
+        </div>
       </div>
     </div>
   )

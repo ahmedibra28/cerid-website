@@ -14,11 +14,8 @@ export default async function Donors() {
           <div>
             <p className='eyebrow'>Working together</p>
             <h2 className='mt-3 text-3xl font-bold tracking-tight text-slate-950'>
-              Our partners and donors{' '}
+              Our partners and donors
             </h2>
-            <span className='mt-4 max-w-xl text-sm leading-6 text-red-500'>
-              NIRAS, GIZ, SDC, UNDP, UNOCHA, FAO, K.GALBED, JL, FGS
-            </span>
           </div>
           <p className='mt-4 max-w-xl text-sm leading-6 text-slate-600 md:mt-0'>
             Trusted partnerships help us reach more communities and build

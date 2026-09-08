@@ -8,6 +8,7 @@ import KeyAchievement from '@/components/key-achievement'
 import Projects from '@/components/projects'
 import Offices from '@/components/offices'
 import ThematicAreasHome from '@/components/thematic-areas-home'
+import ComplaintForm from '@/components/complaint-form'
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
       <Projects />
       <Donors />
       <Offices />
+      <ComplaintForm />
       <Footer />
     </div>
   )

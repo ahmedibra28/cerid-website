@@ -79,8 +79,9 @@ export default function Navigation() {
             <span className='block text-2xl font-extrabold leading-none tracking-tight text-brand'>
               CeRID
             </span>
-            <span className='mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.13em] text-slate-500 sm:block'>
-              Research & integrated development
+            <span className='mt-1 hidden text-[10px] font-semibold uppercase leading-[1.35] tracking-[0.13em] text-slate-500 sm:block'>
+              Centre for Research and
+              <span className='block'>Integrated Development</span>
             </span>
           </div>
         </Link>

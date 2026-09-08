@@ -28,3 +28,15 @@ coverImage: "/images/example-cover.jpg"
 
 The production build validates required fields, dates, and local image paths.
 Run `pnpm build` after editing content to catch mistakes.
+
+## Social updates
+
+The three cards on the News page are stored in `content/social-updates`:
+
+- `facebook.mdx`
+- `twitter.mdx`
+- `youtube.mdx`
+
+Edit the title and Markdown body to feature a new update. Set `published_date`
+to a date in `YYYY-MM-DD` format when the card represents a specific post, and
+replace `external_url` with the direct post or official profile URL.
