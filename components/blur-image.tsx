@@ -5,6 +5,7 @@ const base64 =
 
 import React from 'react'
 import Image from 'next/image'
+import { resolveImageUrl } from '@/lib/image-url'
 
 interface BlurImageProps {
   src: string
@@ -17,6 +18,7 @@ interface BlurImageProps {
   zoomIn?: boolean
   fill?: boolean
   priority?: boolean
+  sizes?: string
 }
 
 const BlurImage: React.FC<BlurImageProps> = ({
@@ -30,28 +32,28 @@ const BlurImage: React.FC<BlurImageProps> = ({
   zoomIn = false,
   fill = false,
   priority = false,
+  sizes,
 }) => {
   const [isLoading, setIsLoading] = React.useState(true)
   return (
     <Image
       fill={fill}
       priority={priority}
-      src={src}
+      src={resolveImageUrl(src)}
       width={width}
       height={height}
       blurDataURL={base64}
       placeholder='blur'
       alt={alt}
-      className={` ${
-        zoomIn && 'hover:schale-110'
-      } transition-all duration-300 ${
+      className={`${zoomIn ? 'hover:scale-110' : ''} transition-all duration-300 ${
         isLoading
-          ? 'schale-110 blur-lg grayscale'
-          : 'schale-100 blur-0 grayscale-0'
+          ? 'scale-110 blur-lg grayscale'
+          : 'scale-100 blur-0 grayscale-0'
       } ${className}`}
-      onLoadingComplete={() => setIsLoading(false)}
+      onLoad={() => setIsLoading(false)}
       quality={quality}
       style={style}
+      sizes={sizes || (fill ? '100vw' : undefined)}
     />
   )
 }

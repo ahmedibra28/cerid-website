@@ -1,30 +1,24 @@
-import React from 'react'
-import { getNews } from '@/app/appwrite'
-import ItemCard from './item-card'
+import ItemCard from '@/components/item-card'
+import { getNews } from '@/lib/content'
 
 export default async function News() {
-  const item = await getNews()
-  const itemData = item?.documents
+  const { documents } = await getNews()
 
   return (
-    <section className='py-12 px-6 md:px-12' id='news'>
-      <div className='container mx-auto'>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {itemData?.map((item) => (
-            <ItemCard
-              key={item?.$id}
-              item={{ ...item, slug: `/news/${item?.slug}` }}
-            />
-          ))}
-        </div>
-
-        {/* <div className='text-end'>
-          <Link href='/news' passHref>
-            <Button variant='outline' className='w-48 mr-auto mt-8'>
-              View All Thematic Areas
-            </Button>
-          </Link>
-        </div> */}
+    <section id='news' aria-labelledby='latest-news-title'>
+      <div className='border-b border-slate-300 pb-8'>
+        <p className='eyebrow'>Latest news</p>
+        <h2 id='latest-news-title' className='mt-4 text-3xl font-extrabold tracking-tight text-slate-950'>
+          Stories from our work.
+        </h2>
+      </div>
+      <div className='mt-10 grid gap-10 md:grid-cols-2'>
+        {documents.map((item) => (
+          <ItemCard
+            key={item.$id}
+            item={{ ...item, slug: `/news/${item.slug}` }}
+          />
+        ))}
       </div>
     </section>
   )

@@ -1,49 +1,22 @@
-import React from 'react'
-import { getPage } from '@/app/appwrite'
 import Footer from '@/components/footer-contact'
+import InteriorHero from '@/components/interior-hero'
 import News from '@/components/news'
+import SocialUpdates from '@/components/social-updates'
 
-export default async function Page() {
-  const item = await getPage('about-us')
-  const itemData = item?.documents?.[0]
-
-  const topContent =
-    'Group of Youth posing photo after the completion of business skills and entrepreneurship training in SaMTEC Beledhawa with support from USAID CBCR Projects.'
-
+export default function Page() {
   return (
     <>
-      <section className='bg-gray-100 dark:bg-gray-800 py-3'>
-        <div className='container mx-auto px-4 md:px-6'>
-          <div className='max-w-3xl mx-auto'>
-            <div className='space-y-4'>
-              <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
-                News
-              </h1>
-              <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-400'>
-                {/* <div>
-                  <span className='font-medium'>CeRID</span>
-                  <span> - </span>
-                  <time dateTime={new Date(itemData?.$createdAt).toISOString()}>
-                    {new Date(itemData?.$createdAt).toLocaleDateString(
-                      'en-US',
-                      {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      }
-                    )}
-                  </time>
-                </div> */}
-              </div>
-            </div>
-          </div>
+      <InteriorHero
+        eyebrow='News and stories'
+        title='Updates from our work.'
+        description='Stories, programme milestones, and perspectives from the communities and partners we work alongside.'
+      />
+      <main className='section-padding bg-white'>
+        <div className='site-container grid gap-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start lg:gap-12 xl:grid-cols-[minmax(0,1fr)_400px] xl:gap-16'>
+          <News />
+          <SocialUpdates />
         </div>
-      </section>
-
-      <div className='container mx-auto px-4 md:px-6 py-12'>
-        <News />
-      </div>
-
+      </main>
       <Footer />
     </>
   )

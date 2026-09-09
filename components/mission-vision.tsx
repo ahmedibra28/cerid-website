@@ -1,45 +1,29 @@
-import React from 'react'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { getShorts } from '@/app/appwrite'
 import Markdown from 'react-markdown'
+import { getShorts } from '@/lib/content'
 
 export default async function MissionVision() {
-  const mission = await getShorts('mission')
-  const vision = await getShorts('vision')
+  const mission = (await getShorts('mission')).documents[0]
+  const vision = (await getShorts('vision')).documents[0]
 
-  const missionData = mission?.documents?.[0]
-  const visionData = vision?.documents?.[0]
+  if (!mission || !vision) return null
 
   return (
-    <section className='w-full py-12' id='about-us'>
-      <div className='container px-4 md:px-6'>
-        <div className='grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]'>
-          <Card className='flex flex-col justify-center space-y-4 hover:scale-105 duration-700 hover:shadow-2xl'>
-            <CardHeader>
-              <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                {missionData?.title}
-              </h2>
-            </CardHeader>
-            <CardContent>
-              <Markdown className='prose max-w-[600px] text-gray-500 dark:text-gray-400'>
-                {missionData?.content}
-              </Markdown>
-            </CardContent>
-          </Card>
-
-          <Card className='flex flex-col justify-center space-y-4 hover:scale-105 duration-700 hover:shadow-2xl'>
-            <CardHeader>
-              <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                {visionData?.title}
-              </h2>
-            </CardHeader>
-            <CardContent>
-              <Markdown className='prose max-w-[600px] text-gray-500 dark:text-gray-400'>
-                {visionData?.content}
-              </Markdown>
-            </CardContent>
-          </Card>
-        </div>
+    <section className='site-container'>
+      <div className='grid lg:grid-cols-2'>
+        <article className='bg-forest p-9 text-white md:p-14 lg:p-16'>
+          <p className='text-xs font-extrabold uppercase tracking-[0.18em] text-emerald-300'>Our mission</p>
+          <h2 className='mt-5 text-4xl font-extrabold tracking-tight'>{mission.title}</h2>
+          <Markdown className='prose prose-lg prose-invert mt-7 leading-8 text-white/80'>
+            {mission.content}
+          </Markdown>
+        </article>
+        <article className='bg-warm-white p-9 md:p-14 lg:p-16'>
+          <p className='eyebrow'>Our vision</p>
+          <h2 className='mt-5 text-4xl font-extrabold tracking-tight text-slate-950'>{vision.title}</h2>
+          <Markdown className='prose prose-lg prose-slate mt-7 leading-8'>
+            {vision.content}
+          </Markdown>
+        </article>
       </div>
     </section>
   )

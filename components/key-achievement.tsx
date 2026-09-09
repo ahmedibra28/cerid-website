@@ -1,57 +1,45 @@
-import { ArrowRightIcon } from 'lucide-react'
-import React from 'react'
-import BlurImage from '@/components/blur-image'
-import { getKeyAchievements } from '@/app/appwrite'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { headlineImpactMetrics } from '@/lib/impact-data'
 
-export default async function KeyAchievement() {
-  const achievements = await getKeyAchievements()
-  const achievementsData = achievements?.documents
-
+export default function KeyAchievement() {
   return (
-    <>
-      <section className='w-full py-12 md:py-24 lg:py-32' id='thematic-areas'>
-        <h2 className='container text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8'>
-          Thematic Areas
-        </h2>
+    <section className='section-padding bg-forest text-white' id='impact-areas'>
+      <div className='site-container'>
+        <div className='grid gap-6 border-b border-white/20 pb-10 lg:grid-cols-2 lg:items-end'>
+          <div>
+            <p className='eyebrow text-emerald-300'>Our impact</p>
+            <h2 className='mt-4 max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-[-0.035em] text-white md:text-5xl'>
+              Results with a record behind them.
+            </h2>
+          </div>
+          <div className='max-w-xl lg:justify-self-end'>
+            <p className='text-lg leading-8 text-white/70'>
+              Explore reported outcomes, their time period, and the programme
+              evidence used to support each figure.
+            </p>
+            <Link href='/impact' className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-emerald-300'>
+              Explore all impact and results <ArrowRight className='h-4 w-4' />
+            </Link>
+          </div>
+        </div>
 
-        <div className='container grid items-centers gap-6 px-4 md:px-6 lg:grid-cols-3 lg:gap-12 grid-rev'>
-          {achievementsData.map((item) => (
+        <dl className='mt-10 grid border-y border-white/20 md:grid-cols-3'>
+          {headlineImpactMetrics.map((metric, index) => (
             <div
-              key={item.$id}
-              className='bg-white rounded-lg shadow-md overflow-hidden'
+              key={metric.value}
+              className={`py-9 md:px-8 ${index > 0 ? 'border-t border-white/20 md:border-l md:border-t-0' : ''}`}
             >
-              <BlurImage
-                alt='Thematic Areas 2'
-                className='w-full h-48 object-cover'
-                height={300}
-                src={
-                  item?.image ||
-                  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                }
-                style={{
-                  aspectRatio: '500/300',
-                  objectFit: 'cover',
-                }}
-                width={500}
-              />
-              <div className='p-6'>
-                <h3 className='text-xl font-bold mb-2'>{item?.title}</h3>
-                <p className='text-gray-700 mb-4 line-clamp-5222'>
-                  {item?.excerpt}
-                </p>
-                <Link
-                  className='inline-flex items-center text-brand hover:text-green-800 font-medium transition-colors'
-                  href={`key-achievement/${item.slug}`}
-                >
-                  Read More
-                  <ArrowRightIcon className='h-5 w-5 ml-2' />
-                </Link>
-              </div>
+              <dd className='text-5xl font-extrabold tracking-[-0.045em] text-emerald-300'>
+                {metric.value}
+              </dd>
+              <dt className='mt-4 max-w-xs font-bold leading-7 text-white'>
+                {metric.label}
+              </dt>
             </div>
           ))}
-        </div>
-      </section>
-    </>
+        </dl>
+      </div>
+    </section>
   )
 }
