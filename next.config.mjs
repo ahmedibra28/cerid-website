@@ -1,4 +1,8 @@
-const r2PublicUrl = process.env.NEXT_PUBLIC_R2_PUBLIC_URL
+const defaultR2PublicUrl =
+  'https://pub-a4aefd0f35854e47ad9626646f48be3d.r2.dev/cerid-website'
+const r2PublicUrl =
+  process.env.NEXT_PUBLIC_R2_PUBLIC_URL?.replace(/\/$/, '') ||
+  defaultR2PublicUrl
 
 const remotePatterns = [
   { protocol: 'https', hostname: 'plus.unsplash.com' },
@@ -19,6 +23,9 @@ if (r2PublicUrl) {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    NEXT_PUBLIC_R2_PUBLIC_URL: r2PublicUrl,
+  },
   images: {
     remotePatterns,
   },
